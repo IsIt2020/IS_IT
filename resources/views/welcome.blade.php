@@ -83,10 +83,11 @@
                 <div class="title m-b-md">
                     まお
                 </div>
+                <button type="button" name="button">ボタン</button>
 
                 <div class="links">
-                    <a href="https://www.google.com/?hl=fr">Googleフランス<h/a>
-                    <a href="https://www.google.com/?hl=ja">Google日本</a>
+                    <a href="https://www.google.com/?hl=fr">Google</a>
+                    <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://blog.laravel.com">Blog</a>
                     <a href="https://nova.laravel.com">Nova</a>
