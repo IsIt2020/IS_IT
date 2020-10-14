@@ -15,7 +15,7 @@ class CreateMemberMasterTable extends Migration
     {
         Schema::create('member_master', function (Blueprint $table) {
           //  会員ID(主キー)
-          $table->smallIncrements('MEMBER_ID')->primary();
+          $table->smallIncrements('MEMBER_ID');
           // メールアドレス
           $table->string('MAIL_ADDRESS', 50);
           // パスワード
@@ -23,7 +23,7 @@ class CreateMemberMasterTable extends Migration
           // 権限
           $table->tinyInteger('AUTHORITY_FLAG');
           // ニックネーム
-          $table->string('AUTHORITY_FLAG', 50);
+          $table->string('USER_NAME', 50);
           // 性別
           $table->tinyInteger('USER_SEX');
           // 生年月日
@@ -33,7 +33,7 @@ class CreateMemberMasterTable extends Migration
           // 退会フラグ
           $table->boolean('IS_DELETE')->default(false);
           // 会員登録日
-          $table->timestamps('INSERT_DATE');
+          $table->timestamp('INSERT_DATE');
         });
     }
 
