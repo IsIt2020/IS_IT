@@ -1,0 +1,49 @@
+.info-button{
+    display: inline-block;
+    font-size: 25px;
+    height: 25px;
+    line-height: 1rem;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all .25s ease;
+    vertical-align: middle;
+    color: #000000aa;
+}
+.info-button input{
+    display: none;
+}
+.info-button:hover{
+  animation: tilt .5s cubic-bezier(0.9, 0, 0, 0.9) 0s 1 normal
+}
+
+@keyframes tilt{
+  33%{
+    transform-origin: 50%;
+    transform: rotate(-60deg);
+  }
+  66%{
+    transform-origin: 50%;
+    transform: rotate(60deg);
+  }
+  100%{
+    transform-origin: 50%;
+    transform: rotate(0);
+  }
+}
+
+.info-dialog{
+    display: inline-block;
+    position: relative;
+    width: max-content;
+    color: #555;
+    padding: 0px 20px;
+    margin:0;
+    font-size: 16px;
+    text-align: left;
+    opacity: 0;
+    vertical-align: middle;
+    transition: all .25s ease;
+}
+.info-button:hover + .info-dialog{
+    opacity: 1;
+}

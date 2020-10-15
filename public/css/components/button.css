@@ -1,0 +1,38 @@
+.button-general{
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 10px 30px;
+    transition: all .1s ease;
+    cursor: pointer;
+}
+.button-general:focus{
+    outline: none;
+}
+
+.button-general.ok{
+    background: #47cf73;
+}
+.button-general.ok:not(:disabled):hover{
+    background: #2db55923;
+    outline: 2px solid #2db559;
+    color: #2db559;
+    /* background: #2db559; */
+}
+
+.button-general.cancel{
+    background: transparent;
+    color: #e64c65;
+}
+.button-general.cancel:hover{
+    background: #cc324b;
+    color: #fff;
+}
+
+.button-general:disabled{
+    background: #aaa;
+}
+.button-general:disabled:hover{
+    background: #aaa;
+}

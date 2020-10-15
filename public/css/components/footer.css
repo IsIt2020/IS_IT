@@ -1,0 +1,48 @@
+.footer{
+    position: relative;
+    bottom: 0;
+    background: #333;
+    text-align: center;
+    height: max-content;
+    width: 100%;
+    font-family: 'Economica';
+}
+.footer-block{
+    margin: 0 20px;
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: top;
+}
+.footer-block a{
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    margin: 10px 10px 10px 0;
+}
+.footer-block h2{
+    padding: 20px 10px 10px 0;
+    width: 180px;
+}
+h2.footer-logo{
+    padding: 20px;
+    color: #fff;
+    font-size: 25px;
+}
+.footer h2::before, .footer h2::after{
+    content: '';
+    width: 10%;
+    height: 2px;
+    background: #fff;
+    margin: 0 10px;
+    display: inline-block;
+    position: relative;
+    top: -8px;
+}
+
+.footer-logo{
+    display: block;
+    margin: auto;
+    width: 100%;
+}

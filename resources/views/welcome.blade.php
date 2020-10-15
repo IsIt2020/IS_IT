@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/components/navigation.css') }}">
         <style>
             html, body {
                 background-color: #fff;
@@ -64,6 +65,8 @@
         </style>
     </head>
     <body>
+    @component('components.navigationbar')
+    @endcomponent
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -81,7 +84,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    まお
+                    Laravel
                 </div>
                 <button type="button" name="button">ボタン</button>
 

@@ -1,0 +1,282 @@
+.navigation {
+    font-family: 'Economica';
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.nav {
+    margin: 0;
+    display: flex;
+    height: fit-content;
+    background: #fff;
+    box-shadow: 0 5px 15px 0 #00000023;
+}
+
+.nav_a {
+    display: flex;
+    background: #333;
+    height: 25px;
+}
+
+.nav_a_signin {
+    color: #fff;
+    line-height: 25px;
+    margin-right: 20px;
+    margin-left: auto;
+    text-transform: uppercase;
+}
+
+.nav_a_signin a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav_b_logo {
+    margin: 0 0 0 20px;
+    font-size: 32px;
+    color: #000;
+    line-height: 70px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0%;
+    animation: fadein 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+.nav_b_title {
+    position: relative;
+    left: -100%;
+    padding: 0;
+    margin-left: 20px;
+    font-size: 32px;
+    color: #000;
+    line-height: 70px;
+    text-align: left;
+    transition: all .5s ease;
+    animation: sweep .5s cubic-bezier(1, 0, 0, 1);
+    animation-delay: .5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes sweep {
+    from {
+        left: -35%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+.nav_b_title::before {
+    content: '->';
+    padding: 0 10px;
+    font-size: 32px;
+    color: #000;
+    line-height: 0;
+    text-align: left;
+}
+
+.nav_b {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.nav-link {
+    padding: 0 25px;
+    color: #000;
+    font-size: 20px;
+    line-height: 70px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.nav_b .nav-link {
+    display: inline-block;
+}
+
+.nav-link:after {
+    content: '';
+    position: relative;
+    top: -20px;
+    left: -50%;
+    display: block;
+    width: 100%;
+    border-bottom: 2px solid;
+    -webkit-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+    -webkit-transform: scale(0, 1);
+    transform: scale(0, 1);
+}
+
+.nav-link:hover::after {
+    left: 0;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.hamburger {
+    display: none;
+    margin: auto 20px auto auto;
+    width: 40px;
+    height: 24px;
+    position: relative;
+    opacity: 0;
+    animation: fade-in 1s ease .8s 1 forwards normal;
+    cursor: pointer;
+}
+
+.hamburger input {
+    display: none;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.line {
+    width: 40px;
+    position: absolute;
+    background: #333;
+    height: 4px;
+    transition: all 1s ease;
+}
+
+.line.one {
+    top: 0;
+    animation: makeCrossForOneTwoOut 1s cubic-bezier(1, 0, 0, 1) .2s 1 backwards;
+}
+
+.line.two {
+    top: 10px;
+    animation: makeCrossForOneTwoOut 1s cubic-bezier(1, 0, 0, 1) .2s 1 backwards;
+}
+
+.line.three {
+    top: 20px;
+    animation: makeCrossForThreeOut 1s cubic-bezier(1, 0, 0, 1) .2s 1 backwards;
+}
+
+#hamburger:checked~.line.one, #hamburger:checked~.line.two {
+    animation: makeCrossForOneTwoIn 1s cubic-bezier(1, 0, 0, 1) 0s 1 forwards;
+}
+
+#hamburger:checked~.line.three {
+    animation: makeCrossForThreeIn 1s cubic-bezier(0.42, 0, 0, 1) 0s 1 forwards;
+}
+
+.hamburger:hover~.bg {
+    background-color: #333;
+}
+
+@keyframes makeCrossForOneTwoIn {
+    0% {}
+    20% {
+        top: 10px;
+    }
+    100% {
+        top: 10px;
+        transform: rotate(135deg);
+    }
+}
+
+@keyframes makeCrossForThreeIn {
+    0% {}
+    20% {
+        top: 10px;
+    }
+    100% {
+        top: 10px;
+        transform: rotate(-135deg);
+    }
+}
+
+@keyframes makeCrossForOneTwoOut {
+    0% {
+        top: 10px;
+        transform: rotate(135deg);
+    }
+    80% {
+        top: 10px;
+        transform: rotate(0);
+    }
+    100% {}
+}
+
+@keyframes makeCrossForThreeOut {
+    0% {
+        top: 10px;
+        transform: rotate(45deg);
+    }
+    80% {
+        top: 10px;
+        transform: rotate(0);
+    }
+    100% {}
+}
+
+.nav-side {
+    z-index: -1;
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 95px;
+    width: 300px;
+    background: #fff;
+    animation: move-up 1s cubic-bezier(1, 0, 0, 1) 0s 1 forwards normal;
+    box-shadow: 0 15px 15px 0 #00000023;
+}
+
+#hamburger:checked~.nav-side {
+    animation: move-down 1s cubic-bezier(1, 0, 0, 1) 0s 1 forwards normal;
+    display: block;
+}
+
+@keyframes move-down {
+    from {
+        left: 100%;
+    }
+    to {
+        left: calc(100% - 300px);
+    }
+}
+
+@keyframes move-up {
+    from {
+        left: calc(100% - 300px);
+    }
+    to {
+        left: 100%;
+    }
+}
+
+.nav-side .nav-link {
+    display: block;
+}
+
+@media(max-width: 900px) {
+    .nav_b {
+        display: none;
+    }
+    .hamburger {
+        display: inline-block;
+    }
+    .form-group.field.search.normal{
+        display: none;
+    }
+}
