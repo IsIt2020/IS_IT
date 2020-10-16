@@ -8,7 +8,10 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <!-- Styles -->
+        <!-- NavigationBar -->
         <link rel="stylesheet" href="{{ asset('css/components/navigation.css') }}">
+        <!-- footer -->
+        <link rel="stylesheet" href="{{ asset('css/components/footer.css') }}">
         @yield('loadStyle')
     </head>
     <body>
@@ -19,5 +22,9 @@
         <div class="container">
             @yield('main-container')
         </div>
+        <!-- ここからfooter -->
+        @component('components.footer')
+        @endcomponent
+        <!-- ここまでfooter -->
     </body>
 </html>
