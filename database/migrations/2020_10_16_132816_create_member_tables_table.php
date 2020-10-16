@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMembertableTable extends Migration
+class CreateMemberTablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,25 +13,25 @@ class CreateMembertableTable extends Migration
      */
     public function up()
     {
-        Schema::create('membertable', function (Blueprint $table) {
-            // 会員ID(主キー)
+        Schema::create('member_tables', function (Blueprint $table) {
+          // 会員ID(主キー)
           $table->smallIncrements('MEMBER_ID');
           // メールアドレス
           $table->string('MAIL_ADDRESS', 50);
           // パスワード
           $table->string('PASSWORD');
           // 権限
-          $table->tinyInteger('AUTHORITY_FLAG');
+          // $table->tinyInteger('AUTHORITY_FLAG');
           // ニックネーム
           $table->string('USER_NAME', 50);
           // 性別
-          $table->tinyInteger('USER_SEX');
+          // $table->tinyInteger('USER_SEX');
           // 生年月日
-          $table->date('USER_BIRTHDATE');
+          // $table->date('USER_BIRTHDATE');
           // 会社
-          $table->string('USER_COMPANY')->nullable();
+          // $table->string('USER_COMPANY')->nullable();
           // 退会フラグ
-          $table->boolean('IS_DELETE')->default(false);
+          // $table->boolean('IS_DELETE')->default(false);
           // 会員登録日
           $table->timestamp('INSERT_DATE');
           // ログイン情報保持用
@@ -46,6 +46,6 @@ class CreateMembertableTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('membertable');
+        Schema::dropIfExists('member_tables');
     }
 }
