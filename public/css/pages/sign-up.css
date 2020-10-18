@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Economica', "ヒラギノ明朝 ProN W6", sans-serif;
+    background: #efefef;
+}
+
+.nav{
+    background: transparent;
+    box-shadow: none;
+}
+
+.title{
+    color: #000;
+    text-align: center;
+    margin: auto auto 15px auto;
+}
+.title h1{
+    font-size: 40px;
+}
+.title h1::before,  .title h1::after{
+    content: '';
+    position: relative;
+    display: inline-block;
+    background: #000;
+    width: 150px;
+    height: 2px;
+    right: 0;
+    top: -2px;
+    margin: 10px;
+}
+
+.main-wrap{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+
+    font-family: "ヒラギノ明朝 ProN W6", sans-serif;
+}
+.main {
+    display: flex;
+    text-align: left;
+    padding: 0;
+    background: #ffffffdd;
+    width: 60%;
+    min-width: 450px;
+    max-width: 1000px;
+    margin: auto;
+    box-shadow: 0 15px 30px 0 #00000023;
+}
+.background{
+    width: 40%;
+    background: url(https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80) no-repeat center / cover;
+}
+.input-forms{
+    min-width: 450px;
+    padding: 50px;
+    width: 450px;
+    margin: auto;
+}
+.input-forms h1{
+    font-weight: normal;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+p.date{
+    margin-left: 10px;
+    color: #666;
+}
+
+.form-group{
+    width: 100%;
+    padding: 15px 10px;
+    margin-bottom: 15px;
+}
+.form-group.date{
+    margin-top:0 ;
+    display: inline-block;
+    width: calc(100% / 3 - 3px);
+}
+
+.button-general{
+    margin:  10px auto;
+    width: 50%;
+    display: block;
+}
+
+.sign-up{
+    font-size: 16px;
+    margin: 20px 0 0 auto;
+    width: fit-content;
+    display: block;
+    text-decoration: none;
+    color: #7856ff;
+    border-bottom: solid 1px #7856ff;
+}
+
+.info{
+    position: absolute;
+    top: 20px;
+    left: 100%;
+}
+.info-dialog{
+    position: absolute;
+    line-height: 25px;
+    top: 30px;
+    right: 0;
+}
+
+.show-pass{
+    font-size: 25px;
+    cursor: pointer;
+    color: #000000aa;
+    position: absolute;
+    left: -25px;
+    top: 20px;
+    
+}
+
+.confirm-content{
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding-left: 90px;
+    border-bottom: 2px solid #00000023;
+    word-wrap: break-word;
+}
+
+.block-gender{
+    width: fit-content;
+    margin:auto;
+    margin-bottom: 15px;
+}

@@ -21,17 +21,17 @@ class CreateMemberTablesTable extends Migration
           // パスワード
           $table->string('PASSWORD');
           // 権限
-          // $table->tinyInteger('AUTHORITY_FLAG');
+          $table->tinyInteger('AUTHORITY_FLAG')->default(0);
           // ニックネーム
           $table->string('USER_NAME', 50);
           // 性別
-          // $table->tinyInteger('USER_SEX');
+          $table->tinyInteger('USER_GENDER');
           // 生年月日
-          // $table->date('USER_BIRTHDATE');
+          $table->date('USER_BIRTHDATE');
           // 会社
-          // $table->string('USER_COMPANY')->nullable();
+          $table->string('USER_COMPANY')->nullable();
           // 退会フラグ
-          // $table->boolean('IS_DELETE')->default(false);
+          $table->boolean('IS_DELETE')->default(false);
           // 会員登録日
           $table->timestamp('INSERT_DATE');
           // ログイン情報保持用

@@ -20,7 +20,7 @@ class MemberTable extends Authenticatable
      */
     protected $fillable = [
         'MEMBER_ID','MAIL_ADDRESS','PASSWORD','AUTHORITY_FLAG','USER_NAME',
-        'USER_SEX','USER_BIRTHDATE','USER_COMPANY','IS_DELETE','INSERT_DATE'
+        'USER_GENDER','USER_BIRTHDATE','USER_COMPANY','IS_DELETE','INSERT_DATE'
     ];
 
     /**
@@ -38,6 +38,7 @@ class MemberTable extends Authenticatable
      * @var array
      */
     protected $casts = [
+        'USER_GENDER'=> 'integer',
         'USER_BIRTHDATE' => 'date',
         'INSERT_DATE' => 'datetime',
     ];

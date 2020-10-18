@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+body{
+    background: #f5f5f7;
+  }
+
+  .wrap{
+    font-family: "ヒラギノ明朝 ProN W6", sans-serif;
+    background: #fff;
+    margin: 50px auto;
+      text-align: left;
+      padding: 20px;
+      display: block;
+      width: max-content;
+  }
+
+  .main{
+    width: max-content;
+    margin: auto;
+  }
+  .main h1{
+      text-align: left;
+      font-weight: normal;
+  }
+
+  .button-general{
+    width: 100%;
+    margin: 10px 0 0;
+}
+.button-general.cancel{
+    display: inline-block;
+    width: 100px;
+    margin: 0 0 0 auto;
+    padding: 5px 10px;
+    font-size: 1em;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+}
+
