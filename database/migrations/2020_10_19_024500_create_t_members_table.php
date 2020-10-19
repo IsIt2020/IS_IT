@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMemberTablesTable extends Migration
+class CreateTMembersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMemberTablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('member_tables', function (Blueprint $table) {
+        Schema::create('t_members', function (Blueprint $table) {
           // 会員ID(主キー)
           $table->smallIncrements('member_id');
           // メールアドレス
@@ -46,6 +46,6 @@ class CreateMemberTablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('member_tables');
+        Schema::dropIfExists('t_members');
     }
 }
