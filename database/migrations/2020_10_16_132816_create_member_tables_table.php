@@ -15,25 +15,25 @@ class CreateMemberTablesTable extends Migration
     {
         Schema::create('member_tables', function (Blueprint $table) {
           // 会員ID(主キー)
-          $table->smallIncrements('MEMBER_ID');
+          $table->smallIncrements('member_id');
           // メールアドレス
-          $table->string('MAIL_ADDRESS', 50);
+          $table->string('mail_address', 50);
           // パスワード
-          $table->string('PASSWORD');
+          $table->string('password');
           // 権限
-          $table->tinyInteger('AUTHORITY_FLAG')->default(0);
+          $table->tinyInteger('authority_flag')->default(0);
           // ニックネーム
-          $table->string('USER_NAME', 50);
+          $table->string('user_name', 50);
           // 性別
-          $table->tinyInteger('USER_GENDER');
+          $table->tinyInteger('user_gender');
           // 生年月日
-          $table->date('USER_BIRTHDATE');
+          $table->date('user_birthdate');
           // 会社
-          $table->string('USER_COMPANY')->nullable();
+          $table->string('user_company')->nullable();
           // 退会フラグ
-          $table->boolean('IS_DELETE')->default(false);
+          $table->boolean('is_delete')->default(false);
           // 会員登録日
-          $table->timestamp('INSERT_DATE');
+          $table->timestamp('insert_date');
           // ログイン情報保持用
           $table->rememberToken();
         });

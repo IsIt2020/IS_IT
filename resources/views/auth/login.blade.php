@@ -12,12 +12,13 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="mail_address" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="mail_address" type="email" class="form-control @error('mail_address') is-invalid @enderror"
+                                    name="mail_address" value="{{ old('mail_address') }}" required autocomplete="mail_address" autofocus>
 
-                                @error('email')
+                                @error('mail_address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

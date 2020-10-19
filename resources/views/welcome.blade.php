@@ -3,7 +3,7 @@
 @section('title', 'IS_IT')
 
 @section('loadStyle')
-    <style> 
+    <style>
         html, body {
             background-color: #fff;
             color: #636b6f;
@@ -92,3 +92,7 @@
         </div>
     </div>
 @endsection
+
+<!-- <?php
+phpinfo();
+?> -->

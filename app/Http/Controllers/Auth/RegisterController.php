@@ -52,7 +52,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:member_tables,mail_address'],
             'password' => ['required', 'string', 'min:8'],
             'gender'=> ['required'],
             'birthdate'=> ['required'],
@@ -69,15 +69,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return MemberTable::create([
-          'MAIL_ADDRESS' => 'email',
-          'PASSWORD' => 'password',
-          'USER_NAME' => 'name',
-            'MAIL_ADDRESS' => $data['email'],
-            'PASSWORD' => Hash::make($data['password']),
-            'USER_NAME' => $data['name'],
-            'USER_GENDER' => $data['gender'],
-            'USER_BIRTHDATE' => $data['birthdate'],
-            'USER_COMPANY' => $data['company'],
+            'mail_address' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'user_name' => $data['name'],
+            'user_gender' => $data['gender'],
+            'user_birthdate' => $data['birthdate'],
+            'user_company' => $data['company'],
         ]);
     }
 }

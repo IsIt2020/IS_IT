@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'membertable',
+        'passwords' => 'member_tables',
     ],
 
     /*
@@ -38,12 +38,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'membertable',
+            'provider' => 'member_tables',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'membertable',
+            'provider' => 'member_tables',
             'hash' => false,
         ],
     ],
@@ -70,7 +70,7 @@ return [
         //     'driver' => 'eloquent',
         //     'model' => App\User::class,
         // ],
-        'membertable' => [
+        'member_tables' => [
             'driver' => 'eloquent',
             'model' => App\MemberTable::class,
         ],
@@ -103,8 +103,8 @@ return [
         //     'expire' => 60,
         //     'throttle' => 60,
         // ],
-        'membertable' => [
-            'provider' => 'membertable',
+        'member_tables' => [
+            'provider' => 'member_tables',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

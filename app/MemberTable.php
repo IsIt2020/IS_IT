@@ -10,7 +10,7 @@ class MemberTable extends Authenticatable
 {
     use Notifiable;
     // IDを指定
-    protected $primaryKey = 'MEMBER_ID';
+    protected $primaryKey = 'member_id';
     // タイムスタンプOFF
     public $timestamps = false;
     /**
@@ -19,8 +19,8 @@ class MemberTable extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'MEMBER_ID','MAIL_ADDRESS','PASSWORD','AUTHORITY_FLAG','USER_NAME',
-        'USER_GENDER','USER_BIRTHDATE','USER_COMPANY','IS_DELETE','INSERT_DATE'
+        'member_id','mail_address','password','authority_flag','user_name',
+        'user_gender','user_birthdate','user_company','is_delete','insert_date'
     ];
 
     /**
@@ -29,7 +29,7 @@ class MemberTable extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'PASSWORD', 'remember_token',
+        'password', 'remember_token',
     ];
 
     /**
@@ -38,8 +38,8 @@ class MemberTable extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'USER_GENDER'=> 'integer',
-        'USER_BIRTHDATE' => 'date',
-        'INSERT_DATE' => 'datetime',
+        'user_gender'=> 'integer',
+        'user_birthdate' => 'date',
+        'insert_date' => 'datetime',
     ];
 }
