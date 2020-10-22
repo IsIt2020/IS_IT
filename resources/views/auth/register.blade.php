@@ -72,7 +72,7 @@
               <p class="error-label" id="birthdate-error-label" style="line-height: normal;"> </p>
           </div>
           <!-- 生年月日hidden要素 -->
-          <input type="hidden" name="birthdate" id="birthdate" value="" class="@error('birthdate') is-invalid @enderror"/>
+          <input type="hidden" name="birthdate" id="birthdate" value="{{ old('birthdate') }}" class="@error('birthdate') is-invalid @enderror"/>
           @error('birthdate')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -114,13 +114,28 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+            <?php
+            $genderM = "";
+            $genderF = "";
+            switch (old('gender')) {
+              case '0':
+                $genderM = " checked";
+                break;
+              case '1':
+                $genderF = " checked";
+                break;
+              default:
+                break;
+            }
+            ?>
               <div class="radio-wrap">
-                  <input type="radio" id="genderM" name="gender" value="0" class="toggle-switch-cb @error('gender') is-invalid @enderror">
+                  <input type="radio" id="genderM" name="gender" value="0"
+                    class="toggle-switch-cb @error('gender') is-invalid @enderror" <?=$genderM?>>
                   <label class="radio-bg" for="genderM" />
                   <p>男性</p>
               </div>
               <div class="radio-wrap">
-                  <input type="radio" id="genderF" name="gender" value="1" class="toggle-switch-cb">
+                  <input type="radio" id="genderF" name="gender" value="1" class="toggle-switch-cb" <?=$genderF?>>
                   <label class="radio-bg" for="genderF" />
                   <p>女性</p>
               </div>

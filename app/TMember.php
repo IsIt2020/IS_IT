@@ -22,7 +22,6 @@ class TMember extends Authenticatable
       'member_id','mail_address','password','authority_flag','user_name',
       'user_gender','user_birthdate','user_company','is_delete','insert_date'
   ];
-
   /**
    * The attributes that should be hidden for arrays.
    *
@@ -31,7 +30,6 @@ class TMember extends Authenticatable
   protected $hidden = [
       'password', 'remember_token',
   ];
-
   /**
    * The attributes that should be cast to native types.
    *
