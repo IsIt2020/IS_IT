@@ -20,3 +20,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// manager権限のみ
+Route::group(['middleware' => ['auth', 'can:manager']], function () {
+
+});
+
+Route::get('/kanri/postArticle', function () {
+    return view('kanri/post_article');
+});
+// Route::post('/post', 'PostController@create');
