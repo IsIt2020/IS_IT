@@ -11,7 +11,6 @@
 @endsection
 
 @section('loadJS')
-<script src="{{asset('js/sign-up.js')}}"></script>
 <script src="{{asset('js/StyleControl.js')}}"></script>
 @endsection
 

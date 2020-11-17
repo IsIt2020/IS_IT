@@ -41,4 +41,15 @@ class LoginController extends Controller
     {
         return 'mail_address';
     }
+
+    /**
+     * AuthenticatesUsers showLoginForm()を上書き
+     * Show the application's login form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showLoginForm()
+    {
+        return view('pages.auth.login');
+    }
 }
