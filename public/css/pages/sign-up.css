@@ -6,24 +6,28 @@
 }
 
 body {
-    font-family: 'Economica', "ヒラギノ明朝 ProN W6", sans-serif;
+    font-family: "Economica", "ヒラギノ角ゴ Pro W3", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     background: #efefef;
 }
 
-.nav{
-    background: transparent;
+.nav {
+    background: #efefef;
     box-shadow: none;
+    position: relative;
 }
 
-.title{
+.title {
     color: #000;
     text-align: center;
     margin: auto auto 15px auto;
 }
-.title h1{
+
+.title h1 {
     font-size: 40px;
 }
-.title h1::before,  .title h1::after{
+
+.title h1::before,
+.title h1::after {
     content: '';
     position: relative;
     display: inline-block;
@@ -35,66 +39,77 @@ body {
     margin: 10px;
 }
 
-.main-wrap{
+.main-wrap {
     height: 100vh;
     width: 100%;
     display: flex;
-    position: absolute;
-    top: 0;
-    z-index: -1;
-
-    font-family: "ヒラギノ明朝 ProN W6", sans-serif;
+    position: relative;
 }
+
 .main {
     display: flex;
     text-align: left;
     padding: 0;
     background: #ffffffdd;
     width: 60%;
-    min-width: 450px;
+    height: fit-content;
+    min-width: 370px;
     max-width: 1000px;
-    margin: auto;
+    margin: 20px auto;
     box-shadow: 0 15px 30px 0 #00000023;
 }
-.background{
+
+.background {
     width: 40%;
     background: url(https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80) no-repeat center / cover;
 }
-.input-forms{
-    min-width: 450px;
-    padding: 50px;
+
+.input-forms {
+    padding: 30px;
     width: 450px;
     margin: auto;
 }
-.input-forms h1{
+
+.input-forms h1 {
     font-weight: normal;
     text-align: center;
     font-size: 32px;
     margin-bottom: 20px;
 }
-p.date{
+
+p.date {
     margin-left: 10px;
     color: #666;
 }
 
-.form-group{
+.form-group {
     width: 100%;
     padding: 15px 10px;
     margin-bottom: 15px;
 }
-.form-group.date{
-    margin-top:0 ;
+
+.form-group.date {
+    margin-top: 0;
     display: inline-block;
-    width: calc(100% / 3 - 3px);
+    width: calc(100% / 3 - 4px);
 }
 
-.button-general{
-    margin:  10px auto;
-    width: 50%;
+.desc {
+    opacity: 0;
+    transition: all .2s ease;
+}
+
+.form-field:focus~.desc {
+    opacity: 1;
+}
+
+.button-general {
+    margin: 10px auto;
+    width: 80%;
     display: block;
 }
 
-.sign-up{
+.sign-up {
     font-size: 16px;
     margin: 20px 0 0 auto;
     width: fit-content;
@@ -104,29 +119,29 @@ p.date{
     border-bottom: solid 1px #7856ff;
 }
 
-.info{
+.info {
     position: absolute;
     top: 20px;
     left: 100%;
 }
-.info-dialog{
+
+.info-dialog {
     position: absolute;
     line-height: 25px;
     top: 30px;
     right: 0;
 }
 
-.show-pass{
+.show-pass {
     font-size: 25px;
     cursor: pointer;
     color: #000000aa;
     position: absolute;
     left: -25px;
     top: 20px;
-    
 }
 
-.confirm-content{
+.confirm-content {
     font-size: 16px;
     margin-bottom: 20px;
     padding-left: 90px;
@@ -134,8 +149,14 @@ p.date{
     word-wrap: break-word;
 }
 
-.block-gender{
+.block-gender {
     width: fit-content;
-    margin:auto;
+    margin: auto;
     margin-bottom: 15px;
+}
+
+@media(max-width: 900px) {
+    .background {
+        display: none;
+    }
 }

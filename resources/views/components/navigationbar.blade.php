@@ -9,7 +9,7 @@
     </div>
     <div class="nav">
         <a class="nav_b_logo" href="#">IS IT</a>
-        <p class="nav_b_title">Meeting Histories</p>
+        <p class="nav_b_title">@yield('nav_title')</p>
         <div class="nav_b">
             <a class="nav-link" href="#">Link A</a>
             <a class="nav-link" href="#">Link B</a>

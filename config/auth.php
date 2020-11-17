@@ -72,7 +72,7 @@ return [
         // ],
         't_members' => [
             'driver' => 'eloquent',
-            'model' => App\TMember::class,
+            'model' => App\Models\TMember::class,
         ],
 
         // 'users' => [

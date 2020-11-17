@@ -17,9 +17,8 @@
 <!--ページタイトル指定-->
 @section('title', 'Sign Up')
 
-<!--NavigationBar設置-->
-@component('components.navigationbar', ['title' => 'Sign Up'])
-@endcomponent
+<!--Navigationbarタイトル指定-->
+@section('nav_title', 'Sign Up')
 
 
 @section('main-container')
@@ -86,12 +85,12 @@
 
                 <div class="block-gender">
                     <div class="radio-wrap">
-                        <input type="radio" name="user_sex" id="genderM" value="0" class="toggle-switch-cb" {{ old('user_sex') == '0'? 'checked':''}}>
+                        <input type="radio" name="user_gender" id="genderM" value="0" class="toggle-switch-cb" {{ old('user_gender') == '0'? 'checked':''}}>
                         <label class="radio-bg" for="genderM" />
                         <p>男性</p>
                     </div>
                     <div class="radio-wrap">
-                        <input type="radio" name="user_sex" id="genderF" value="1" class="toggle-switch-cb" {{ old('user_sex') == '1'? 'checked':''}}>
+                        <input type="radio" name="user_gender" id="genderF" value="1" class="toggle-switch-cb" {{ old('user_gender') == '1'? 'checked':''}}>
                         <label class="radio-bg" for="genderF" />
                         <p>女性</p>
                     </div>
@@ -114,7 +113,7 @@
 
                 <!--会社名-->
                 <div class="form-group field">
-                    <input type="input" name="user_company" class="form-field" placeholder=" " maxlength="50" id='company' />
+                    <input type="input" name="user_company" class="form-field" placeholder=" " maxlength="50" id='company'  value="{{ old('user_company')}}"/>
                     <label for="company" class="form-label">会社名</label>
 
                     <div class="desc">

@@ -18,8 +18,7 @@ function SwitchClass(state, addClass, type, ...selectors) {
         for (var selector of selectors) {
             $(type + selector).addClass(addClass);
         }
-    }
-    else {
+    } else {
         for (var selector of selectors) {
             $(type + selector).removeClass(addClass);
         }

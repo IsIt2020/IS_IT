@@ -18,9 +18,8 @@
 <!--ページタイトル指定-->
 @section('title', 'Sign Up')
 
-<!--NavigationBar設置-->
-@component('components.navigationbar', ['title' => 'Sign Up'])
-@endcomponent
+<!--Navigationbarタイトル指定-->
+@section('nav_title', 'Sign Up')
 
 @section('main-container')
 <div class="main-wrap">
@@ -52,10 +51,10 @@
 
             <p class="confirm-subject">性別</p>
             <p class="confirm-content">
-                @isset($inputs['user_sex'])
-                @if($inputs['user_sex']=='0')
+                @isset($inputs['user_gender'])
+                @if($inputs['user_gender']=='0')
                 {{'男性'}}
-                @elseif($inputs['user_sex']=='1')
+                @elseif($inputs['user_gender']=='1')
                 {{'女性'}}
                 @endif
                 @else
@@ -72,15 +71,21 @@
                 @endisset
             </p>
 
-            <!--登録-->
+           
             <form action="{{ route('register')}}" method="post">
                 {{ csrf_field() }}
+                
+                 <!--登録-->
                 <button id="btn-confirm" type="submit" class="button-general ok">登録</button>
+
+                <!--戻る-->
+                <button type="submit" name="goBack" class="button-general cancel">戻る</button>
             </form>
 
-            <!--戻る-->
-            <button type="submit" class="button-general cancel" onclick="javascript:history.back();">戻る</button>
+
 
         </div>
     </div>
 </div>
+
+@endsection
