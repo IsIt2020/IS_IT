@@ -44,8 +44,12 @@ $(function() {
         var day = $('#birthday').val();
 
         var hasBlank = (year == '' || month == '' || day == '');
-        //警告文の設置
+
+        //スタイルの切替
+        SwitchClass(hasBlank, "wrong", SelectorTypes.Id, 'birthyear', 'birthmonth', 'birthday');
+        //エラーラベルの表示切替
         SwitchClass(true, 'visible', SelectorTypes.Id, errorLabelId);
+        //警告文の設置
         SetText(hasBlank ? '必須項目です' : '', SelectorTypes.Id, errorLabelId);
 
         if (hasBlank) {
@@ -63,7 +67,7 @@ $(function() {
 
         //スタイルの切替
         SwitchClass(invalidDate, "wrong", SelectorTypes.Id, 'birthyear', 'birthmonth', 'birthday');
-        //エラーラベルの表示切替        
+        //エラーラベルの表示切替
         SwitchClass(true, 'visible', SelectorTypes.Id, errorLabelId);
         //警告文の設置
         SetText(invalidDate ? '入力形式が正しくありません' : '', SelectorTypes.Id, errorLabelId);
@@ -82,7 +86,7 @@ $(function() {
     $('#btn-confirm').click(function() {
 
         if (HasBlank() || WrongBirthdate()) {
-            return;
+            return false;
         }
         $('#form_confirm').submit();
     });

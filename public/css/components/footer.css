@@ -1,4 +1,4 @@
-.footer{
+.footer {
     position: relative;
     bottom: 0;
     background: #333;
@@ -7,7 +7,8 @@
     width: 100%;
     font-family: 'Economica';
 }
-.footer-block{
+
+.footer-block {
     margin: 0 20px;
     color: #fff;
     display: inline-block;
@@ -15,22 +16,27 @@
     text-align: center;
     vertical-align: top;
 }
-.footer-block a{
+
+.footer-block a {
     text-decoration: none;
     display: block;
     color: #fff;
     margin: 10px 10px 10px 0;
 }
-.footer-block h2{
+
+.footer-block h2 {
     padding: 20px 10px 10px 0;
-    width: 180px;
+    width: 200px;
 }
-h2.footer-logo{
+
+h2.footer-logo {
     padding: 20px;
     color: #fff;
     font-size: 25px;
 }
-.footer h2::before, .footer h2::after{
+
+.footer h2::before,
+.footer h2::after {
     content: '';
     width: 10%;
     height: 2px;
@@ -41,7 +47,7 @@ h2.footer-logo{
     top: -8px;
 }
 
-.footer-logo{
+.footer-logo {
     display: block;
     margin: auto;
     width: 100%;
