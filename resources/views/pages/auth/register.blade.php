@@ -55,8 +55,8 @@
                     <div class="desc">
                         <p>50文字以内　使用できない文字:</p>
                     </div>
-                    @foreach($errors->get('mail_address') as $message)
-                    <p style="color:#e64c65">{{$message}}</p>
+                    @foreach($errors->get('mail_address') as $error)
+                    <p style="color:#e64c65">{{$error}}</p>
                     @endforeach
                 </div>
 

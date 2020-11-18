@@ -10,10 +10,6 @@
 <link rel="stylesheet" href="{{asset('css/pages/sign-up.css')}}">
 @endsection
 
-@section('loadJS')
-<script src="{{asset('js/StyleControl.js')}}"></script>
-@endsection
-
 <!--ページタイトル指定-->
 @section('title', 'Sign Up')
 
