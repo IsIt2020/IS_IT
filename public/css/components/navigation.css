@@ -22,7 +22,6 @@
 .nav_a_signin {
     color: #fff;
     line-height: 25px;
-    margin-right: 20px;
     margin-left: auto;
     text-transform: uppercase;
 }
@@ -30,6 +29,7 @@
 .nav_a_signin a {
     color: #fff;
     text-decoration: none;
+    margin-right: 20px;
 }
 
 .nav_b_logo {

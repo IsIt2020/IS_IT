@@ -1,73 +1,61 @@
-@extends('layouts.app')
+@extends('layouts.mainLayout') @section('loadStyle')
+<!-- components -->
+<link rel="stylesheet" href="{{asset('css/components/navigation.css')}}">
+<link rel="stylesheet" href="{{asset('css/components/button.css')}}">
+<link rel="stylesheet" href="{{asset('css/components/toggle-switch.css')}}">
+<link rel="stylesheet" href="{{asset('css/components/input-field.css')}}">
+<link rel="stylesheet" href="{{asset('css/components/info-button.css')}}">
+<link rel="stylesheet" href="{{asset('css/pages/sign-up.css')}}"> @endsection
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<!--ページタイトル指定-->
+@section('title', 'Login')
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+<!--Navigationbarタイトル指定-->
+@section('nav_title', 'Login') @section('main-container')
 
-                        <div class="form-group row">
-                            <label for="mail_address" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+<div class="background">
+        <div class="background-filter"></div>
+    </div>
+<div class="main-wrap">
 
-                            <div class="col-md-6">
-                                <input id="mail_address" type="email" class="form-control @error('mail_address') is-invalid @enderror"
-                                    name="mail_address" value="{{ old('mail_address') }}" required autocomplete="mail_address" autofocus>
 
-                                @error('mail_address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+    <div class="main">
+        <!-- <div class="background">
+            <div class="background-filter"></div>
+        </div> -->
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+        <div class="input-forms">
+            <h1>ログイン</h1>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+            <form action="{{route('login')}}" method="POST">
+                @csrf
+                <!--e-mail-->
+                <div class="form-group field">
+                    <p class="error-label"> </p>
+                    <input type="text" name="user_name" id="user_name" class="form-field" placeholder=" "  maxlength="50" required />
+                    <label for="user_name" class="form-label">ユーザー名</label>
                 </div>
-            </div>
+
+                <!--パスワード-->
+                <div class="form-group field">
+                    <p class="error-label" id="pass-error-label"> </p>
+                    <input type="password"  name="password" id="password" class="form-field" placeholder=" " maxlength="50" required />
+                    <label for="password" class="form-label">パスワード</label>
+                </div>
+
+                <div class="radio-wrap">
+                    <input type="checkbox" name="remember" id="remember" class="toggle-switch-cb" {{ old('remember')}}>
+                    <label class="radio-bg" for="remember" />
+                    <p>ログインしたままにする</p>
+                </div>
+
+                <button id="btn-confirm" type="submit" class="button-general ok">ログイン</button>
+
+                <!--エラーメッセージ-->
+                @foreach($errors->all() as $error)
+                <p style="color:#e64c65;text-align: center;">{{$error}}</p>
+                @endforeach
+            </form>
         </div>
     </div>
 </div>

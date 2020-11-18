@@ -68,11 +68,13 @@ input[type=checkbox]:checked~.toggle-switch-bg {
     width: max-content;
 }
 
-input[type=radio]:checked~.radio-bg {
+input[type=radio]:checked~.radio-bg,
+input[type=checkbox]:checked~.radio-bg {
     background: #55c500;
     outline: none;
 }
 
-input[type=radio]:focus~.radio-bg {
+input[type=radio]:focus~.radio-bg,
+input[type=checkbox]:focus~.radio-bg  {
     outline: 2px solid #000000aa;
 }

@@ -2,10 +2,20 @@
 <div class="navigation">
     <div class="nav_a">
         <div class="nav_a_signin">
-            <i class="fas fa-sign-in-alt"></i>
-            <a href="#">Sign In</a>
-        </div>
+            @auth{{--ログイン状態によって表示切替--}}
+            <form action="{{ route('logout') }}" method="POST" name="logout">@csrf</form>
+                <i class="fas fa-sign-out-alt"></i>
+                <a href="javascript:logout.submit()">Logout</a>
 
+            @else
+                <i class="fas fa-sign-in-alt"></i>
+                <a href="{{ route('login') }}">Login</a>
+
+                <i class="fas fa-plus"></i>
+                <a href="{{ route('register') }}">Sign Up</a>
+            @endauth
+        </div>
+        
     </div>
     <div class="nav">
         <a class="nav_b_logo" href="#">IS IT</a>

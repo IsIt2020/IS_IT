@@ -22,12 +22,15 @@
 
 
 @section('main-container')
+<div class="background">
+            <div class="background-filter"></div>
+        </div>
 <div class="main-wrap">
     <div class="main">
 
-        <div class="background">
+        <!-- <div class="background">
             <div class="background-filter"></div>
-        </div>
+        </div> -->
 
 
         <div class="input-forms">
