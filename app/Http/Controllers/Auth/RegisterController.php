@@ -135,7 +135,7 @@ class RegisterController extends Controller
         //バリデーションルール
         $rules = [
             'user_name' => ['required', 'string', 'max:255'],
-            'mail_address' => ['required', 'string', 'email', 'max:255'],
+            'mail_address' => ['required', 'string', 'email', 'max:255', 'unique:t_members'],
             'user_birthdate_y' => ['required'],
             'user_birthdate_m' => ['required'],
             'user_birthdate_d' => ['required'],
@@ -147,7 +147,7 @@ class RegisterController extends Controller
         //バリデーションエラー時のメッセージ
         $messages = [
 
-            //例:'mail_address.unique' => 'このメールアドレスは既に登録されています。'     
+            'mail_address.unique' => 'このメールアドレスは既に登録されています。'
         ];
 
         return Validator::make($data, $rules, $messages);

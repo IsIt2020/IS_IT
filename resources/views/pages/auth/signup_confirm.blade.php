@@ -13,8 +13,11 @@
 <!--ページタイトル指定-->
 @section('title', 'Sign Up')
 
-    <!--Navigationbarタイトル指定-->
+<!--Navigationbarタイトル指定-->
 @section('nav_title', 'Sign Up')
+
+<!--SignUp画面にはNavigationBarの"SignUp"を表示しない-->
+@section('hideSignUp', 'true')
 
 @section('main-container')
     <div class="background">
@@ -71,17 +74,13 @@
 
 
                 <form action="{{ route('register') }}" method="post">
-                    {{ csrf_field() }}
-
+                    @csrf
                     <!--登録-->
                     <button id="btn-confirm" type="submit" class="button-general ok">登録</button>
 
                     <!--戻る-->
                     <button type="submit" name="goBack" class="button-general cancel">戻る</button>
                 </form>
-
-
-
             </div>
         </div>
     </div>

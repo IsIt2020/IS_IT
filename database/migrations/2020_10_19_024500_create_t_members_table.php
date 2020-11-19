@@ -15,7 +15,8 @@ class CreateTMembersTable extends Migration
     {
         Schema::create('t_members', function (Blueprint $table) {
 
-            $table->unique('user_name');
+            //mail_addressをユニークに指定
+            $table->unique('mail_address');
 
             // 会員ID(主キー)
             $table->smallIncrements('member_id');

@@ -25,11 +25,11 @@ Route::group(['middleware' => ['auth', 'can:manager']], function () {
 });
 
 Route::get('/kanri/postArticle', function () {
-    return view('kanri/post_article');
+    return view('pages/kanri/post_article');
 });
 // Route::post('/post', 'PostController@create');
 
-//#region AuthRouteMethods.php auth()より移植
+#region AuthRouteMethods.php auth()より移植
 Route::prefix('auth')->group(function(){
 
     //Login Routes
@@ -45,7 +45,5 @@ Route::prefix('auth')->group(function(){
     Route::post('confirm', 'Auth\RegisterController@confirm')->name('auth.confirm');
 
     //TODO: パスワードリセット関連は実装する??(現状:ユーザー名, E-mailが一意ではないのでユーザー入力情報から個人を特定できない)
-
-
 });
-//#endregion
+#endregion

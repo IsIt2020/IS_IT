@@ -4,12 +4,20 @@
 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark.min.css">
 <link rel="stylesheet" href="{{ asset('css/pages/post_article.css') }}">
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
 @endsection
 @section('loadJS')
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
 <script src="../js/post_article.js"></script>
 @endsection
+
+<!--ページタイトル指定-->
+@section('title', 'Post Article')
+
+<!--Navigationbarタイトル指定-->
+@section('nav_title', 'Post Article')
 
 @section('main-container')
 <div class="row">
@@ -26,7 +34,7 @@
       </div>
     </div>
     <div class="edit-erea mx-3 mb-3 p-3">
-      <form name="post-form" class="" action="{{ route('posts.create') }}" method="post">
+      <form name="post-form" class="" action="{{-- route('posts.create') --}}" method="post">
         <!-- タイトル -->
         <div class="form-group">
           <label for="input-title">Title</label>

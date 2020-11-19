@@ -119,6 +119,10 @@
     transform: scale(0, 1);
 }
 
+.nav-link:hover {
+    color: #757575;
+}
+
 .nav-link:hover::after {
     left: 0;
     -webkit-transform: scale(1);
@@ -172,7 +176,8 @@
     animation: makeCrossForThreeOut 1s cubic-bezier(1, 0, 0, 1) .2s 1 backwards;
 }
 
-#hamburger:checked~.line.one, #hamburger:checked~.line.two {
+#hamburger:checked~.line.one,
+#hamburger:checked~.line.two {
     animation: makeCrossForOneTwoIn 1s cubic-bezier(1, 0, 0, 1) 0s 1 forwards;
 }
 
@@ -276,7 +281,7 @@
     .hamburger {
         display: inline-block;
     }
-    .form-group.field.search.normal{
+    .form-group.field.search.normal {
         display: none;
     }
 }

@@ -46,8 +46,9 @@ input[type=checkbox]:checked~.toggle-switch-bg {
 /*Type 2*/
 
 .radio-wrap {
-    width: 100px;
-    display: inline-block;
+    width: fit-content;
+    display: flex;
+    margin: 0 20px;
 }
 
 .radio-bg {
@@ -61,11 +62,13 @@ input[type=checkbox]:checked~.toggle-switch-bg {
     cursor: pointer;
 }
 
-.radio-wrap p {
+.radio-text {
     line-height: 20px;
-    padding-left: 30px;
+    padding-left: 10px;
+    position: relative;
     display: inline-block;
     width: max-content;
+    cursor: pointer;
 }
 
 input[type=radio]:checked~.radio-bg,
@@ -75,6 +78,6 @@ input[type=checkbox]:checked~.radio-bg {
 }
 
 input[type=radio]:focus~.radio-bg,
-input[type=checkbox]:focus~.radio-bg  {
+input[type=checkbox]:focus~.radio-bg {
     outline: 2px solid #000000aa;
 }
