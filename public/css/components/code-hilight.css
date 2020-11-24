@@ -1,0 +1,70 @@
+/*
+
+Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
+
+*/
+.hljs {
+  vertical-align: middle;
+  display: inline-block;
+  overflow-x: auto;
+  }
+  
+  .hljs-comment,
+  .hljs-quote,
+  .hljs-variable {
+    color: #6a9955;
+  }
+  
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-built_in,
+  .hljs-name,
+  .hljs-tag {
+    color: #2c7ad6;
+  }
+  
+  .hljs-string,
+  .hljs-title,
+  .hljs-section,
+  .hljs-attribute,
+  .hljs-literal,
+  .hljs-template-tag,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-addition {
+    color: #ac916a;
+  }
+  
+  .hljs-deletion,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-meta {
+    color: #2b91af;
+  }
+  
+  .hljs-doctag {
+    color: #808080;
+  }
+  
+  .hljs-attr {
+    color: #9cdcda;
+  }
+  
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-link {
+    color: #00b0e8;
+  }
+  
+  .hljs-params {
+    color: #3f9cd6;
+  }
+  
+  .hljs-emphasis {
+    font-style: italic;
+  }
+  
+  .hljs-strong {
+    font-weight: bold;
+  }
+  

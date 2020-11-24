@@ -1,0 +1,49 @@
+.tag-area {
+    display: block;
+    position: relative;
+    text-align: right;
+    height: auto;
+    margin: 5px auto;
+}
+
+.tag-area p {
+    display: inline-block;
+    margin: 0 0 0 20px;
+    padding: 5px 10px;
+    line-height: 16px;
+    background: #333;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.tag-area p::before {
+    content: '';
+    position: absolute;
+    background: #333;
+    transform: rotate(45deg);
+    width: 18px;
+    height: 18px;
+    top: 4px;
+    left: -9px;
+    z-index: -1;
+    border-radius: 0 0 0 4px;
+}
+
+.tag-area p::after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 7px;
+    height: 7px;
+    left: -5px;
+    z-index: -1;
+    border-radius: 50%;
+    top: calc(50% - 4px);
+}
+
+.tag-area a {
+    display: inline-block;
+    text-decoration: none;
+}

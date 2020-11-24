@@ -90,9 +90,8 @@
 /*-------------TYPE 2-------------*/
 
 .input-field {
-    margin: auto;
-    width: max-content;
-    margin: 10px 0 10px 0;
+    width: auto;
+    margin: 10px 0;
 }
 
 .input-field label {
@@ -103,23 +102,29 @@
     font-size: 16px;
 }
 
-.input-field input {
+.input-field input,
+.input-field textarea,
+.input-field select {
     display: inline-block;
-    border: solid 2px #00000030;
+    width: 100%;
+    border: solid 1px #00000030;
     padding: 5px;
     font-size: 16px;
     transition: all .25s ease;
-    width: 400px;
 }
 
-.input-field input:focus {
+.input-field *:focus {
     outline: none;
-    border: solid 2px #333;
-    background: #efefef;
+    box-shadow: 0 0 5px 3px #a1cbef;
+}
+
+.input-field textarea {
+    height: 800px;
+    resize: none;
 }
 
 
-/*-------------TYPE 2-------------*/
+/*--------------------------------*/
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
