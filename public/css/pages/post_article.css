@@ -1,63 +1,77 @@
-.post-edit-container,.post-preview-container,.v_line_fix{
-  min-height: 800px;
-  height: auto;
+.post-edit-container,
+.post-preview-container,
+.v_line_fix {
+    min-height: 800px;
+    height: auto;
 }
 
 .v_line_fix {
-  flex: 0 0 1px;
-  background-color: #333;
+    flex: 0 0 1px;
+    background-color: #333;
 }
 
 .btn:focus {
-  outline: none;
-  box-shadow: none;
-}
-.hidden{
-  display: block;
+    outline: none;
+    box-shadow: none;
 }
 
-.post-tab{
-  background-color: #dee2e6;
-  border-bottom: 1px solid #dee2e6;
-  box-shadow: 0 -5px 10px -3px #00000023;
+.hidden {
+    display: block;
 }
 
-.tab-active{
-  background-color: #fff;
-  border-bottom: none;
+.post-tab {
+    background-color: #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    box-shadow: 0 -5px 10px -3px #00000023;
 }
 
-.edit-erea, .preview-erea{
-  background: #fff;
-  box-shadow: 0 5px 15px 0 #00000023;
-  min-height: 800px;
+.tab-active {
+    background-color: #fff;
+    border-bottom: none;
 }
+
+.edit-erea,
+.preview-erea {
+    background: #fff;
+    box-shadow: 0 5px 15px 0 #00000023;
+    min-height: 800px;
+}
+
 
 /* 画面サイズ 992px未満　ここから */
-#r-btn, #l-btn, .container-hidden, .v_line_fix{
-  display: none;
+
+#r-btn,
+#l-btn,
+.container-hidden,
+.v_line_fix {
+    display: none;
 }
+
+
 /* 画面サイズ 992px未満 ここまで*/
 
-@media (min-width: 992px){
-  .container-hidden, .v_line_fix{
-    display: block;
-  }
-  .hidden, .post-tab{
-    display: none;
-  }
-  #r-btn, #l-btn{
-    display: inline-block;
-  }
+@media (min-width: 992px) {
+    .container-hidden,
+    .v_line_fix {
+        display: block;
+    }
+    .hidden,
+    .post-tab {
+        display: none;
+    }
+    #r-btn,
+    #l-btn {
+        display: inline-block;
+    }
 }
+
 
 /* プレビューエリア */
-.pre-title-container{
-  width: 100%;
-  min-height: 50px;
-  margin-bottom: 10px;
+
+.pre-title-container {
+    width: 100%;
+    min-height: 50px;
+    margin-bottom: 10px;
 }
 
-.pre-content-container{
-
-}
+.pre-content-container {}

@@ -1,12 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: "ヒラギノ明朝 ProN W6", sans-serif;
     background: #f5f5f7;
 }
 
@@ -23,8 +15,8 @@ body {
     box-shadow: 0 5px 15px #00000023;
 }
 
-.block h1, .block p {
-    font-family: "ヒラギノ明朝 ProN W6", sans-serif;
+.block h1,
+.block p {
     margin: 10px 0;
 }
 

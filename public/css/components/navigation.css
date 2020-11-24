@@ -1,5 +1,8 @@
+.navigation * {
+    font-family: 'Economica', 'Noto Sans Japanese', 'Font Awesome 5 Free';
+}
+
 .navigation {
-    font-family: 'Economica';
     position: sticky;
     top: 0;
     z-index: 2;
@@ -19,15 +22,17 @@
     height: 25px;
 }
 
-.nav_a_signin {
+.nav_a_signin * {
     color: #fff;
+}
+
+.nav_a_signin {
     line-height: 25px;
     margin-left: auto;
     text-transform: uppercase;
 }
 
 .nav_a_signin a {
-    color: #fff;
     text-decoration: none;
     margin-right: 20px;
 }

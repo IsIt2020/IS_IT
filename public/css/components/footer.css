@@ -1,3 +1,7 @@
+.footer * {
+    font-family: 'Economica', 'Noto Sans Japanese', 'Font Awesome 5 Free';
+}
+
 .footer {
     position: relative;
     bottom: 0;
@@ -5,7 +9,6 @@
     text-align: center;
     height: max-content;
     width: 100%;
-    font-family: 'Economica';
 }
 
 .footer-block {
