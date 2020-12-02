@@ -9,6 +9,8 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="http://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
+    <!-- アプリ共通 -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- Styles -->
     <link href="{{ asset('css/common.css') }}" rel="stylesheet">
     <!-- NavigationBar -->
@@ -20,6 +22,8 @@
     <link href="https://fonts.googleapis.com/css?family=Economica:700" rel="stylesheet">
     @yield('loadStyle')
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- アプリ共通 -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/StyleControl.js') }}"></script>
     @yield('loadJS')
 </head>
