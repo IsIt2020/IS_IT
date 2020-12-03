@@ -1,32 +1,33 @@
 /*Type 1*/
 
 .toggle-switch-wrap {
-    display: inline-block;
+    margin: auto;
+    position: relative;
+    width: 60px;
+    height: 20px;
 }
 
 .toggle-switch-bg {
-    display: flex;
-    height: 20px;
-    width: 60px;
-    padding: 2px;
-    background: #aaa;
-    border-radius: 5px;
-    -webkit-transition: all .5s cubic-bezier(0.4, 0, 0.2, 1);
-    transition: all .5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: all .25s .4s ease;
+    background: #00000030;
     cursor: pointer;
 }
 
 .toggle-switch {
-    display: flex;
     position: absolute;
+    left: 0;
     margin: 2px;
     height: 16px;
     width: 30px;
-    border-radius: 5px;
-    background: #eee;
-    -webkit-transition: all .25s cubic-bezier(1, 0.4, 0.83, 0.03);
-    transition: all .25s cubic-bezier(1, 0.4, 0.83, 0.03);
+    border-radius: 8px;
+    background: #f7f7f7;
+    transition: all .25s cubic-bezier(0.24, 1.14, 0.71, 0.23);
     cursor: pointer;
+    z-index: 1;
 }
 
 .toggle-switch-cb {
@@ -35,13 +36,14 @@
 }
 
 input[type=checkbox]:checked~.toggle-switch {
-    transform: translateX(26px);
+    left: calc(50% - 4px);
+    background: #f5f5f5;
 }
 
 input[type=checkbox]:checked~.toggle-switch-bg {
     background: #55c500;
+    box-shadow: 0 0 10px 2px #55c50030;
 }
-
 
 /*Type 2*/
 
@@ -71,13 +73,11 @@ input[type=checkbox]:checked~.toggle-switch-bg {
     cursor: pointer;
 }
 
-input[type=radio]:checked~.radio-bg,
-input[type=checkbox]:checked~.radio-bg {
+input[type=radio]:checked~.radio-bg, input[type=checkbox]:checked~.radio-bg {
     background: #55c500;
     outline: none;
 }
 
-input[type=radio]:focus~.radio-bg,
-input[type=checkbox]:focus~.radio-bg {
+input[type=radio]:focus~.radio-bg, input[type=checkbox]:focus~.radio-bg {
     outline: 2px solid #000000aa;
 }

@@ -11,12 +11,82 @@
     margin-left: 10px;
 }
 
-.author::before {
-    content: 'Author: ';
+.headline-title {
+    font-size: 28px;
+    margin: 10px;
 }
 
-.post-date::before {
-    content: 'Updated at: ';
+.headline-title * {
+    display: inline-block;
+}
+
+.headline-title label {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/*目次格納関連*/
+
+#fold-TOC:checked~.headline li {
+    opacity: 0;
+    height: 0;
+}
+
+#fold-TOC:checked~.headline {
+    padding: 0;
+    border-top-color: transparent;
+}
+
+#fold-TOC:checked~.headline-title #hide-TOC {
+    display: none;
+}
+
+#show-TOC {
+    display: none;
+}
+
+#fold-TOC:checked~.headline-title #show-TOC {
+    display: inline-block;
+}
+
+/*----------------------*/
+
+.headline {
+    border-top: 1px solid #00000023;
+    border-bottom: 1px solid #00000023;
+    padding: 10px;
+    margin: 10px;
+}
+
+.headline {
+    transition: all .5s cubic-bezier(1, 0, 0, 1);
+}
+
+.headline li {
+    transition: all .5s cubic-bezier(1, 0, 0, 1);
+    height: 30px;
+}
+
+.headline a {
+    text-decoration: none;
+}
+
+.headline a:hover {
+    color: #333;
+}
+
+.article-desc-wrap {
+    display: flex;
+    width: fit-content;
+    margin: 0 0 0 auto;
+}
+
+.article-desc * {
+    display: inline-block;
+}
+
+.article-desc i {
+    margin-left: 10px;
 }
 
 .tag-area p {
@@ -27,11 +97,7 @@
     margin-top: 50px;
 }
 
-.article p,
-.article h1,
-.article h2,
-.article h3,
-.article ul {
+.article p, .article h1, .article h2, .article h3, .article ul {
     margin-bottom: 30px;
 }
 
@@ -88,6 +154,11 @@ code {
     width: 100%;
 }
 
+.article :not(pre)>code {
+    width: fit-content;
+    padding: 0 5px;
+}
+
 blockquote {
     background: #efefef;
     padding: 10px;
@@ -104,7 +175,8 @@ blockquote::before {
 
 .article img {
     width: 100%;
-    object-fit: cover;
+    max-height: 500px;
+    object-fit: contain;
     display: block;
     margin: auto;
 }

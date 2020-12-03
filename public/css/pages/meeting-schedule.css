@@ -1,13 +1,22 @@
-body {
-    background: #f5f5f7;
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
-.info {
+body{
+    font-family: 
+    "Economica","ヒラギノ角ゴ Pro W3","メイリオ","Meiryo","ＭＳ Ｐゴシック","Helvetica Neue","Helvetica","Arial",sans-serif;
+    background: #f5f5f7;
+  }
+  
+.info{
     margin: auto auto auto 10px;
     line-height: 20px;
 }
 
-.block {
+.block{
     display: flex;
     margin: 20px;
     height: min-content;
@@ -15,53 +24,47 @@ body {
     color: #000;
     box-shadow: 0 5px 15px #00000023;
 }
-
-.block h1,
-.block p {
+.block h1, .block p{
     margin: 10px 0;
 }
-
-.block h1 {
+.block h1{
     font-weight: normal;
     font-size: 25px;
     color: #000;
 }
-
-.block img {
+.block img{
     width: 20%;
     height: auto;
     object-fit: cover;
 }
 
-.block .title {
+.block .title{
     margin-left: 10px;
     padding-left: 10px;
     border-left: solid 4px #333;
 }
 
-.content {
-    padding: 0 0 0 20px;
+.content{
+    padding: 0 0 0 20px ;
     margin: auto auto auto 0;
 }
 
-.content h2 {
-    font-size: 20px;
+.content h2{
+    font-size:20px;
     margin: 10px 0;
     font-weight: normal;
 }
-
-.content h2:before {
+.content h2:before{
     content: '';
     position: relative;
-    bottom: -29px;
+    bottom: -28px;
     left: 0;
     display: block;
     width: 50px;
     height: 4px;
     background: #000;
 }
-
-.content h2::after {
+.content h2::after{
     content: '';
     position: relative;
     bottom: -4px;
@@ -72,11 +75,11 @@ body {
     background: #000;
 }
 
-.calendar-container {
+.calendar-container{
     margin: auto 0 auto auto;
 }
 
-.btn_see_backnum {
+.btn_see_backnum{
     display: block;
     width: max-content;
     margin: 20px auto;
@@ -87,10 +90,9 @@ body {
     cursor: pointer;
     transition: all 0.25s ease;
 }
-
-.btn_see_backnum:hover {
+.btn_see_backnum:hover{
     background: #47cf73;
     outline-offset: -1px;
     color: #000000;
-    box-shadow: 0 15px 10px 5px #00000023;
+    box-shadow: 0 15px 10px 5px  #00000023;
 }
