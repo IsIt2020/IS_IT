@@ -49,7 +49,7 @@ $(function () {
 
     //目次クリックで対象までスクロール
     var headerHight = 100;
-    $('#headline').on('click', 'a[href^=#]', function () {
+    $('#headline').on('click', 'a[href^="#"]', function () {
         var speed = 500;
         var href = $(this).attr("href");
         var target = $(href == "#" || href == "" ? 'html' : href);
@@ -212,7 +212,7 @@ function distinct(array) {
 }
 
 /**選択範囲の前後に値挿入
- * 
+ *
  * @param {String} text 対象テキスト
  * @param {Array} range 選択範囲  配列[選択開始, 選択終了]
  * @param {Array} tags タグ  配列[直前に追加するタグ, 直後に追加するタグ]
@@ -226,7 +226,7 @@ function addTagsToFR(text, range, tags) {
 }
 
 /**選択範囲の各行の初めに値挿入
- * 
+ *
  * @param {String} text 対象テキスト
  * @param {Array} range 選択範囲  配列[選択開始, 選択終了]
  * @param {Array} tags タグ  配列[直前に追加するタグ, 直後に追加するタグ]
