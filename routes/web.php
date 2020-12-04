@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// トップ画面への遷移
 Route::get('/', function () {
     return view('pages/main/top');
 });
@@ -24,8 +24,14 @@ Route::group(['middleware' => ['auth', 'can:manager']], function () {
 
 });
 
-Route::get('/kanri/postArticle', function () {
-    return view('pages/kanri/post_article');
+// knowledge関連
+// Your Post画面
+Route::get('/knowledge/yourPost', function () {
+    return view('pages/knowledge/your_post');
+});
+// 投稿画面
+Route::get('/knowledge/postArticle', function () {
+    return view('pages/knowledge/post_article');
 });
 // Route::post('/post', 'PostController@create');
 

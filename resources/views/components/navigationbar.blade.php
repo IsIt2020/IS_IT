@@ -12,7 +12,7 @@
                     <i class="fas fa-sign-in-alt"></i>
                     <a href="{{ route('login') }}">Login</a>
                 @endif
-                
+
                 @hasSection('hideSignUp')
                 @else
                 <!--($__env->yieldContent('hideSignUp') === '')-->
@@ -24,14 +24,14 @@
 
     </div>
     <div class="nav">
-        <a class="nav_b_logo" href="#">IS IT</a>
+        <a class="nav_b_logo" href="/">IS IT</a>
         <p class="nav_b_title">@yield('nav_title')</p>
         <div class="nav_b">
             <a class="nav-link" href="#">Link A</a>
             <a class="nav-link" href="#">Link B</a>
             <a class="nav-link" href="#">Link C</a>
             <a class="nav-link" href="#">Link D</a>
-            <a class="nav-link" href="#">Link E</a>
+            <a class="nav-link" href="/knowledge/yourPost">YOUR POST</a>
         </div>
 
         <label class="hamburger" for="hamburger">
