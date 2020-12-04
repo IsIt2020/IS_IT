@@ -9,7 +9,7 @@
 
 @endsection
 @section('loadJS')
-<script src="{{ asset('js/post_article.js') }}"></script>
+<script src="{{ asset('js/pages/post_article.js') }}"></script>
 <script src="{{ asset('js/lib/marked.js') }}"></script>
 <script src="{{ asset('js/lib/highlight.pack.js') }}"></script>
 <script src="{{ asset('js/lib/ArticleControl.js') }}"></script>
