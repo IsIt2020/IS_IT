@@ -1,5 +1,5 @@
 <!--Navigation START-->
-<div class="navigation">
+<div class="navigation font-decorated">
     <div class="nav_a">
         <div class="nav_a_signin">
             @auth{{--ログイン状態によって表示切替--}}
