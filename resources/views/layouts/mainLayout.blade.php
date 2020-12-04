@@ -9,7 +9,7 @@
     <!--Styles -->
 
     <!-- アプリ共通 -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> -->
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
 
     <!--components-->
@@ -29,6 +29,7 @@
     <!--scripts-->
     <!-- アプリ共通 -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/StyleControl.js') }}"></script>
     <script src="{{ asset('js/calendar.js') }}"></script>
