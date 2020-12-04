@@ -20,10 +20,6 @@
     <div class="main-wrap">
         <div class="main">
 
-            {{-- <div class="background">
-                <div class="background-filter"></div>
-            </div> --}}
-
             <div class="input-forms">
 
                 <h1 style="margin-bottom: 0;">アカウント登録</h1>
