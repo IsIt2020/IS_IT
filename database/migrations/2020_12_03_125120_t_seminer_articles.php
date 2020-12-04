@@ -24,12 +24,12 @@ class TSeminerArticles extends Migration
             // サブタイトル
             $table->string('sub_title', 255)->nullable();
             // コンテンツ
-            $table->mediumText('user_name');
+            $table->mediumText('content');
             // トップイメージ
             $table->string('top_image', 255);
             // イメージ
             $table->string('images', 255)->nullable();
-            // 投稿ユーザー
+            // 投稿者
             $table->smallInteger('post_user');
             // 投稿日
             $table->datetime('post_date');

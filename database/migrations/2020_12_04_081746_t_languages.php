@@ -16,7 +16,7 @@ class TLanguages extends Migration
         Schema::create('t_languages', function (Blueprint $table) {
 
             // 言語ID(主キー)(※とりあえずsmallIncrementsにしてしまった)
-            $table->smallIncrements('language_id');
+            $table->smallIncrements('languages_id');
             // 記事ID
             $table->smallInteger('article_id');
             // 記事の種類(なぜかlengthが1にならない助けて)

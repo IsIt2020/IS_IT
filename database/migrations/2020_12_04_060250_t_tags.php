@@ -21,8 +21,7 @@ class TTags extends Migration
             $table->smallInteger('article_id');
             // テーブルフラグ(なぜかlengthが1にならない助けて)
             $table->tinyInteger('table_flag')->length(1);
-            // カラム
-            $table->string('t_tagscol', 45);
+
         });
     }
 

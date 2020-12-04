@@ -22,7 +22,7 @@ class TKnowledgeArticles extends Migration
             // サブタイトル
             $table->string('sub_title', 255)->nullable();
             // コンテンツ
-            $table->mediumText('user_name');
+            $table->mediumText('content');
             // トップイメージ
             $table->string('top_image', 255);
             // イメージ
