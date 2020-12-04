@@ -27,3 +27,16 @@ button:focus {
 button:hover {
     cursor: pointer;
 }
+
+/* bootstrap打ち消し用 */
+h1, .h1 {
+    font-size: 2em;
+}
+a{
+    color: #333;
+    text-decoration: none;
+    background-color: transparent;
+}
+p, label {
+    margin: 0;
+}

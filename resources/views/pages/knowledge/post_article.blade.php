@@ -10,9 +10,8 @@
 @endsection
 @section('loadJS')
 <script src="{{ asset('js/post_article.js') }}"></script>
-<script src="{{ asset('js/marked.js') }}"></script>
-<script src="{{ asset('js/highlight.pack.js') }}"></script>
-<script src="{{ asset('js/ArticleControl.js') }}"></script>
+<script src="{{ asset('js/lib/marked.js') }}"></script>
+<script src="{{ asset('js/lib/highlight.pack.js') }}"></script>
 @endsection
 
 <!--ページタイトル指定-->
@@ -22,6 +21,7 @@
 @section('nav_title', 'Post Article')
 
 @section('main-container')
+<div class="main">
 
 <!-- Button trigger modal -->
 
@@ -168,5 +168,6 @@
         <div id="headline" class="headline"></div>
         <div id="result" class="article main"></div>
     </div>
+</div>
 </div>
 @endsection
