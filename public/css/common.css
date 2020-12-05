@@ -40,3 +40,7 @@ a{
 p, label {
     margin: 0;
 }
+
+.row {
+    width: 100%;
+}

@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{ asset('css/components/article.css') }}">
 <link rel="stylesheet" href="{{ asset('css/pages/post_article.css') }}">
 <link rel="stylesheet" href="{{ asset('css/components/code-hilight.css') }}">
-
+<link rel="stylesheet" href="{{ asset('css/components/image-upload-modal.css') }}">
 @endsection
 @section('loadJS')
 <script src="{{ asset('js/pages/post_article.js') }}"></script>
@@ -24,46 +24,11 @@
 @section('main-container')
 <div class="main">
 
-<!-- Button trigger modal -->
+<!-- ここからmodal -->
+@component('components.imageUploadModal')
+@endcomponent
+<!-- ここまでmodal -->
 
-
-<!-- Modal -->
-<div class="modal fade" id="insertImageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Image upload</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="container upload-container">
-          <div class="row">
-            <div class="col-lg-3">
-              a
-            </div>
-            <div class="col-lg-3">
-              a
-            </div>
-            <div class="col-lg-3">
-              a
-            </div>
-            <div class="col-lg-3">
-              a
-            </div>
-            <div class="col-lg-3 image-upload" style="border:bold;">
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!--表示切替用-->
 <input type="radio" name="display-type" id="preview">
@@ -126,7 +91,7 @@
             <button class="markdown-btn" id="image" title="Image">
                 <i class="far fa-file-image"></i></button>
 
-            <button type="button" class="markdown-btn" data-toggle="modal" data-target="#insertImageModal">
+            <button type="button" class="markdown-btn" data-toggle="modal" data-target="#imageUploadModal">
                 <i class="fas fa-file-upload"></i></button>
         </div>
 
