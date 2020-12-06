@@ -41,7 +41,7 @@
             <img class="upload-image" src="{{ asset('/storage/image/test/test04.png') }}">
           </div>
           <div id="upload-image-erea" class="col col-lg-3">
-            <input id="upload-image-file" name="display-type" type="file" name="files[]" multiple="">
+            <input id="upload-image-file" type="file" name="files[]" multiple="">
             <label for="upload-image-file" class="fileinput-button">
               <i class="fas fa-plus-square"></i>
               <p class="ml-1">Add image</p>

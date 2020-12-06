@@ -33,7 +33,8 @@ Route::get('/knowledge/yourPost', function () {
 Route::get('/knowledge/postArticle', function () {
     return view('pages/knowledge/post_article');
 });
-// Route::post('/post', 'PostController@create');
+//ノウハウ記事の画像をアップロード
+Route::post('/knowledge/postArticle/upload', 'Common\ImageUploadController@upload');
 
 #region AuthRouteMethods.php auth()より移植
 Route::prefix('auth')->group(function(){

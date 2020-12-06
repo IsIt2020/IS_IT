@@ -79,14 +79,6 @@
   transition-duration: 0.3s;
 }
 
-.fileinput-button input {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  cursor: pointer;
+#upload-image-file {
+  display: none;
 }

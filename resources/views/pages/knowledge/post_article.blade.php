@@ -1,5 +1,5 @@
 @extends('layouts.mainLayout')
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @section('loadStyle')
 <link rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark.min.css">
@@ -13,6 +13,12 @@
 <script src="{{ asset('js/lib/marked.js') }}"></script>
 <script src="{{ asset('js/lib/highlight.pack.js') }}"></script>
 <script src="{{ asset('js/lib/ArticleControl.js') }}"></script>
+<script src="{{ asset('js/lib/jquery.ui.widget.js') }}"></script>
+<script src="{{ asset('js/lib/jquery.fileupload.js') }}"></script>
+<!-- ここから file upload用のscript -->
+@component('components.fileUploadScript')
+@endcomponent
+<!-- ここまで file upload用のscript -->
 @endsection
 
 <!--ページタイトル指定-->
