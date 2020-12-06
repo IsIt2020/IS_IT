@@ -2,8 +2,8 @@
 <!-- data-toggle="modal" data-target="#imageUploadModal" -->
 
 <!-- Modal -->
-<div class="modal fade" id="imageUploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<!-- <div class="" id="imageUploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+<!-- <div class="modal fade" id="imageUploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
+<div class="" id="imageUploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -41,7 +41,9 @@
             <img class="upload-image" src="{{ asset('/storage/image/test/test04.png') }}">
           </div>
           <div id="upload-image-erea" class="col col-lg-3">
-            <input id="upload-image-file" type="file" name="files[]" multiple="">
+            <input type="hidden" id="member_id" name="member_id" value="1">
+            <input type="hidden" id="article_id" name="article_id" value="temp">
+            <input id="upload-image-file" type="file" name="files[]" multiple="" accept="image/*,.pdf">
             <label for="upload-image-file" class="fileinput-button">
               <i class="fas fa-plus-square"></i>
               <p class="ml-1">Add image</p>
