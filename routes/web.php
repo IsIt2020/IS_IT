@@ -33,11 +33,13 @@ Route::get('/knowledge/yourPost', function () {
 Route::get('/knowledge/postArticle', function () {
     return view('pages/knowledge/post_article');
 });
-// Route::post('/post', 'PostController@create');
+//ノウハウ記事の画像をアップロード
+Route::post('/knowledge/postArticle/upload', 'Common\ImageUploadController@upload');
+//ノウハウ記事の画像を取得
+Route::get('/knowledge/postArticle/upload', 'Common\ImageUploadController@getImages');
 
 #region AuthRouteMethods.php auth()より移植
 Route::prefix('auth')->group(function(){
-
     //Login Routes
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');
@@ -49,7 +51,6 @@ Route::prefix('auth')->group(function(){
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     Route::post('register', 'Auth\RegisterController@register');
     Route::post('confirm', 'Auth\RegisterController@confirm')->name('auth.confirm');
-
     //TODO: パスワードリセット関連は実装する??(現状:ユーザー名, E-mailが一意ではないのでユーザー入力情報から個人を特定できない)
 });
 #endregion

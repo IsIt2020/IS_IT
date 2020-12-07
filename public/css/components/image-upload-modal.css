@@ -1,0 +1,84 @@
+#imageUploadModal .modal-body-container{
+}
+
+#imageUploadModal .upload-image-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+#imageUploadModal .upload-image{
+  max-height: 100%;
+  max-width: 100%;
+  opacity: 1;
+  transition-duration: 0.3s;
+}
+
+#imageUploadModal .upload-image-container .upload-image-wrap{
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition-duration: 0.3s;
+}
+
+#imageUploadModal .upload-image-container .upload-image-wrap button{
+  display: block;
+  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#imageUploadModal .upload-image-container .upload-image-wrap button:first-child{
+  margin-top: 15%;
+}
+
+.upload-image-wrap button.btn-danger span{
+  color: #fff;
+}
+
+#imageUploadModal .upload-image-container:hover .upload-image{
+  opacity: 0.4;
+}
+
+#imageUploadModal .upload-image-container:hover .upload-image-wrap{
+  opacity: 1;
+  transition-duration: 0.3s;
+}
+
+#imageUploadModal #upload-image-erea{
+  margin-bottom: 10px;
+  padding: 0;
+  border: dashed 2px #cfcfcf;
+  background-color: #f0f0f0;
+}
+
+.fileinput-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  opacity: 1;
+  transition-duration: 0.3s;
+}
+
+.fileinput-button:hover{
+  opacity: 0.5;
+  transition-duration: 0.3s;
+}
+
+#upload-image-file {
+  display: none;
+}
