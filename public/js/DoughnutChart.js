@@ -39,8 +39,10 @@ function InitChart(data) {
 
         var legend = `<div class="legend">
                 <div class="color-pan" style='background:` + colors[i] + `'></div>
-                <p class="text">` + data.name[i] + `</p>
-                <p class="percentage">` + data.value[i] + `</p>
+                <div class="text-wrap">
+                    <p class="text">` + data.name[i] + `</p>
+                    <p class="percentage">` + data.value[i] + `</p>
+                </div>
             </div>`;
 
         $('#chart-legends').append(legend);

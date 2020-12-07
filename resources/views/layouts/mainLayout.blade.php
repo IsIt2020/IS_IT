@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
 
     <!--components-->
-    <link rel="stylesheet" href="{{ asset('css/components/article.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/components/button.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/components/button.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/calendar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/code-hilight.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/footer.css') }}">

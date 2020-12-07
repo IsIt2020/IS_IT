@@ -1,6 +1,7 @@
 @extends('layouts.mainLayout')
 @section('loadStyle')
     <link rel="stylesheet" href="{{ asset('css/pages/top.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pages/article_list.css') }}">
 @endsection
 @section('loadJS')
     <script src="{{ asset('js/DoughnutChart.js') }}"></script>
@@ -13,11 +14,13 @@
 @section('nav_title', 'Top')
 
 @section('main-container')
+
+    <h1 class="logo font-decorated">IS IT</h1>
     <!--Meeting Block-->
     <div class="main">
-        <div class="block-wrap">
+        <div class="top-block-wrap">
 
-            <div class="block">
+            <div class="title-img">
                 <img src="https://cdn.pixabay.com/photo/2015/01/08/18/27/startup-593341_960_720.jpg">
                 <img class="cover">
                 <i class="fas fa-users content"></i>
@@ -31,103 +34,111 @@
                 </div>
             </div>
 
-            <h2>近日開催</h2>
+            <h2 class="block-wrap-title">近日開催</h2>
 
-            <!--Item-->
-            <div class="item">
+            <!--サンプル記事-->
+            <div class="block article">
+
                 <div class="date font-decorated">
                     <i class="far fa-calendar-alt"></i>
                     <p>2020/10/</p>
                     <p class="day">28 (Wed)</p>
                 </div>
-                <div class="content">
-                    <p>要件定義</p>
-                    <p class="description">要件定義を行います。要件定義自体はwikiにあります。
-                    </p>
-                    <p class="right place">仙台駅近辺</p>
+
+                <h2>
+                    <a href="#">要件定義</a>
+                </h2>
+                <p>要件定義を行います。要件定義自体はwikiにあります。</p>
+                <!--タグ-->
+                <div class="tag-area ">
+                    <a>
+                        <p>設計</p>
+                    </a>
                 </div>
-                <div class="tag-area">
-                    <a href="#">
-                        <p>環境構築</p>
-                    </a>
-                    <a href="#">
-                        <p>PaaaaHP</p>
-                    </a>
+                <div>
+                    <!--投稿者, 投稿日時, 更新日時-->
+                    <div class="article-desc-wrap">
+                        <div class="article-desc">
+                            <i class="fas fa-user-edit"></i>
+                            <p>Mitsuoka Jobs</p>
+                        </div>
+                        <div class="article-desc">
+                            <p>1 day ago</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!--Item-->
-            <div class="item">
-                <div class="date font-decorated">
-                    <i class="far fa-calendar-alt"></i>
-                    <p>2020/10/</p>
-                    <p class="day">21 (Wed)</p>
-                </div>
-                <div class="content">
-                    <p>【基本設計】E-R図作成</p>
-                    <p class="description">E-R図を作成します。 E-R図はexcelで作成後、wikiに添付します。
-                    </p>
-                    <p class="right place">仙台駅近辺</p>
-                </div>
-                <div class="tag-area">
-                    <a href="#">
-                        <p>環境構築</p>
-                    </a>
-                    <a href="#">
-                        <p>PaaaaHP</p>
-                    </a>
-                </div>
-            </div>
+            <!--サンプル記事-->
+            <div class="block article">
 
-            <!--Item-->
-            <div class="item">
                 <div class="date font-decorated">
                     <i class="far fa-calendar-alt"></i>
                     <p>2020/10/</p>
                     <p class="day">28 (Wed)</p>
                 </div>
-                <div class="content">
-                    <p>【基本設計】画面レイアウト作成</p>
-                    <p class="description">画面数などを確認するために 画面一覧と画面レイアウトを作成します。
-                    </p>
-                    <p class="right place">仙台駅近辺</p>
+
+                <h2>
+                    <a href="#">【基本設計】E-R図作成</a>
+                </h2>
+                <p>E-R図を作成します。 E-R図はexcelで作成後、wikiに添付します。</p>
+                <!--タグ-->
+                <div class="tag-area ">
+                    <a>
+                        <p>設計</p>
+                    </a>
                 </div>
-                <div class="tag-area">
-                    <a href="#">
-                        <p>環境構築</p>
-                    </a>
-                    <a href="#">
-                        <p>PaaaaHP</p>
-                    </a>
+                <div>
+                    <!--投稿者, 投稿日時, 更新日時-->
+                    <div class="article-desc-wrap">
+                        <div class="article-desc">
+                            <i class="fas fa-user-edit"></i>
+                            <p>Mitsuoka Jobs</p>
+                        </div>
+                        <div class="article-desc">
+                            <p>1 day ago</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!--Item-->
-            <div class="item">
+            <!--サンプル記事-->
+            <div class="block article">
+
                 <div class="date font-decorated">
                     <i class="far fa-calendar-alt"></i>
                     <p>2020/10/</p>
                     <p class="day">28 (Wed)</p>
                 </div>
-                <div class="content">
-                    <p>【基本設計】テーブル定義</p>
-                    <p class="description"></p>
-                    <p class="right place">仙台駅近辺</p>
+
+                <h2>
+                    <a href="#">【基本設計】画面レイアウト作成</a>
+                </h2>
+                <p>画面数などを確認するために 画面一覧と画面レイアウトを作成します。</p>
+                <!--タグ-->
+                <div class="tag-area ">
+                    <a>
+                        <p>設計</p>
+                    </a>
                 </div>
-                <div class="tag-area">
-                    <a href="#">
-                        <p>環境構築</p>
-                    </a>
-                    <a href="#">
-                        <p>PaaaaHP</p>
-                    </a>
+                <div>
+                    <!--投稿者, 投稿日時, 更新日時-->
+                    <div class="article-desc-wrap">
+                        <div class="article-desc">
+                            <i class="fas fa-user-edit"></i>
+                            <p>Mitsuoka Jobs</p>
+                        </div>
+                        <div class="article-desc">
+                            <p>1 day ago</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!--Knowledge Block-->
-        <div class="block-wrap">
-            <div class="block">
+        <!--Knowledge block-->
+        <div class="top-block-wrap">
+            <div class="title-img">
                 <img src="https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029_960_720.jpg">
                 <img class="cover">
                 <a class="go" href="#">なんちゃらページへ
@@ -140,95 +151,149 @@
                 </div>
             </div>
 
-            <h2>最近の投稿</h2>
+            <h2 class="block-wrap-title">最近の投稿</h2>
 
-            <!--Item-->
-            <div class="item">
-                <div class="content">
-                    <div class="date">
-                        <i style="font-size: 20px;" class="fas fa-paperclip"></i>
-                        <a href="#">Laravel環境構築手順</a>
-                    </div>
-                    <p class="right user">misoramen</p>
-                    <p class="right">2020/10/XX</p>
+            <!--サンプル記事-->
+            <div class="block article">
+                <h2>
+                    <a href="#">暇なときに見るサイト</a>
+                </h2>
+                <!--タグ-->
+                <div class="tag-area ">
+                    <a>
+                        <p>暇</p>
+                    </a>
+                    <a>
+                        <p>サイト</p>
+                    </a>
                 </div>
-                <div class="tag-area">
-                    <a href="#">
-                        <p>環境構築</p>
-                    </a>
-                    <a href="#">
-                        <p>PaaaaHP</p>
-                    </a>
+                <div>
+                    <!--投稿者, 投稿日時, 更新日時-->
+                    <div class="article-desc-wrap">
+                        <div class="article-desc">
+                            <i class="fas fa-user-edit"></i>
+                            <p>Mitsuoka Jobs</p>
+                        </div>
+                        <div class="article-desc">
+                            <p>1 day ago</p>
+                        </div>
+                    </div>
+                    <div class="article-desc-wrap">
+                        <div class="article-desc">
+                            <i class="far fa-eye"></i>
+                            <p>1K views</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!--Item-->
-            <div class="item">
-                <div class="content">
-                    <div class="date">
-                        <i style="font-size: 20px;" class="fas fa-paperclip"></i>
-                        <a href="#">流行りのプログラミング言語2020(TOBIE)</a>
-                    </div>
-                    <p class="right user">misoramen</p>
-                    <p class="right">2020/10/XX</p>
-                </div>
-                <div class="tag-area">
-                    <a href="#">
+            <!--サンプル記事-->
+            <div class="block article">
+                <h2>
+                    <a href="#">Laravel環境構築手順)</a>
+                </h2>
+                <!--タグ-->
+                <div class="tag-area ">
+                    <a>
+                        <p>PHP</p>
+                    </a>
+                    <a>
+                        <p>Laravel</p>
+                    </a>
+                    <a>
                         <p>環境構築</p>
                     </a>
-                    <a href="#">
-                        <p>PaaaaHP</p>
-                    </a>
+                </div>
+                <div>
+                    <!--投稿者, 投稿日時, 更新日時-->
+                    <div class="article-desc-wrap">
+                        <div class="article-desc">
+                            <i class="fas fa-user-edit"></i>
+                            <p>mis_o_ramen</p>
+                        </div>
+                        <div class="article-desc">
+                            <p>1 day ago</p>
+                        </div>
+                    </div>
+                    <div class="article-desc-wrap">
+                        <div class="article-desc">
+                            <i class="far fa-eye"></i>
+                            <p>1K views</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!--Item-->
-            <div class="item">
-                <div class="content">
-                    <div class="date">
-                        <i style="font-size: 20px;" class="fas fa-paperclip"></i>
-                        <a href="#">Winows</a>
-                    </div>
-                    <p class="right user">misoramen</p>
-                    <p class="right">2020/10/XX</p>
+            <!--サンプル記事-->
+            <div class="block article">
+                <h2>
+                    <a href="#">流行りのプログラミング言語2020(TOBIE)</a>
+                </h2>
+                <!--タグ-->
+                <div class="tag-area ">
+                    <a>
+                        <p>プログラミング言語</p>
+                    </a>
                 </div>
-                <div class="tag-area">
-                    <a href="#">
-                        <p>環境構築</p>
-                    </a>
-                    <a href="#">
-                        <p>PaaaaHP</p>
-                    </a>
+                <div>
+                    <!--投稿者, 投稿日時, 更新日時-->
+                    <div class="article-desc-wrap">
+                        <div class="article-desc">
+                            <i class="fas fa-user-edit"></i>
+                            <p>mis_o_ramen</p>
+                        </div>
+                        <div class="article-desc">
+                            <p>1 day ago</p>
+                        </div>
+                    </div>
+                    <div class="article-desc-wrap">
+                        <div class="article-desc">
+                            <i class="far fa-eye"></i>
+                            <p>1K views</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!--Item-->
-            <div class="item">
-                <div class="content">
-                    <div class="date">
-                        <i style="font-size: 20px;" class="fas fa-paperclip"></i>
-                        <a href="#">Laravel環境構築手順</a>
-                    </div>
-                    <p class="right user">misoramen</p>
-                    <p class="right">2020/10/XX</p>
+            <!--サンプル記事-->
+            <div class="block article">
+                <h2>
+                    <a href="#">暇なときに見るサイト</a>
+                </h2>
+                <!--タグ-->
+                <div class="tag-area ">
+                    <a>
+                        <p>暇</p>
+                    </a>
+                    <a>
+                        <p>サイト</p>
+                    </a>
                 </div>
-                <div class="tag-area">
-                    <a href="#">
-                        <p>環境構築</p>
-                    </a>
-                    <a href="#">
-                        <p>PaaaaHP</p>
-                    </a>
+                <div>
+                    <!--投稿者, 投稿日時, 更新日時-->
+                    <div class="article-desc-wrap">
+                        <div class="article-desc">
+                            <i class="fas fa-user-edit"></i>
+                            <p>Mitsuoka Jobs</p>
+                        </div>
+                        <div class="article-desc">
+                            <p>1 day ago</p>
+                        </div>
+                    </div>
+                    <div class="article-desc-wrap">
+                        <div class="article-desc">
+                            <i class="far fa-eye"></i>
+                            <p>1K views</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="item">
-            <div class="content">
-                <div class="date">
-                    <i class="fas fa-chart-pie"></i>
-                    <p>言語比率</p>
-                </div>
+        <div class="block article">
+            <div class="date">
+                <i class="fas fa-chart-pie"></i>
+                <h2 style="display: inline-block;">言語比率</h2>
             </div>
             <div class="chart-area">
                 <div class="chart">
