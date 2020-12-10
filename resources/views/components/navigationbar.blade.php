@@ -45,7 +45,7 @@
                 <a class="nav-link side" href="#">Link B</a>
                 <a class="nav-link side" href="#">Link C</a>
                 <a class="nav-link side" href="#">Link D</a>
-                <a class="nav-link side" href="#">Link E</a>
+                <a class="nav-link side" href="/knowledge/yourPost">YOUR POST</a>
             </div>
         </label>
     </div>
