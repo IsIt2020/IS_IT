@@ -14,32 +14,11 @@
         </button>
       </div>
       <div class="modal-body container modal-body-container">
-        <div class="row">
-          <div class="col-lg-3 upload-image-container">
-            <img class="upload-image" src="{{ asset('/storage/image/test/test00.png') }}">
-            <div class="upload-image-wrap">
-              <button type="button" class="btn btn-light">
-                <i class="glyphicon glyphicon-upload"></i>
-                <span>Insert</span>
-              </button>
-              <button type="button" class="btn btn-danger">
-                <i class="glyphicon glyphicon-trash"></i>
-                <span>Delete</span>
-              </button>
-            </div>
-          </div>
-          <div class="col-lg-3 upload-image-container">
-            <img class="upload-image" src="{{ asset('/storage/image/test/test01.png') }}">
-          </div>
-          <div class="col-lg-3 upload-image-container">
-            <img class="upload-image" src="{{ asset('/storage/image/test/test02.png') }}">
-          </div>
-          <div class="col-lg-3 upload-image-container">
-            <img class="upload-image" src="{{ asset('/storage/image/test/test03.png') }}">
-          </div>
-          <div class="col-lg-3 upload-image-container">
-            <img class="upload-image" src="{{ asset('/storage/image/test/test04.png') }}">
-          </div>
+        <div class="row" id="images-container">
+          <!-- ここにdiv要素が追加されていきます。 -->
+          <!-- 要素自体の生成はとりあえず、resources/views/components/fileUploadScript.blade.phpで行っています。 -->
+
+          <!-- ここまでdiv要素が追加されていきます。 -->
           <div id="upload-image-erea" class="col col-lg-3">
             <input type="hidden" id="member_id" name="member_id" value="1">
             <input type="hidden" id="article_id" name="article_id" value="temp">
