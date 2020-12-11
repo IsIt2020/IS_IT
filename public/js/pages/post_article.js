@@ -135,6 +135,11 @@ $(function () {
                 tags = ['![](', ')'];
                 taggingWay = 0;
                 break;
+            case 'open-modal':
+                tags = ['![](', ')'];
+                taggingWay = 0;
+                $('#cursor-positon').val(tags[0].length + selectionRange[0]);
+                break;
         }
         //#endregion
 
