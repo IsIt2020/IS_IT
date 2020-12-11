@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class MLanguage extends Migration
+class CreateMLanguagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class MLanguage extends Migration
      */
     public function up()
     {
-        Schema::create('m_language', function (Blueprint $table) {
+        Schema::create('m_languages', function (Blueprint $table) {
 
             // 言語ID(主キー)
             $table->smallInteger('language_id')->primary();

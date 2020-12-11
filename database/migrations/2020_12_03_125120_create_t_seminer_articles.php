@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TSeminerArticles extends Migration
+class CreateTSeminerArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -27,8 +27,6 @@ class TSeminerArticles extends Migration
             $table->mediumText('content');
             // トップイメージ
             $table->string('top_image', 255);
-            // イメージ
-            $table->string('images', 255)->nullable();
             // 投稿者
             $table->smallInteger('post_user');
             // 投稿日

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TScheduleVotes extends Migration
+class CreateTScheduleVotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,11 +16,14 @@ class TScheduleVotes extends Migration
         Schema::create('t_schedule_votes', function (Blueprint $table) {
 
             // セミナーID(主キー)
-            $table->smallInteger('article_id')->primary();
+            $table->smallInteger('article_id');
             // メンバーID(主キーにしたかったけどうまくいかないのでとりあえず)
             $table->smallInteger('member_id');
             // 開催希望日
             $table->datetime('scheduled_date')->nullable();
+
+            // 複合キー
+            $table->primary(['article_id', 'member_id']);
         });
     }
 
