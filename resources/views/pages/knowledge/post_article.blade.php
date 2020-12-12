@@ -96,8 +96,7 @@
                 <i class="fas fa-link"></i></button>
             <button class="markdown-btn" id="image" title="Image">
                 <i class="far fa-file-image"></i></button>
-
-            <button type="button" class="markdown-btn" data-toggle="modal" data-target="#imageUploadModal">
+            <button type="button" id="open-modal" class="markdown-btn" data-toggle="modal" data-target="#imageUploadModal">
                 <i class="fas fa-file-upload"></i></button>
         </div>
 

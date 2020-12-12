@@ -1,6 +1,9 @@
 <!-- modalを開きたいボタン等に以下の属性を付与してください -->
 <!-- data-toggle="modal" data-target="#imageUploadModal" -->
 
+<!-- カーソル位置保持用 -->
+<input type="hidden" id="cursor-positon" value="">
+
 <!-- Modal -->
 <div class="modal fade" id="imageUploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <!-- <div class="" id="imageUploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
@@ -17,7 +20,6 @@
         <div class="row" id="images-container">
           <!-- ここにdiv要素が追加されていきます。 -->
           <!-- 要素自体の生成はとりあえず、resources/views/components/fileUploadScript.blade.phpで行っています。 -->
-
           <!-- ここまでdiv要素が追加されていきます。 -->
           <div id="upload-image-erea" class="col col-lg-3">
             <input type="hidden" id="member_id" name="member_id" value="1">
