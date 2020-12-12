@@ -139,6 +139,8 @@ $(function () {
                 tags = ['![](', ')'];
                 taggingWay = 0;
                 $('#cursor-positon').val(tags[0].length + selectionRange[0]);
+                $('#modal-tag0-len').val(tags[0].length);
+                $('#modal-tag1-len').val(tags[1].length);
                 break;
         }
         //#endregion

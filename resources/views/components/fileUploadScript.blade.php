@@ -6,6 +6,10 @@ $(function () {
   var uploadModal = $('#imageUploadModal');
   var is_inserted = $("#is-inserted");
 
+  function initBeforeOpenModal(){
+    is_inserted.val("false");
+  }
+
   // csrf-token周りはajaxのクラスを作成して、いちいち設定しなくて住む様にしたい。
   $.ajaxSetup({
     headers: {
@@ -45,11 +49,20 @@ $(function () {
 
   // getで画像PATHを取得する処理
   function getImages(){
+    // ブログ記事内の画像のみを取得か、全ての画像を取得か判定用
+    var checkedValue = $('.disp-images-radio:checked').val();
+    var is_all = false;
+    if( checkedValue == {{config('const.imageUplodModal.DISP_ALL_IMAGE')}}){
+      is_all = true;
+    }
+    // 会員ID取得
     var member_id = $("#member_id").val();
+    //記事ID取得
     var article_id = $("#article_id").val();
     var json_param = {
       "member_id": member_id,
-      "article_id": article_id
+      "article_id": article_id,
+      "is_all": is_all
     };
     $.ajax({
       url: $('#upload-image-erea').fileupload('option', 'url'),
@@ -63,7 +76,7 @@ $(function () {
       // resultから画像の配列を取得
       var result_images = result["images"];
       // 取得した画像ファイルまでのpathを生成。
-      var base_pass = "{{ asset('/storage/image') }}" + "/" + member_id + "/" + article_id　+ "/";
+      var base_pass = "{{ asset('/storage/image') }}" + "/";
       $('.upload-image-container').remove();
       for(var i = 0; i < result_images.length; i++){
         var image_path = base_pass + result_images[i];
@@ -76,10 +89,13 @@ $(function () {
         image_container_html += '　　　<i class="glyphicon glyphicon-upload"></i>';
         image_container_html += '　　　<span>Insert</span>';
         image_container_html += '　　</button>';
-        image_container_html += '　　<button type="button" class="btn btn-danger delete-image" value="'+result_images[i]+'">';
-        image_container_html += '　　　<i class="glyphicon glyphicon-trash"></i>';
-        image_container_html += '　　　<span>Delete</span>';
-        image_container_html += '　　</button>';
+        // 全ての画像を表示している際に、DeleteBtnは表示しない。
+        if(!is_all){
+          image_container_html += '　　<button type="button" class="btn btn-danger delete-image" value="'+result_images[i]+'">';
+          image_container_html += '　　　<i class="glyphicon glyphicon-trash"></i>';
+          image_container_html += '　　　<span>Delete</span>';
+          image_container_html += '　　</button>';
+        }
         image_container_html += '　</div>';
         image_container_html += '</div>';
 
@@ -135,16 +151,22 @@ $(function () {
     deleteImageOnServer( $(this).val() );
   });
 
+  // チェックボタンが押された際の動作
+  $('.disp-images-radio').change(function(){
+    getImages();
+  });
 
   // modalがopenされる直前のイベント
   uploadModal.on('show.bs.modal', function (e) {
+    // hidden要素のvalueを初期化
+    initBeforeOpenModal();
     // モーダル上の画像を描画
     getImages();
   })
   // modalがcloseされる直前のイベント
   uploadModal.on('hide.bs.modal', function (e) {
     // insertされているかどうか
-    if( is_inserted.val() == "false"){
+    if( is_inserted.val() != "true"){
       // insertされていない場合、タグを消す。
       // editorオブジェクト
       let editor = $('#editor');

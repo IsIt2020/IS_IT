@@ -18,7 +18,7 @@ class ImageUploadController extends Controller
     // 記事ID取得
     $article_id = $request->input('article_id');
     // 保存先PATH
-    $save_path = 'public/image/'.$member_id.'/'.$article_id;
+    $save_path = config('const.uploadFile.UPLOAD_IMAGE_PATH').'user_'.$member_id.'/art_'.$article_id;
 
     // 保存先ディレクトリに既に保存されている画像を全件取得
     $saved_files = Storage::files($save_path);
@@ -65,17 +65,29 @@ class ImageUploadController extends Controller
     $member_id = $request->input('member_id');
     // 記事ID取得
     $article_id = $request->input('article_id');
-    // 保存先PATH
-    $saved_path = 'public/image/'.$member_id.'/'.$article_id;
-    // 保存先ディレクトリに保存されている画像を全件取得
-    $saved_files = Storage::files($saved_path);
+    // ブログ記事内の画像のみを取得か、全ての画像を取得か判定用
+    $is_all = false;
+    if($request->input('is_all') == "true") $is_all = true;
+
+    if( $is_all ){
+      // 全ての画像を取得の場合
+      // 画像取得先PATH
+      $saved_path = config('const.uploadFile.UPLOAD_IMAGE_PATH').'user_'.$member_id;
+      // 保存先ディレクトリに保存されている画像を全件取得
+      $saved_files = Storage::allFiles($saved_path);
+    }else{
+      // ブログ記事内の画像のみを取得の場合
+      // 画像取得先PATH
+      $saved_path = config('const.uploadFile.UPLOAD_IMAGE_PATH').'user_'.$member_id.'/art_'.$article_id;
+      // 保存先ディレクトリに保存されている画像を全件取得
+      $saved_files = Storage::files($saved_path);
+    }
+
     //画像のファイル名を格納する配列
     $img_name_array = [];
     foreach ($saved_files as $file_path) {
-      // ファイル名の中で"/"が最後に現れるindexを取得
-      $slash_index = strrpos($file_path, '/');
       //画像のファイル名を取得
-      $file_name = substr($file_path, $slash_index+1);
+      $file_name = str_replace(config('const.uploadFile.UPLOAD_IMAGE_PATH'), '', $file_path);
       $img_name_array[] = $file_name;
     }
 
@@ -98,7 +110,7 @@ class ImageUploadController extends Controller
     // 削除する画像のPATHを取得
     $delete_file = $request->input('delete_file');
     // 削除先PATH
-    $delete_path = 'public/image/'.$member_id.'/'.$article_id.'/'.$delete_file;
+    $delete_path = config('const.uploadFile.UPLOAD_IMAGE_PATH').$delete_file;
     $delete_result = Storage::delete($delete_path);
 
     return response()->json([

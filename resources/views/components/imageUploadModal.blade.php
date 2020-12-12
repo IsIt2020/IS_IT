@@ -17,6 +17,13 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Image upload</h5>
 
+        <div class="disp-images-radio-group mr-0 ml-auto">
+          <input type="radio" class="disp-images-radio" name="disp_images_group" id="thisBlogImages" value="{{config('const.imageUplodModal.DISP_THIS_ARTICLE_IMAGE')}}" checked/>
+          <label for="thisBlogImages">this blog</label>
+          <input type="radio" class="disp-images-radio" name="disp_images_group" id="allImages" value="{{config('const.imageUplodModal.DISP_ALL_IMAGE')}}"/>
+          <label for="allImages">all</label>
+        </div>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
