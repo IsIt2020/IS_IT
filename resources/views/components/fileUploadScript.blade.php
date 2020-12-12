@@ -1,9 +1,18 @@
 <script>
 $(function () {
   'use strict';
+  var ajax_url = '/postArticle/image/';
   var url = '/knowledge/postArticle/upload';
+  var uploadModal = $('#imageUploadModal');
+  var is_inserted = $("#is-inserted");
 
-  // Initialize the jQuery File Upload widget:
+  // csrf-token周りはajaxのクラスを作成して、いちいち設定しなくて住む様にしたい。
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
   // fileuploadの設定
   $('#upload-image-erea').fileupload({
     url: url,
@@ -34,7 +43,7 @@ $(function () {
     getImages();
   }
 
-  // getで画像PATHを取得する。
+  // getで画像PATHを取得する処理
   function getImages(){
     var member_id = $("#member_id").val();
     var article_id = $("#article_id").val();
@@ -46,8 +55,7 @@ $(function () {
       url: $('#upload-image-erea').fileupload('option', 'url'),
       type:"get",
       data:json_param,
-      dataType: 'json',
-      context: $('#upload-image-erea')[0]
+      dataType: 'json'
     })
     .always(function () {
     })
@@ -80,28 +88,74 @@ $(function () {
     });
   }
 
+  // deleteで対象画像を削除する処理
+  function deleteImageOnServer(imagePath){
+    var member_id = $("#member_id").val();
+    var article_id = $("#article_id").val();
+    var json_param = {
+      "member_id" : member_id,
+      "article_id" : article_id,
+      "delete_file" : imagePath
+    };
+    $.ajax({
+      url: ajax_url+"delete",
+      type:"post",
+      data:json_param,
+      dataType: 'json'
+    })
+    .always(function () {
+    })
+    .done(function (result) {
+      console.log(result);
+      // モーダル上の画像を再描画
+      getImages();
+    });
+  }
+
+
+
   // 画像のinsertボタン押下時に呼ばれる。
   $(document).on("click", ".insert-image", function () {
     var file_name = $(this).val();
     var cursor_position = $('#cursor-positon').val();
     /**editorオブジェクト*/
     let editor = $('#editor');
-    //カーソルの位置を基準に前後を分割して、その間に文字列を挿入
+    // カーソルの位置を基準に前後を分割して、その間に文字列を挿入
     editor.val(editor.val().substr(0, cursor_position) + file_name + editor.val().substr(cursor_position));
-    //プレビュー更新
+    // プレビュー更新
     editor.focus();
+    // insertFlgをたてる
+    is_inserted.val(true);
+    // モダールを閉じる。
+    uploadModal.modal('hide');
   });
 
   // 画像のdeleteボタン押下時に呼ばれる。
   $(document).on("click", ".delete-image", function () {
-    console.log($(this).val());
+    deleteImageOnServer( $(this).val() );
   });
 
 
   // modalがopenされる直前のイベント
-  $('#imageUploadModal').on('show.bs.modal', function (e) {
+  uploadModal.on('show.bs.modal', function (e) {
     // モーダル上の画像を描画
     getImages();
+  })
+  // modalがcloseされる直前のイベント
+  uploadModal.on('hide.bs.modal', function (e) {
+    // insertされているかどうか
+    if( is_inserted.val() == "false"){
+      // insertされていない場合、タグを消す。
+      // editorオブジェクト
+      let editor = $('#editor');
+      // カーソルポジション
+      var cursor_position = Number($('#cursor-positon').val());
+      // タグの長さ取得
+      var tag0_len = Number($('#modal-tag0-len').val());
+      var tag1_len = Number($('#modal-tag1-len').val());
+    // カーソルの位置を基準に前後を分割して、その間に文字列を挿入
+    editor.val(editor.val().substr(0, cursor_position-tag0_len) + editor.val().substr(cursor_position+tag1_len));
+    }
   })
 
 });

@@ -3,6 +3,11 @@
 
 <!-- カーソル位置保持用 -->
 <input type="hidden" id="cursor-positon" value="">
+<!-- 画像タグ長さ保持用 -->
+<input type="hidden" id="modal-tag0-len" value="">
+<input type="hidden" id="modal-tag1-len" value="">
+<!-- modalを閉じる際にinsertしたかどうか判断 -->
+<input type="hidden" id="is-inserted" value="false">
 
 <!-- Modal -->
 <div class="modal fade" id="imageUploadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

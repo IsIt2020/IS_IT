@@ -83,7 +83,7 @@ class ImageUploadController extends Controller
       'member_id' => $member_id,
       'article_id' => $article_id,
       'images' => $img_name_array
-   ]);
+    ]);
   }
 
   /**
@@ -95,6 +95,15 @@ class ImageUploadController extends Controller
     $member_id = $request->input('member_id');
     // 記事ID取得
     $article_id = $request->input('article_id');
+    // 削除する画像のPATHを取得
+    $delete_file = $request->input('delete_file');
+    // 削除先PATH
+    $delete_path = 'public/image/'.$member_id.'/'.$article_id.'/'.$delete_file;
+    $delete_result = Storage::delete($delete_path);
+
+    return response()->json([
+      'result' => $delete_result
+    ]);
   }
 
 }
