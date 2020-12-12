@@ -85,4 +85,16 @@ class ImageUploadController extends Controller
       'images' => $img_name_array
    ]);
   }
+
+  /**
+  * 画像ファイルを削除する
+  */
+  public function delete(Request $request)
+  {
+    // 会員ID取得
+    $member_id = $request->input('member_id');
+    // 記事ID取得
+    $article_id = $request->input('article_id');
+  }
+
 }

@@ -37,6 +37,8 @@ Route::get('/knowledge/postArticle', function () {
 Route::post('/knowledge/postArticle/upload', 'Common\ImageUploadController@upload');
 //ノウハウ記事の画像を取得
 Route::get('/knowledge/postArticle/upload', 'Common\ImageUploadController@getImages');
+//ノウハウ記事の画像を取得
+Route::delete('/knowledge/postArticle/delete', 'Common\ImageUploadController@delete');
 
 #region AuthRouteMethods.php auth()より移植
 Route::prefix('auth')->group(function(){

@@ -4,6 +4,7 @@ $(function () {
   var url = '/knowledge/postArticle/upload';
 
   // Initialize the jQuery File Upload widget:
+  // fileuploadの設定
   $('#upload-image-erea').fileupload({
     url: url,
     dropZone: $('.modal-body-container'),
