@@ -82,21 +82,21 @@ $(function () {
         var image_path = base_pass + result_images[i];
         var image_container_html = '';
         image_container_html += '<div class="col-lg-3 upload-image-container">';
-        image_container_html += '　<img class="upload-image" src="'+image_path+'">';
-        image_container_html += '　<div class="upload-image-wrap">';
-        image_container_html += '　　<input type="hidden" class="image-name" value="' + result_images[i] + '">';
-        image_container_html += '　　<button type="button" class="btn btn-light insert-image" value="'+image_path+'">';
-        image_container_html += '　　　<i class="glyphicon glyphicon-upload"></i>';
-        image_container_html += '　　　<span>Insert</span>';
-        image_container_html += '　　</button>';
+        image_container_html += '<img class="upload-image" src="'+image_path+'">';
+        image_container_html += '<div class="upload-image-wrap">';
+        image_container_html += '<input type="hidden" class="image-name" value="' + result_images[i] + '">';
+        image_container_html += '<button type="button" class="btn btn-light insert-image" value="'+image_path+'">';
+        image_container_html += '<i class="glyphicon glyphicon-upload"></i>';
+        image_container_html += '<span>Insert</span>';
+        image_container_html += '</button>';
         // 全ての画像を表示している際に、DeleteBtnは表示しない。
         if(!is_all){
-          image_container_html += '　　<button type="button" class="btn btn-danger delete-image" value="'+result_images[i]+'">';
-          image_container_html += '　　　<i class="glyphicon glyphicon-trash"></i>';
-          image_container_html += '　　　<span>Delete</span>';
-          image_container_html += '　　</button>';
+          image_container_html += '<button type="button" class="btn btn-danger delete-image" value="'+result_images[i]+'">';
+          image_container_html += '<i class="glyphicon glyphicon-trash"></i>';
+          image_container_html += '<span>Delete</span>';
+          image_container_html += '</button>';
         }
-        image_container_html += '　</div>';
+        image_container_html += '</div>';
         image_container_html += '</div>';
 
         $('#upload-image-erea').before(image_container_html);
