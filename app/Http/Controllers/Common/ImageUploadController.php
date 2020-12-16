@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Common;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class ImageUploadController extends Controller
 {
@@ -13,13 +14,15 @@ class ImageUploadController extends Controller
   */
   public function upload(Request $request)
   {
+    // validate
+    $this->validator($request);
+
     // 会員ID取得
     $member_id = $request->input('member_id');
     // 記事ID取得
     $article_id = $request->input('article_id');
     // 保存先PATH
     $save_path = config('const.uploadFile.UPLOAD_IMAGE_PATH').'user_'.$member_id.'/art_'.$article_id;
-
     // 保存先ディレクトリに既に保存されている画像を全件取得
     $saved_files = Storage::files($save_path);
     // 保存されている画像のファイル名の中から最大のindexを取得。
@@ -41,8 +44,6 @@ class ImageUploadController extends Controller
     foreach ($request->file('files') as $file) {
       // 画像のファイル名のindexを++1
       $file_name_index++;
-      // validate
-
       // 元画像のファイル名を取得
       $original_file_name = $file->getClientOriginalName();
       // 拡張子を取得
@@ -103,6 +104,13 @@ class ImageUploadController extends Controller
   */
   public function delete(Request $request)
   {
+    // //バリデーション
+    $request->validate([
+      //バリデーションルール
+      'member_id' => ['required'],
+      'article_id' => ['required'],
+      'delete_file' => ['required'],
+    ]);
     // 会員ID取得
     $member_id = $request->input('member_id');
     // 記事ID取得
@@ -115,6 +123,24 @@ class ImageUploadController extends Controller
 
     return response()->json([
       'result' => $delete_result
+    ]);
+  }
+
+  /**
+   * Get a validator for an incoming registration request.
+   *
+   * @param  Request  $request
+   * @return \Illuminate\Contracts\Validation\Validator
+   */
+  protected function validator(Request $request)
+  {
+    // //バリデーション
+    $validator = $request->validate([
+      //バリデーションルール
+      'member_id' => ['required'],
+      'article_id' => ['required'],
+      'files' => 'required',
+      'files.*' => ['image','mimes:jpeg,png,jpg,gif'],
     ]);
   }
 

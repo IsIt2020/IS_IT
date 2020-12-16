@@ -36,7 +36,7 @@
           <div id="upload-image-erea" class="col col-lg-3">
             <input type="hidden" id="member_id" name="member_id" value="1">
             <input type="hidden" id="article_id" name="article_id" value="temp">
-            <input id="upload-image-file" type="file" name="files[]" multiple="" accept="image/*,.pdf">
+            <input id="upload-image-file" type="file" name="files[]" multiple="" accept="image/*">
             <label for="upload-image-file" class="fileinput-button">
               <i class="fas fa-plus-square"></i>
               <p class="ml-1">Add image</p>
@@ -44,6 +44,13 @@
           </div>
         </div>
       </div>
+
+      @if (count($errors) > 0)
+        @foreach($errors->all() as $error)
+          <div class="alert alert-danger">{{ $error }} </div>
+        @endforeach 
+      @endif
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
