@@ -19,27 +19,29 @@ class CreateTMembersTable extends Migration
             $table->unique('mail_address');
 
             // 会員ID(主キー)
-            $table->smallIncrements('member_id');
+            $table->integerIncrements('member_id');
             // メールアドレス
-            $table->string('mail_address', 50);
+            $table->string('mail_address', 100);
             // パスワード
-            $table->string('password');
-            // 権限
-            $table->tinyInteger('authority_flag')->default(0);
+            $table->string('password', 255);
+            // 権限ID
+            $table->tinyInteger('authority_id')->default(0);
             // ニックネーム
             $table->string('user_name', 50);
             // 性別
-            $table->tinyInteger('user_gender');
+            $table->tinyInteger('user_sex');
             // 生年月日
             $table->date('user_birthdate');
             // 会社
-            $table->string('user_company')->nullable();
-            // 退会フラグ
-            $table->boolean('is_delete')->default(false);
-            // 会員登録日
-            $table->timestamp('insert_date');
+            $table->string('user_company', 255)->nullable();
             // ログイン情報保持用
             $table->rememberToken();
+            // 会員登録日
+            $table->timestamp('created_at')->nullable();
+            // 更新日
+            $table->timestamp('updated_at')->nullable();
+            // 退会フラグ
+            $table->boolean('is_deleted')->default(false);
         });
     }
 
