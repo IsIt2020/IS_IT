@@ -38,6 +38,16 @@ Route::post('/knowledge/postArticle/upload', 'Common\ImageUploadController@uploa
 //ノウハウ記事の画像を取得
 Route::get('/knowledge/postArticle/upload', 'Common\ImageUploadController@getImages');
 
+#region 勉強会編集画面
+Route::prefix('seminar')->group(function(){
+
+    Route::get('manage', function() {
+        return view('pages/kanri/manage_meeting');
+    });
+
+    Route::post('manage', 'Seminar\SeminarController@register')->name('seminar.register');
+});
+
 #region AuthRouteMethods.php auth()より移植
 Route::prefix('auth')->group(function(){
     //Login Routes

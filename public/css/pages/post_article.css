@@ -1,100 +1,275 @@
-    .main {
-        margin: 10px;
-    }
-    
-    .block-wrap {
-        display: flex;
-    }
-    
-    .block {
-        position: relative;
-        background: #fff;
-        box-shadow: 0 10px 5px 0 #00000023;
-        padding: 10px;
-        min-height: 1335px;
-        width: 100%;
-        z-index: 1;
-    }
-    
-    .tab-area {
-        margin: 0 0 0 auto;
-        width: fit-content;
-        display: flex;
-    }
-    
-    .tab-area label {
-        position: relative;
-        background: #fff;
-        width: fit-content;
-        height: fit-content;
-        padding: 5px 10px 10px;
-        margin-left: 5px;
-        font-size: 22px;
-        cursor: pointer;
-        z-index: 1;
-        box-shadow: 0 0 10px 0 #00000023;
-    }
-    
-    .markdown {
-        position: relative;
-        text-align: right;
-        margin: 0 0 0 auto;
-        top: 4px;
-    }
-    
-    .markdown button {
-        background: transparent;
-        width: 35px;
-        height: 30px;
-        font-size: 18px;
-        border: none;
-        cursor: pointer;
-    }
-    
-    .markdown button:focus {
-        outline: none;
-    }
-    
-    .markdown button:hover {
-        background: #00000023;
-    }
-    /*編集、プレビュー表示切替*/
-    
-    input[name='display-type'] {
+/*#region 記事投稿画面 */
+
+.main {
+    margin: 10px;
+}
+
+.block-wrap {
+    display: flex;
+}
+
+.block {
+    position: relative;
+    background: #fff;
+    box-shadow: 0 10px 5px 0 #00000023;
+    padding: 10px;
+    min-height: 1335px;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    z-index: 1;
+}
+
+.block.block.compose, .block.preview {
+    max-width: 100%;
+}
+
+textarea.article {
+    height: 800px;
+}
+
+.tab-area {
+    margin: 0 0 0 auto;
+    width: fit-content;
+    display: flex;
+}
+
+.tab-area label {
+    position: relative;
+    background: #fff;
+    width: fit-content;
+    height: fit-content;
+    padding: 5px 10px 10px;
+    margin-left: 5px;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 1;
+    box-shadow: 0 0 10px 0 #00000023;
+}
+
+.markdown {
+    position: relative;
+    text-align: right;
+    margin: 0 0 0 auto;
+    top: 4px;
+}
+
+.markdown button {
+    background: transparent;
+    width: 35px;
+    height: 30px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+.markdown button:focus {
+    outline: none;
+}
+
+.markdown button:hover {
+    background: #00000023;
+}
+
+/*編集、プレビュー表示切替*/
+
+input[name="display-type"] {
+    display: none;
+}
+
+#edit:checked~.tab-area #tab-preview, #preview:checked~.tab-area #tab-edit {
+    background: #efefef;
+    box-shadow: none;
+    z-index: 0;
+}
+
+#edit:checked~.block-wrap .block.preview, #preview:checked~.block-wrap .block.compose {
+    display: none;
+}
+
+#both:checked~.tab-area #tab-edit, #both:checked~.tab-area #tab-preview {
+    padding-bottom: 5px;
+}
+
+#both:checked~.block-wrap .block {
+    display: inline-block;
+    width: calc(50% - 2px);
+}
+
+#both:checked~.block-wrap .block.preview {
+    display: inline-block;
+    margin-left: 4px;
+    overflow-y: auto;
+    height: 1300px;
+}
+
+/*#endregion*/
+
+/*#region 勉強会編集画面*/
+
+.block.meeting {
+    max-width: 900px;
+    margin: auto;
+    min-height: auto;
+}
+
+textarea.meeting {
+    height: 200px;
+}
+
+#options {
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+/*#region 投票を利用する*/
+
+.toggle-switch-cb:checked~.use-vote-wrap .toggle-switch-wrap .toggle-switch {
+    left: calc(50% - 4px);
+    background: #f5f5f5;
+}
+
+.toggle-switch-cb:checked~.use-vote-wrap .toggle-switch-wrap .toggle-switch-bg {
+    background: #55c500;
+    box-shadow: 0 0 10px 2px #55c50030;
+}
+
+.use-vote {
+    display: none;
+}
+
+.toggle-switch-cb:checked~.use-vote {
+    display: block;
+}
+
+.dont-use-vote {
+    display: block;
+}
+
+.toggle-switch-cb:checked~.dont-use-vote {
+    display: none;
+}
+
+/*#endregion*/
+
+.date-time {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 258px);
+}
+
+.date .input-field input, .time .input-field input {
+    height: 34px;
+}
+
+.date {
+    margin-right: 10px;
+}
+
+.time {
+    display: flex;
+    margin: 0 0 0 auto;
+}
+
+.time .input-field {
+    display: flex;
+}
+
+.tilde {
+    font-size: 20px;
+    font-weight: bold;
+    margin: auto 10px;
+}
+
+.tilde.vertical {
+    transform: rotate(90deg);
+    width: fit-content;
+}
+
+.time-start, .time-end {
+    width: 120px;
+}
+
+.use-vote {
+    margin-top: 10px;
+}
+
+.use-vote h3, .dont-use-vote h3 {
+    font-size: initial;
+    margin-top: 20px;
+    font-weight: 500;
+    border-bottom: 1px solid #00000050;
+}
+
+.use-vote .button-general {
+    display: block;
+    width: 550px;
+    margin: auto;
+}
+
+.schedule-date-table {
+    margin: auto;
+}
+
+.schedule-date-table .date {
+    margin: auto 10px;
+    width: 160px;
+}
+
+.schedule-date {
+    display: grid;
+    margin: 20px auto;
+    width: 550px;
+    grid-template-columns: auto auto;
+}
+
+.schedule-date p {
+    margin-left: 10px;
+}
+
+.schedule-date.edit {
+    grid-template-columns: 40px auto auto;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #00000023;
+}
+
+.schedule-time-table {
+    border-left: 1px solid #00000023;
+}
+
+.schedule-time {
+    display: grid;
+    grid-template-columns: 40px auto;
+}
+
+.schedule-date-table .remove, .schedule-date-table .add {
+    border: none;
+    background: transparent;
+}
+
+.schedule-date-table .remove::before, .schedule-date-table .add::before {
+    font-weight: 600;
+    font-size: 20px;
+    transition: all .1s ease;
+}
+
+.schedule-date-table .remove::before {
+    content: "\f056";
+    color: #e64c65;
+}
+
+.schedule-date-table .add::before {
+    content: "\f055";
+    color: #47cf73;
+}
+
+.schedule-date-table .remove:hover::before, .schedule-date-table .add:hover::before {
+    color: #00000023;
+}
+
+/*#endregion*/
+
+@media (max-width: 900px) {
+    #tab-both {
         display: none;
     }
-    
-    #edit:checked~.tab-area #tab-preview,
-    #preview:checked~.tab-area #tab-edit {
-        background: #efefef;
-        box-shadow: none;
-        z-index: 0;
-    }
-    
-    #edit:checked~.block-wrap .block.preview,
-    #preview:checked~.block-wrap .block.compose {
-        display: none;
-    }
-    
-    #both:checked~.tab-area #tab-edit,
-    #both:checked~.tab-area #tab-preview {
-        padding-bottom: 5px;
-    }
-    
-    #both:checked~.block-wrap .block {
-        display: inline-block;
-        width: calc(50% - 2px);
-    }
-    
-    #both:checked~.block-wrap .block.preview {
-        display: inline-block;
-        margin-left: 4px;
-        overflow-y: auto;
-        height: 1300px;
-    }
-    
-    @media(max-width: 900px) {
-        /* #tab-both {
-            display: none;
-        } */
-    }
+}
