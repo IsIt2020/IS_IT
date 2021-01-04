@@ -20,6 +20,7 @@
 <div class="main">
         <div class="block-wrap">
             <form style="width: 100%;" name="register-seminar" action="{{ route('seminar.register') }}" method="POST">
+                @csrf
                 <div class="block compose meeting">
 
                     <!--タイトル-->
@@ -117,11 +118,11 @@
 
                                         <div class="time">
                                             <div class="input-field time-start" title="開始時間">
-                                                <input type="time" name="time-option-start" required>
+                                                <input type="time" name="time-option-start">
                                             </div>
                                             <label class="tilde">~</label>
                                             <div class="input-field time-end" title="終了時間">
-                                                <input type="time" name="time-option-end" required>
+                                                <input type="time" name="time-option-end">
                                             </div>
                                         </div>
                                     </div>
@@ -145,7 +146,7 @@
                         </div>
                     </div>
                     <div style="text-align: right;">
-                        <button type="button" class="button-general ok" id="submit">作成</button>
+                        <button  class="button-general ok" id="submit">作成</button>
                     </div>
                 </div>
             </form>
