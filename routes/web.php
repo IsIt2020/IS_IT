@@ -41,10 +41,7 @@ Route::get('/knowledge/postArticle/upload', 'Common\ImageUploadController@getIma
 #region 勉強会編集画面
 Route::prefix('seminar')->group(function(){
 
-    Route::get('manage', function() {
-        return view('pages/kanri/manage_meeting');
-    });
-
+    Route::get('manage', 'Seminar\SeminarController@show')->name('seminar.show');
     Route::post('manage', 'Seminar\SeminarController@register')->name('seminar.register');
 });
 

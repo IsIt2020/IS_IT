@@ -19,7 +19,7 @@
 @section('main-container')
 <div class="main">
         <div class="block-wrap">
-            <form style="width: 100%;" id="form" action="{{ route('seminar.register') }}">
+            <form style="width: 100%;" name="register-seminar" action="{{ route('seminar.register') }}" method="POST">
                 <div class="block compose meeting">
 
                     <!--タイトル-->

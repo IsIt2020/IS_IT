@@ -118,12 +118,6 @@ $(function () {
     */
     $('#submit').click(function () {
 
-        //選択肢が作成されていない場合中断
-        if($('#options input[type="date"]').length == 0) {
-            alert('開催日時の選択肢が作成されていません');
-            return false;
-        }
-
         $.each($('#options input[type="time"]'), function (index, element) {
             var date = $(element).parent().parent().parent().parent().parent().find('input[type="date"]').val();
             if (date == '') {
@@ -139,6 +133,13 @@ $(function () {
         //空欄チェック
         //投票を利用する場合
         if($('input[name="use-vote"]').prop('checked')){
+
+             //選択肢が作成されていない場合中断
+            if($('#options input[type="date"]').length == 0) {
+                alert('開催日時の選択肢が作成されていません');
+                return false;
+            }
+
             $.each($('#options input[type="time"]'), function (index, element) {
                 if($(element).val() == '') {
                     alert('時間が入力されていません');
@@ -156,7 +157,7 @@ $(function () {
             }           
         }
 
-        $('#form').submit();
+        $('form[name="register-seminar"]').submit();
     });
 });
 

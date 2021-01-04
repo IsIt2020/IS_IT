@@ -305,6 +305,7 @@ body a {
 @media (max-width: 1020px) {
     .main {
         width: auto;
+        
     }
 
     .top-block-wrap {
