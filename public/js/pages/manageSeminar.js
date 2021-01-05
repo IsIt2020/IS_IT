@@ -13,11 +13,11 @@ const tagTemplateTimeOption = ({ timeStart, timeEnd }) =>
 
         <div class="time">
             <div class="input-field time-start" title="開始時間">
-                <input  type="time" value="${timeStart}" name="time-option-start" required>
+                <input  type="time" value="${timeStart}" name="time-option-start">
             </div>
             <label class="tilde">~</label>
             <div class="input-field time-end" title="終了時間">
-                <input  type="time" value="${timeEnd}" name="time-option-end" required>
+                <input  type="time" value="${timeEnd}" name="time-option-end">
             </div>
         </div>
     </div>`;
@@ -69,13 +69,13 @@ $(function () {
             tagTemplateOptionOpen({}) +
             tagTemplateTimeOption({}) +
             tagTemplateOptionClose;
-        $(this).parent().parent().prepend(html);
+        $('#options').append(html);
 
         //削除ボタン表示切替
         switchVisibilityOfAllTheRemoveButtons();
 
         //「選択肢が作成されていません」表示切替
-        $('#no-options').css('display', $('#options').find('.schedule-date').length > 1 ? 'none' : 'block');
+        $('#no-options').css('display', $('#options').find('.schedule-date').length > 0 ? 'none' : 'block');
     });
 
     //時間削除ボタン押下
@@ -98,7 +98,7 @@ $(function () {
         $(this).parent().remove();
 
         //「選択肢が作成されていません」表示切替
-        $('#no-options').css('display', $('#options').find('.schedule-date').length > 1 ? 'none' : 'block');
+        $('#no-options').css('display', $('#options').find('.schedule-date').length > 0 ? 'none' : 'block');
     });
 
     //選択肢生成
@@ -110,18 +110,21 @@ $(function () {
         switchVisibilityOfAllTheRemoveButtons();
 
         //「選択肢が作成されていません」表示切替
-        $('#no-options').css('display', $('#options').find('.schedule-date').length > 1 ? 'none' : 'block');
+        $('#no-options').css('display', $('#options').find('.schedule-date').length > 0 ? 'none' : 'block');
     });
 
     /*  Submit前処理 
         時間選択肢の名前を整形してPHP側で配列として受け取れるようにする
     */
-    $('#submit').click(function () {
+    $('#btn-register').click(function () {
+
+        var hasError = false;
 
         $.each($('#options input[type="time"]'), function (index, element) {
             var date = $(element).parent().parent().parent().parent().parent().find('input[type="date"]').val();
             if (date == '') {
                 alert('日付が入力されていません');
+                hasError = true;
                 return false;
             }
             var currentName = $(this).prop('name').replace(/\[.*\]/, '');
@@ -137,12 +140,14 @@ $(function () {
              //選択肢が作成されていない場合中断
             if($('#options input[type="date"]').length == 0) {
                 alert('開催日時の選択肢が作成されていません');
+                hasError = true;
                 return false;
             }
 
             $.each($('#options input[type="time"]'), function (index, element) {
                 if($(element).val() == '') {
                     alert('時間が入力されていません');
+                    hasError = true;
                     return false;
                 }
             });
@@ -153,11 +158,14 @@ $(function () {
                 $('input[name="time-start"]').val() == '' ||
                 $('input[name="time-end"]').val() == '') {
                     alert('日時が入力されていません');
+                    hasError = true;
                     return false;
             }           
         }
 
-        $('form[name="register-seminar"]').submit();
+        if(!hasError){
+            $('form[name="register-seminar"]').submit();
+        }
     });
 });
 
@@ -178,7 +186,12 @@ function generateVoteOptions() {
     $('#options-material').find('input[name="time-option-end"]').each(function () {
         timeOptionsEnd.push($(this).val());
     });
-    //#endregion
+
+    //現在の選択肢
+    var currentOptions = [];
+    $('#options').find('input[type="date"]').each(function () {
+        currentOptions.push($(this).val());
+    });
 
     //HTMLタグ生成
     /**追加するHTMLタグ文字列 */
@@ -192,11 +205,17 @@ function generateVoteOptions() {
         //開始日から1日ずつ追加する
         var _dateOption = new Date(dateOptionStart);
         _dateOption.setDate(_dateOption.getDate() + i);
+
         //yyyy-mm-dd形式
         var dateOption =
             _dateOption.getFullYear() + '-' +
             ('00' + (_dateOption.getMonth() + 1)).slice(-2) + '-' +
             ('00' + (_dateOption.getDate())).slice(-2);
+
+        //現在の選択肢に既に存在する日付の場合スキップ
+        if(currentOptions.includes(dateOption)){
+            continue;
+        }
 
         //日付生成
         html += tagTemplateOptionOpen({ date: dateOption });
@@ -208,7 +227,7 @@ function generateVoteOptions() {
         }
         html += tagTemplateOptionClose;
     }
-    $('#options').prepend(html);
+    $('#options').append(html);
 }
 
 /**時間選択肢削除ボタン表示切替 
@@ -216,12 +235,12 @@ function generateVoteOptions() {
 */
 function switchVisibilityOfRemoveButton(obj) {
     //選択肢の個数が追加ボタンも含め2以下の場合、削除ボタンを非表示
-    obj.find('.remove').css('visibility', obj.find('.schedule-time').length <= 2 ? 'collapse' : 'visible');
+    obj.find('.remove').css('visibility', obj.find('.schedule-time').length < 0 ? 'collapse' : 'visible');
 }
 
 /**時間選択肢削除ボタン一括表示切替 */
 function switchVisibilityOfAllTheRemoveButtons() {
     $.each($('.schedule-time-table'), function (index, element) {
-        $(element).find('.remove').css('visibility', $(element).find('.schedule-time').length <= 2 ? 'collapse' : 'visible');
+        $(element).find('.remove').css('visibility', $(element).find('.schedule-time').length < 0 ? 'collapse' : 'visible');
     });
 }

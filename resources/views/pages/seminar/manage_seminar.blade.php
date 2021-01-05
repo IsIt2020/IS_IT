@@ -138,15 +138,17 @@
                         <h3>選択肢を編集</h3>
                         <p id="no-options" style="text-align: center; margin: 20px auto;">選択肢が作成されていません</p>
                         <!--投票日時テーブル-->
-                        <div id="options" class="schedule-date-table">
+                        <div id="options" class="schedule-date-table">                            
+                        </div>
 
+                        <div class="schedule-date-table">
                             <div class="schedule-date edit" title="日付を追加">
                                 <button type="button" class="add add-date"></button>
                             </div>
                         </div>
                     </div>
                     <div style="text-align: right;">
-                        <button  class="button-general ok" id="submit">作成</button>
+                        <button type="button" class="button-general ok" id="btn-register">作成</button>
                     </div>
                 </div>
             </form>
