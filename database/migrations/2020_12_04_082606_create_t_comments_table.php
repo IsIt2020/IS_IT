@@ -14,19 +14,20 @@ class CreateTCommentsTable extends Migration
     public function up()
     {
         Schema::create('t_comments', function (Blueprint $table) {
-
-            // コメントID(主キー)(※とりあえずsmallIncrementsにしてしまった)
-            $table->smallIncrements('comment_id');
-            // 記事の種類(これもlength1が効いてない)
-            $table->tinyInteger('article_kind')->length(1);
+            // コメントID(主キー)
+            $table->increments('comment_id')->comment('コメントID');
             // 記事ID
-            $table->smallInteger('article_id');
+            $table->unsignedInteger('article_id')->comment('記事ID');
             // コンテンツ
-            $table->mediumText('content');
+            $table->mediumText('content')->comment('コンテンツ');
             // 投稿者
-            $table->smallInteger('post_user');
-
+            $table->unsignedInteger('post_user')->comment('投稿者');
+            // 投稿日,更新日
+            $table->timestamps()->comment('投稿日,更新日');
         });
+
+        // テーブルコメント
+        DB::statement("ALTER TABLE users COMMENT '記事コメントテーブル'");
     }
 
     /**

@@ -15,28 +15,31 @@ class CreateTArticlesTable extends Migration
     {
         Schema::create('t_articles', function (Blueprint $table) {
             // 記事ID(主キー)
-            $table->smallIncrements('article_id');
-            // セミナーID
-            $table->smallInteger('seminer_id');
+            $table->increments('article_id')->comment('記事ID');
+            // 記事種類ID
+            $table->unsignedTinyInteger('article_kind')->comment('記事種類ID');
             // タイトル
-            $table->string('title', 255);
+            $table->string('title', 255)->comment('タイトル');
             // サブタイトル
-            $table->string('sub_title', 255)->nullable();
+            $table->string('sub_title', 255)->nullable()->comment('サブタイトル');
             // コンテンツ
-            $table->mediumText('content');
+            $table->mediumText('content')->comment('コンテンツ');
             // トップイメージ
-            $table->string('top_image', 255);
+            $table->string('top_image', 100)->comment('トップイメージ');
             // 投稿者
-            $table->smallInteger('post_user');
-            // 投稿日
-            $table->datetime('post_date');
-            // 更新日
-            $table->datetime('update_date');
-            // ステータス
-            $table->tinyInteger('status');
-            // 閲覧数(ミディアムの方が良さげのため型は符号なしmediumInt)
-            $table->unsignedMediumInteger('number_views');
+            $table->unsignedInteger('post_user')->comment('投稿者');
+            // ステータスid
+            $table->unsignedSmallInteger('status_id')->comment('ステータスid');
+            // 閲覧数
+            $table->unsignedInteger('number_views')->comment('閲覧数');
+            // 投稿日,更新日
+            $table->timestamps()->comment('投稿日,更新日');
+            // 削除フラグ
+            $table->boolean('is_deleted')->default(false)->comment('削除フラグ');
         });
+
+        // テーブルコメント
+        DB::statement("ALTER TABLE users COMMENT '記事テーブル'");
     }
 
     /**
