@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTKnowledgeArticlesTable extends Migration
+class CreateTArticlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateTKnowledgeArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('t_knowledge_articles', function (Blueprint $table) {
-
+        Schema::create('t_articles', function (Blueprint $table) {
             // 記事ID(主キー)
             $table->smallIncrements('article_id');
+            // セミナーID
+            $table->smallInteger('seminer_id');
             // タイトル
             $table->string('title', 255);
             // サブタイトル
@@ -25,9 +26,7 @@ class CreateTKnowledgeArticlesTable extends Migration
             $table->mediumText('content');
             // トップイメージ
             $table->string('top_image', 255);
-            // イメージ
-            $table->string('images', 255)->nullable();
-            // 投稿ユーザー
+            // 投稿者
             $table->smallInteger('post_user');
             // 投稿日
             $table->datetime('post_date');
@@ -47,6 +46,6 @@ class CreateTKnowledgeArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_knowledge_articles');
+        Schema::dropIfExists('t_articles');
     }
 }
