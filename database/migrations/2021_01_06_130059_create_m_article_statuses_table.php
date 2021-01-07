@@ -21,7 +21,7 @@ class CreateMArticleStatusesTable extends Migration
         });
 
         // テーブルコメント
-        DB::statement("ALTER TABLE users COMMENT '記事種類マスタ'");
+        DB::statement("ALTER TABLE m_article_statuses COMMENT '記事種類マスタ'");
     }
 
     /**

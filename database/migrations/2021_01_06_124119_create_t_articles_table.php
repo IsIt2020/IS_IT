@@ -39,7 +39,7 @@ class CreateTArticlesTable extends Migration
         });
 
         // テーブルコメント
-        DB::statement("ALTER TABLE users COMMENT '記事テーブル'");
+        DB::statement("ALTER TABLE t_articles COMMENT '記事テーブル'");
     }
 
     /**

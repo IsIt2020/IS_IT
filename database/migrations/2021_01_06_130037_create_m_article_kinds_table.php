@@ -21,7 +21,7 @@ class CreateMArticleKindsTable extends Migration
         });
 
         // テーブルコメント
-        DB::statement("ALTER TABLE users COMMENT '記事種類マスタ'");
+        DB::statement("ALTER TABLE m_article_kinds COMMENT '記事種類マスタ'");
     }
 
     /**
