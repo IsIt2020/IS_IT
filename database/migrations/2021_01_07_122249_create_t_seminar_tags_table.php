@@ -21,7 +21,7 @@ class CreateTSeminarTagsTable extends Migration
         });
 
         // テーブルコメント
-        DB::statement("ALTER TABLE  t_seminar_tag COMMENT 'セミナータグテーブル'");
+        DB::statement("ALTER TABLE  t_seminar_tags COMMENT 'セミナータグテーブル'");
     }
 
     /**
