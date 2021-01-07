@@ -15,7 +15,7 @@ class CreateMTagsTable extends Migration
     {
         Schema::create('m_tags', function (Blueprint $table) {
             //タグＩＤ
-            $table->smallIncrements('tag_id')->primary();
+            $table->smallIncrements('tag_id');
             //タグ名
             $table->string('tag_name', 30);
         });

@@ -15,7 +15,7 @@ class CreateMLanguagesTable extends Migration
     {
         Schema::create('m_languages', function (Blueprint $table) {
             //言語ＩＤ
-            $table->smallIncrements('language_id')->primary();
+            $table->smallIncrements('language_id');
             // 言語名
             $table->string('language_name', 30);
         });
