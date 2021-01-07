@@ -16,10 +16,13 @@ class CreateMAuthoritiesTable extends Migration
         Schema::create('m_authorities', function (Blueprint $table) {
             
             //権限ID(主キー)
-            $table->smallIncrements('authority_id');
+            $table->tinyInteger('authority_id')->comment('権限ID');
             //権限名
-            $table->string('authority_name', 30);
+            $table->string('authority_name', 30)->comment('権限名');
         });
+
+        // テーブルコメント
+        DB::statement("ALTER TABLE  m_authorities COMMENT '権限マスタ'");
     }
 
     /**
