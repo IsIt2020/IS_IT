@@ -20,7 +20,7 @@ class TMember extends Authenticatable
    */
   protected $fillable = [
       'member_id','mail_address','password','authority_flag','user_name',
-      'user_gender','user_birthdate','user_company','is_delete','insert_date'
+      'user_sex','user_birthdate','user_company','is_deleted','insert_date'
   ];
   /**
    * The attributes that should be hidden for arrays.
