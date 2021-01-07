@@ -18,6 +18,9 @@ class CreateTSeminarLanguagesTable extends Migration
             $table->unsignedInteger('seminar_id')->comment('セミナーID');
             // 言語ID
             $table->unsignedSmallInteger('language_id')->comment('言語ID');
+            
+            // 複合キー
+            $table->primary(['seminar_id', 'language_id']);
         });
 
         // テーブルコメント

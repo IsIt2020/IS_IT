@@ -17,7 +17,10 @@ class CreateTSeminarTagsTable extends Migration
             // セミナーID
             $table->unsignedInteger('seminar_id')->comment('セミナーID');
             // タグID
-            $table->unsignedSmallInteger('language_id')->comment('タグID');
+            $table->unsignedSmallInteger('tag_id')->comment('タグID');
+            
+            // 複合キー
+            $table->primary(['seminar_id', 'tag_id']);
         });
 
         // テーブルコメント

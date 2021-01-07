@@ -15,9 +15,12 @@ class CreateTArticleTagsTable extends Migration
     {
         Schema::create('t_article_tags', function (Blueprint $table) {
             // 記事ID
-            $table->unsignedInteger('article_id')->primary()->comment('記事ID');
+            $table->unsignedInteger('article_id')->comment('記事ID');
             // タグID
-            $table->unsignedSmallInteger('tag_id')->primary()->comment('タグID');
+            $table->unsignedSmallInteger('tag_id')->comment('タグID');
+
+            // 複合キー
+            $table->primary(['article_id', 'tag_id']);
         });
 
         // テーブルコメント
