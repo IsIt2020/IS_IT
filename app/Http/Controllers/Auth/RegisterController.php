@@ -177,7 +177,7 @@ class RegisterController extends Controller
             //会社
             'user_company' => $data['user_company'],
             //退会フラグ:0
-            'is_delete' => 0
+            'is_deleted' => 0
         ]);
     }
 }
