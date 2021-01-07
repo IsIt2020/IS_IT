@@ -23,7 +23,7 @@ class CreateTCommentsTable extends Migration
             // 投稿者
             $table->unsignedInteger('post_user')->comment('投稿者');
             // 投稿日,更新日
-            $table->timestamps()->comment('投稿日,更新日');
+            $table->timestamps();
         });
 
         // テーブルコメント

@@ -33,7 +33,7 @@ class CreateTArticlesTable extends Migration
             // 閲覧数
             $table->unsignedInteger('number_views')->comment('閲覧数');
             // 投稿日,更新日
-            $table->timestamps()->comment('投稿日,更新日');
+            $table->timestamps();
             // 削除フラグ
             $table->boolean('is_deleted')->default(false)->comment('削除フラグ');
         });
