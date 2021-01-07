@@ -167,7 +167,7 @@ class RegisterController extends Controller
             //パスワード(Hash)
             'password' => Hash::make($data['password']),
             //権限:0
-            'authority_flag' => 0,
+            'authority_id' => 0,
             //ニックネーム
             'user_name' => $data['user_name'],
             //性別
