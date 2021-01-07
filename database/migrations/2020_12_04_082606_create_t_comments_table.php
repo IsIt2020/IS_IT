@@ -27,7 +27,7 @@ class CreateTCommentsTable extends Migration
         });
 
         // テーブルコメント
-        DB::statement("ALTER TABLE users COMMENT '記事コメントテーブル'");
+        DB::statement("ALTER TABLE t_comments COMMENT '記事コメントテーブル'");
     }
 
     /**
