@@ -171,7 +171,7 @@ class RegisterController extends Controller
             //ニックネーム
             'user_name' => $data['user_name'],
             //性別
-            'user_sex' => $data['user_sex'],
+            'user_sex' => $data['user_gender'],
             //生年月日(yyyy-MM-dd)
             'user_birthdate' => $data['user_birthdate_y'] . '-' . $data['user_birthdate_m'] . '-' . $data['user_birthdate_d'],
             //会社
