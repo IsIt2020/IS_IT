@@ -15,7 +15,7 @@ class CreateMArticleStatusesTable extends Migration
     {
         Schema::create('m_article_statuses', function (Blueprint $table) {
             // 状態ID
-            $table->smallIncrements('status_id')->comment('状態ID');
+            $table->unsignedSmallInteger('status_id')->primary()->comment('状態ID');
             // 状態名
             $table->string('status_name', 16)->comment('状態名');
         });

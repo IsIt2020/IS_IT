@@ -25,7 +25,7 @@ class CreateTArticlesTable extends Migration
             // コンテンツ
             $table->mediumText('content')->comment('コンテンツ');
             // トップイメージ
-            $table->string('top_image', 100)->comment('トップイメージ');
+            $table->string('top_image', 100)->default('default_top.png')->comment('トップイメージ');
             // 投稿者
             $table->unsignedInteger('post_user')->comment('投稿者');
             // ステータスid
