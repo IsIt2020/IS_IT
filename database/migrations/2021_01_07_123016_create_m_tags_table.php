@@ -14,12 +14,10 @@ class CreateMTagsTable extends Migration
     public function up()
     {
         Schema::create('m_tags', function (Blueprint $table) {
-
-            // タグID(主キー)
-            $table->smallInteger('tag_id')->primary();
-            // タグ名
+            //タグＩＤ
+            $table->smallIncrements('tag_id')->primary();
+            //タグ名
             $table->string('tag_name', 30);
-
         });
     }
 

@@ -14,11 +14,10 @@ class CreateMLanguagesTable extends Migration
     public function up()
     {
         Schema::create('m_languages', function (Blueprint $table) {
-
-            // 言語ID(主キー)
-            $table->smallInteger('languages_id')->primary();
+            //言語ＩＤ
+            $table->smallIncrements('language_id')->primary();
             // 言語名
-            $table->string('languages_name', 30);
+            $table->string('language_name', 30);
         });
     }
 
