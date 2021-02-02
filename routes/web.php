@@ -29,10 +29,11 @@ Route::group(['middleware' => ['auth', 'can:manager']], function () {
 Route::get('/knowledge/yourPost', function () {
     return view('pages/knowledge/your_post');
 });
-// 投稿画面
-Route::get('/knowledge/postArticle', function () {
-    return view('pages/knowledge/post_article');
-});
+// ノウハウ記事投稿画面表示
+Route::get('/knowledge/postArticle', 'Knowledge\PostArticleController@index');
+// ノウハウ記事投稿処理
+Route::post('/knowledge/postArticle', 'Knowledge\PostArticleController@post');
+
 //記事の画像をアップロード
 Route::post('/knowledge/postArticle/upload', 'Common\ImageUploadController@upload');
 //記事の画像を取得

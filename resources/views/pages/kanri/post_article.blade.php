@@ -34,28 +34,28 @@
       </div>
     </div>
     <div class="edit-erea mx-3 mb-3 p-3">
-      <form name="post-form" class="" action="{{-- route('posts.create') --}}" method="post">
+      <form name="post-form" class="" action="/knowledge/postArticle'" method="post">
         <!-- タイトル -->
         <div class="form-group">
           <label for="input-title">Title</label>
-          <input type="text" class="form-control" id="input-title" placeholder="タイトル">
+          <input type="text" name="title" class="form-control" id="input-title" placeholder="タイトル">
         </div>
         <!-- サブタイトル -->
         <div class="form-group">
           <label for="input-sub-title">Sub-Title</label>
-          <input type="text" class="form-control" id="input-sub-title" placeholder="サブタイトル">
+          <input type="text" name="sub_title" class="form-control" id="input-sub-title" placeholder="サブタイトル">
         </div>
         <!-- 内容 -->
         <div class="form-group">
           <label for="textarea-content">Content</label>
-          <textarea class="form-control" id="textarea-content" rows="20"></textarea>
+          <textarea  name="content" class="form-control" id="textarea-content" rows="20"></textarea>
         </div>
         <!-- 記事ステータス -->
         <div class="form-group">
           <label for="exampleFormControlSelect1">Status</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>公開</option>
-            <option>一時保存</option>
+          <select name="status_id" class="form-control" id="exampleFormControlSelect1">
+            <option value="0">公開</option>
+            <option value="0">一時保存</option>
           </select>
         </div>
         <!-- 投稿ボタン -->
