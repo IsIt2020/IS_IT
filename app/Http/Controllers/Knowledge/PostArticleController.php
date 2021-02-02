@@ -28,13 +28,11 @@ class PostArticleController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'post_user' => 'required',
             'article_kind' => 'required',
             'title' => 'required|max:255',
             'content' => 'required',
             'status_id' => 'required',
         ]);
-
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
@@ -43,7 +41,7 @@ class PostArticleController extends Controller
             'article_kind' => $request->article_kind,
             'title' => $request->title,
             'content' => $request->content,
-            'post_user' => $request->post_user,
+            'post_user' => Auth::user()->member_id,
             'status_id' => $request->status_id,
             'number_views' => 0,
         ]);

@@ -55,8 +55,6 @@
     <div class="block compose">
         <form name="post-form" class="" action="{{url('/knowledge/postArticle')}}" method="post">
             @csrf
-            <!-- USER情報 -->
-            <input type="hidden" name='post_user' id='post_user' value={{ Auth::user()->member_id }}>
             <!-- article_kind -->
             <input type="hidden" name="article_kind" value="{{$article_kind}}">
             <!-- タイトル -->
