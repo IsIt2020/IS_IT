@@ -13,13 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // トップ画面への遷移
-Route::get('/', function () {
-    return view('pages/main/top');
-});
+Route::get('/', 'Main\TopController@index');
 
+/*
+|--------------------------------------------------------------------------
+| 非会員
+|--------------------------------------------------------------------------
+*/
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('knowledge/article', 'Knowledge\ArticleController');
 
-// manager権限のみ
+/*
+|--------------------------------------------------------------------------
+| manager権限
+|--------------------------------------------------------------------------
+*/
 Route::group(['middleware' => ['auth', 'can:manager']], function () {
 
     // knowledge関連

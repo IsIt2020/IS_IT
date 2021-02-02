@@ -25,6 +25,7 @@ class YourPostController extends Controller
         // 対象ユーザーが作成したlnowledge記事を一覧で取得
         $articles = TArticle::where('article_kind',$article_kind)
             ->where('post_user',$post_user)
+            ->orderBy('article_id', 'desc')
             ->get();
         
         return view('pages/knowledge/your_post', compact('articles'));

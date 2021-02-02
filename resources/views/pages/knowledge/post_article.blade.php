@@ -5,7 +5,6 @@
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/atom-one-dark.min.css">
 <link rel="stylesheet" href="{{ asset('css/components/article.css') }}">
 <link rel="stylesheet" href="{{ asset('css/pages/post_article.css') }}">
-<link rel="stylesheet" href="{{ asset('css/components/code-hilight.css') }}">
 <link rel="stylesheet" href="{{ asset('css/components/image-upload-modal.css') }}">
 @endsection
 @section('loadJS')

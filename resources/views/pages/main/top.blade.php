@@ -154,9 +154,10 @@
             <h2 class="block-wrap-title">最近の投稿</h2>
 
             <!--サンプル記事-->
+            @foreach($articles as $article)
             <div class="block article">
                 <h2>
-                    <a href="#">暇なときに見るサイト</a>
+                <a href="{{url('knowledge/article').'/'.$article->article_id.'/'}}">{{$article->title}}</a>
                 </h2>
                 <!--タグ-->
                 <div class="tag-area ">
@@ -172,7 +173,7 @@
                     <div class="article-desc-wrap">
                         <div class="article-desc">
                             <i class="fas fa-user-edit"></i>
-                            <p>Mitsuoka Jobs</p>
+                            <p>{{$article->user_name}}</p>
                         </div>
                         <div class="article-desc">
                             <p>1 day ago</p>
@@ -181,113 +182,12 @@
                     <div class="article-desc-wrap">
                         <div class="article-desc">
                             <i class="far fa-eye"></i>
-                            <p>1K views</p>
+                            <p>{{$article->number_views}} views</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!--サンプル記事-->
-            <div class="block article">
-                <h2>
-                    <a href="#">Laravel環境構築手順)</a>
-                </h2>
-                <!--タグ-->
-                <div class="tag-area ">
-                    <a>
-                        <p>PHP</p>
-                    </a>
-                    <a>
-                        <p>Laravel</p>
-                    </a>
-                    <a>
-                        <p>環境構築</p>
-                    </a>
-                </div>
-                <div>
-                    <!--投稿者, 投稿日時, 更新日時-->
-                    <div class="article-desc-wrap">
-                        <div class="article-desc">
-                            <i class="fas fa-user-edit"></i>
-                            <p>mis_o_ramen</p>
-                        </div>
-                        <div class="article-desc">
-                            <p>1 day ago</p>
-                        </div>
-                    </div>
-                    <div class="article-desc-wrap">
-                        <div class="article-desc">
-                            <i class="far fa-eye"></i>
-                            <p>1K views</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--サンプル記事-->
-            <div class="block article">
-                <h2>
-                    <a href="#">流行りのプログラミング言語2020(TOBIE)</a>
-                </h2>
-                <!--タグ-->
-                <div class="tag-area ">
-                    <a>
-                        <p>プログラミング言語</p>
-                    </a>
-                </div>
-                <div>
-                    <!--投稿者, 投稿日時, 更新日時-->
-                    <div class="article-desc-wrap">
-                        <div class="article-desc">
-                            <i class="fas fa-user-edit"></i>
-                            <p>mis_o_ramen</p>
-                        </div>
-                        <div class="article-desc">
-                            <p>1 day ago</p>
-                        </div>
-                    </div>
-                    <div class="article-desc-wrap">
-                        <div class="article-desc">
-                            <i class="far fa-eye"></i>
-                            <p>1K views</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--サンプル記事-->
-            <div class="block article">
-                <h2>
-                    <a href="#">暇なときに見るサイト</a>
-                </h2>
-                <!--タグ-->
-                <div class="tag-area ">
-                    <a>
-                        <p>暇</p>
-                    </a>
-                    <a>
-                        <p>サイト</p>
-                    </a>
-                </div>
-                <div>
-                    <!--投稿者, 投稿日時, 更新日時-->
-                    <div class="article-desc-wrap">
-                        <div class="article-desc">
-                            <i class="fas fa-user-edit"></i>
-                            <p>Mitsuoka Jobs</p>
-                        </div>
-                        <div class="article-desc">
-                            <p>1 day ago</p>
-                        </div>
-                    </div>
-                    <div class="article-desc-wrap">
-                        <div class="article-desc">
-                            <i class="far fa-eye"></i>
-                            <p>1K views</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
         <div class="block article">
