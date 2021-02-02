@@ -78,26 +78,24 @@
 
     <!--記事一覧-->
     <div class="articles">
-
+        @foreach($articles as $article)
         <div class="block article">
             <h2>
-                <a href="#">暇なときに見るサイト</a>
+                <a href="#">{{$article->title}}</a>
             </h2>
-
             <button class="btn-show-delete">
                 <i class="far fa-trash-alt"></i>
             </button>
             <button class="btn-delete">
                 削除
             </button>
-
             <!--タグ-->
             <div class="tag-area ">
                 <a>
-                    <p>暇</p>
+                    <p>暇(仮)</p>
                 </a>
                 <a>
-                    <p>サイト</p>
+                    <p>サイト(仮)</p>
                 </a>
             </div>
             <div>
@@ -105,21 +103,22 @@
                 <div class="article-desc-wrap">
                     <div class="article-desc">
                         <i class="far fa-calendar-plus"></i>
-                        <p>2020/11/24</p>
+                        <p>{{$article->created_at}}</p>
                     </div>
                     <div class="article-desc">
                         <i class="fas fa-sync"></i>
-                        <p>2020/11/25</p>
+                        <p>{{$article->updated_at}}</p>
                     </div>
                 </div>
                 <div class="article-desc-wrap">
                     <div class="article-desc">
                         <i class="far fa-eye"></i>
-                        <p>1K views</p>
+                        <p>{{$article->number_views}} views</p>
                     </div>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
     <!--記事投稿画面へ-->
     <form class="" action="/knowledge/postArticle" method="get">

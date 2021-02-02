@@ -24,9 +24,7 @@ Route::group(['middleware' => ['auth', 'can:manager']], function () {
 
     // knowledge関連
     // Your Post画面
-    Route::get('/knowledge/yourPost', function () {
-        return view('pages/knowledge/your_post');
-    });
+    Route::get('/knowledge/yourPost', 'Knowledge\YourPostController@index');
     // ノウハウ記事投稿画面表示
     Route::get('/knowledge/postArticle', 'Knowledge\PostArticleController@index');
     // ノウハウ記事投稿処理
