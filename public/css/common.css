@@ -44,3 +44,8 @@ p, label {
 .row {
     width: 100%;
 }
+
+a:hover {
+    color: #333333;
+    text-decoration: underline;
+  }
