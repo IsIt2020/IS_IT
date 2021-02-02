@@ -118,8 +118,9 @@
             <!-- 記事ステータス -->
             <div class="input-field">
                 <select name="status_id" style="height: 40px;">
-                    <option value="0">公開</option>
-                    <option value="0">下書き保存(非公開)</option>
+                    @foreach ($article_statuses as $status)
+                    <option value="{{$status->status_id}}">{{$status->status_name}}</option>
+                    @endforeach
                 </select>
             </div>
             <!-- 投稿ボタン -->

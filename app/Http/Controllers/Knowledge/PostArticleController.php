@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\TArticle;
+use App\Models\MArticleStatus;
 
 class PostArticleController extends Controller
 {
@@ -17,9 +18,11 @@ class PostArticleController extends Controller
      */
     public function index()
     {
+        $article_statuses = MArticleStatus::get();
+        // 記事の種類を定義
         $article_kind = config('const.db.m_article_kinds.knowledge.ID');
 
-        return view('pages/knowledge/post_article', compact('article_kind'));
+        return view('pages/knowledge/post_article', compact('article_kind','article_statuses'));
     }
 
     public function store(Request $request)
