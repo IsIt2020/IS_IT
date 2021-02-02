@@ -7,6 +7,12 @@ $(function () {
         $('#enable-TOC').change();
     });
 
+    var value = $('#editor').val();
+    //マークダウンからHTML生成
+    $('#result').html(markdown(value));
+    //コードハイライト
+    highlightCode();
+
     //#region プレビュー表示
     //タイトル
     $('#title').keyup(function (e) {

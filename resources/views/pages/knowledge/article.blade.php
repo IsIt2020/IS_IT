@@ -11,17 +11,13 @@
 <script src="{{ asset('js/lib/marked.js') }}"></script>
 <script src="{{ asset('js/lib/highlight.pack.js') }}"></script>
 <script src="{{ asset('js/lib/ArticleControl.js') }}"></script>
-<!-- ここから file upload用のscript -->
-@component('components.fileUploadScript')
-@endcomponent
-<!-- ここまで file upload用のscript -->
 @endsection
 
 <!--ページタイトル指定-->
-@section('title', 'Post Article')
+@section('title', 'Article')
 
 <!--Navigationbarタイトル指定-->
-@section('nav_title', 'Post Article')
+@section('nav_title', 'Article')
 
 @section('main-container')
 <div class="main">

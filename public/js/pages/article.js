@@ -3,10 +3,11 @@ $(function () {
     $(window).on('load', function () {
         loadArticle($('#result').text(), true);
     });
+    loadArticle($('#result').text(), true);
 
     //目次クリックで対象までスクロール
     var headerHight = 100;
-    $('#headline').on('click', 'a[href^=#]', function () {
+    $('#headline').on('click', 'a[href^="#"]', function () {
         var speed = 500;
         var href = $(this).attr("href");
         var target = $(href == "#" || href == "" ? 'html' : href);
