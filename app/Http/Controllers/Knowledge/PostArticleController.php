@@ -53,7 +53,7 @@ class PostArticleController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-
+        // 記事を保存
         $t_article = TArticle::create([
             'article_kind' => config('const.db.m_article_kinds.knowledge.ID'),
             'title' => $request->title,
@@ -63,6 +63,15 @@ class PostArticleController extends Controller
             'status_id' => $request->status_id,
             'number_views' => 0,
         ]);
+        // タグ関連処理
+        // タグを取得
+        $tags = $request->tags;
+        // スペースで分割
+        $tag_ary = explode(" ",$tags);
+        foreach ($tag_ary as $tag) {
+            
+        }
+
         return redirect('/knowledge/yourPost');
     }
 
