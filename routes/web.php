@@ -22,24 +22,24 @@ Route::get('/home', 'HomeController@index')->name('home');
 // manager権限のみ
 Route::group(['middleware' => ['auth', 'can:manager']], function () {
 
-});
+    // knowledge関連
+    // Your Post画面
+    Route::get('/knowledge/yourPost', function () {
+        return view('pages/knowledge/your_post');
+    });
+    // ノウハウ記事投稿画面表示
+    Route::get('/knowledge/postArticle', 'Knowledge\PostArticleController@index');
+    // ノウハウ記事投稿処理
+    Route::post('/knowledge/postArticle', 'Knowledge\PostArticleController@store');
 
-// knowledge関連
-// Your Post画面
-Route::get('/knowledge/yourPost', function () {
-    return view('pages/knowledge/your_post');
-});
-// ノウハウ記事投稿画面表示
-Route::get('/knowledge/postArticle', 'Knowledge\PostArticleController@index');
-// ノウハウ記事投稿処理
-Route::post('/knowledge/postArticle', 'Knowledge\PostArticleController@post');
+    //記事の画像をアップロード
+    Route::post('/knowledge/postArticle/upload', 'Common\ImageUploadController@upload');
+    //記事の画像を取得
+    Route::get('/knowledge/postArticle/upload', 'Common\ImageUploadController@getImages');
+    //記事の画像を削除
+    Route::post('/postArticle/image/delete', 'Common\ImageUploadController@delete');
 
-//記事の画像をアップロード
-Route::post('/knowledge/postArticle/upload', 'Common\ImageUploadController@upload');
-//記事の画像を取得
-Route::get('/knowledge/postArticle/upload', 'Common\ImageUploadController@getImages');
-//記事の画像を削除
-Route::post('/postArticle/image/delete', 'Common\ImageUploadController@delete');
+});
 
 #region AuthRouteMethods.php auth()より移植
 Route::prefix('auth')->group(function(){

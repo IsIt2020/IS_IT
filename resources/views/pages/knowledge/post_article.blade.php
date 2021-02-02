@@ -53,73 +53,80 @@
 <!--投稿ブロック-->
 <div class="block-wrap">
     <div class="block compose">
-        <h1 class="font-decorated">Title</h1>
-        <div class="input-field">
-            <input type="text" id="title" style="font-size: 1.5em;" class="article">
-        </div>
-
-        <h1 class="font-decorated">Sub Title</h1>
-        <div class="input-field">
-            <input type="text" id="sub-title" style="font-size: 1.5em;" class="article">
-        </div>
-
-        <div style="display: flex;">
-            <h1 class="font-decorated">Content</h1>
-            <div style="margin: auto 0 0 auto; display: flex;">
-                <p style="margin-right: 10px;">目次を表示</p>
-                <div class="toggle-switch-wrap" style="margin: auto;">
-                    <input type="checkbox" id="enable-TOC" class="toggle-switch-cb">
-                    <label class="toggle-switch" for="enable-TOC"></label>
-                    <label class="toggle-switch-bg" for="enable-TOC">
-                    </label>
+        <form name="post-form" class="" action="{{url('/knowledge/postArticle')}}" method="post">
+            @csrf
+            <!-- USER情報 -->
+            <input type="hidden" name='post_user' id='post_user' value={{ Auth::user()->member_id }}>
+            <!-- article_kind -->
+            <input type="hidden" name="article_kind" value="{{$article_kind}}">
+            <!-- タイトル -->
+            <h1 class="font-decorated">Title</h1>
+            <div class="input-field">
+                <input type="text" name="title" id="title" style="font-size: 1.5em;" class="article">
+            </div>
+            <!-- サブタイトル -->
+            <h1 class="font-decorated">Sub Title</h1>
+            <div class="input-field">
+                <input type="text" name="sub-title" id="sub-title" style="font-size: 1.5em;" class="article">
+            </div>
+            <!-- テキストエリア上部 -->
+            <div style="display: flex;">
+                <h1 class="font-decorated">Content</h1>
+                <div style="margin: auto 0 0 auto; display: flex;">
+                    <p style="margin-right: 10px;">目次を表示</p>
+                    <div class="toggle-switch-wrap" style="margin: auto;">
+                        <input type="checkbox" id="enable-TOC" class="toggle-switch-cb">
+                        <label class="toggle-switch" for="enable-TOC"></label>
+                        <label class="toggle-switch-bg" for="enable-TOC">
+                        </label>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="markdown font-decorated">
-            <button class="markdown-btn" id="bold" title="Bold"><b>B</b></button>
-            <button class="markdown-btn" id="italic" title="Italic"><i>I</i></button>
-            <button class="markdown-btn" id="del" title="Remove Line"><del>S</del></button>
-            <button class="markdown-btn" id="codeInline" title="Inline Code">C</button>
-            <button class="markdown-btn" id="h1" title="Heading 1">H1</button>
-            <button class="markdown-btn" id="h2" title="Heading 2">H2</button>
-            <button class="markdown-btn" id="h3" title="Heading 3">H3</button>
-            <button class="markdown-btn" id="listDot" title="Unorderd List">
-                <i class="fas fa-list-ul"></i></button>
-            <button class="markdown-btn" id="listOrder" title="Ordered List">
-                <i class="fas fa-list-ol"></i></button>
-            <button class="markdown-btn" id="quote" title="Quote">
-                <i class="fas fa-quote-right"></i></button>
-            <button class="markdown-btn" id="code" title="Hilighted Code">
-                <i class="fas fa-code"></i></button>
-            <button class="markdown-btn" id="link" title="Link">
-                <i class="fas fa-link"></i></button>
-            <button class="markdown-btn" id="image" title="Image">
-                <i class="far fa-file-image"></i></button>
-            <button type="button" id="open-modal" class="markdown-btn" data-toggle="modal" data-target="#imageUploadModal">
-                <i class="fas fa-file-upload"></i></button>
-        </div>
-
-        <div class="input-field">
-            <textarea id="editor" class="article"></textarea>
-        </div>
-
-        <h1 class="font-decorated">Tags</h1>
-        <div class="input-field">
-            <input type="text" id="input-tag" placeholder="スペース区切りでタグを追加   例: PHP Laravel">
-        </div>
-
-        <div class="input-field">
-
-            <select name="submission-type" style="height: 40px;">
-                <option value="public">公開</option>
-                <option value="draft">下書き保存(非公開)</option>
-            </select>
-        </div>
-
-        <div style="text-align: right;">
-            <button class="button-general ok">投稿</button>
-        </div>
+            <div class="markdown font-decorated">
+                <button class="markdown-btn" id="bold" title="Bold"><b>B</b></button>
+                <button class="markdown-btn" id="italic" title="Italic"><i>I</i></button>
+                <button class="markdown-btn" id="del" title="Remove Line"><del>S</del></button>
+                <button class="markdown-btn" id="codeInline" title="Inline Code">C</button>
+                <button class="markdown-btn" id="h1" title="Heading 1">H1</button>
+                <button class="markdown-btn" id="h2" title="Heading 2">H2</button>
+                <button class="markdown-btn" id="h3" title="Heading 3">H3</button>
+                <button class="markdown-btn" id="listDot" title="Unorderd List">
+                    <i class="fas fa-list-ul"></i></button>
+                <button class="markdown-btn" id="listOrder" title="Ordered List">
+                    <i class="fas fa-list-ol"></i></button>
+                <button class="markdown-btn" id="quote" title="Quote">
+                    <i class="fas fa-quote-right"></i></button>
+                <button class="markdown-btn" id="code" title="Hilighted Code">
+                    <i class="fas fa-code"></i></button>
+                <button class="markdown-btn" id="link" title="Link">
+                    <i class="fas fa-link"></i></button>
+                <button class="markdown-btn" id="image" title="Image">
+                    <i class="far fa-file-image"></i></button>
+                <button type="button" id="open-modal" class="markdown-btn" data-toggle="modal" data-target="#imageUploadModal">
+                    <i class="fas fa-file-upload"></i></button>
+            </div>
+            <!-- 内容 -->
+            <div class="input-field">
+                <textarea name="content" id="editor" class="article"></textarea>
+            </div>
+            <!-- 記事タグ -->
+            <h1 class="font-decorated">Tags</h1>
+            <div class="input-field">
+                <input name="tags" type="text" id="input-tag" placeholder="スペース区切りでタグを追加   例: PHP Laravel">
+            </div>
+            <!-- 記事ステータス -->
+            <div class="input-field">
+                <select name="status_id" style="height: 40px;">
+                    <option value="0">公開</option>
+                    <option value="0">下書き保存(非公開)</option>
+                </select>
+            </div>
+            <!-- 投稿ボタン -->
+            <div style="text-align: right;">
+                <button class="button-general ok">投稿</button>
+            </div>
+        </form>
     </div>
 
     <!--プレビューブロック-->
