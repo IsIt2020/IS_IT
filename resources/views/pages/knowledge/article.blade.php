@@ -58,9 +58,7 @@
             <div id="headline" class="headline" style="display: none">
             </div>
 
-            <div id="result" class="article main">
-            {{$article->content}}
-            </div>
+            <div id="result" class="article main">{{$article->content}}</div>
         </div>
     </div>
 </div>
