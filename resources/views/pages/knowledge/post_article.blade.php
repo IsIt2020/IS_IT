@@ -53,19 +53,24 @@
 <!--投稿ブロック-->
 <div class="block-wrap">
     <div class="block compose">
+        @if(isset($article))
+        <form name="post-form" class="" action="{{url('/knowledge/postArticle').'/'.$article->article_id}}" method="post">
+        @else
         <form name="post-form" class="" action="{{url('/knowledge/postArticle')}}" method="post">
+        @endif
             @csrf
-            <!-- article_kind -->
-            <input type="hidden" name="article_kind" value="{{$article_kind}}">
+            @if(isset($article))
+            @method('PUT')
+            @endif
             <!-- タイトル -->
             <h1 class="font-decorated">Title</h1>
             <div class="input-field">
-                <input type="text" name="title" id="title" style="font-size: 1.5em;" class="article" value="{{old('title')}}">
+                <input type="text" name="title" id="title" style="font-size: 1.5em;" class="article" value="{{isset($article) ? old('title', $article->title) : old('title')}}">
             </div>
             <!-- サブタイトル -->
             <h1 class="font-decorated">Sub Title</h1>
             <div class="input-field">
-                <input type="text" name="sub-title" id="sub-title" style="font-size: 1.5em;" class="article" value="{{old('sub-title')}}">
+                <input type="text" name="sub_title" id="sub-title" style="font-size: 1.5em;" class="article" value="{{isset($article) ? old('sub_title', $article->sub_title) : old('sub_title')}}">
             </div>
             <!-- テキストエリア上部 -->
             <div style="display: flex;">
@@ -106,7 +111,7 @@
             </div>
             <!-- 内容 -->
             <div class="input-field">
-                <textarea name="content" id="editor" class="article">{{old('content')}}</textarea>
+                <textarea name="content" id="editor" class="article">{{isset($article) ? old('content', $article->content) : old('content')}}</textarea>
             </div>
             <!-- 記事タグ -->
             <h1 class="font-decorated">Tags</h1>
@@ -117,13 +122,21 @@
             <div class="input-field">
                 <select name="status_id" style="height: 40px;">
                     @foreach ($article_statuses as $status)
+                    @if(isset($article))
+                    <option value="{{$status->status_id}}" {{old('status_id', $article->status_id) == $status->status_id ? 'selected' : '' }}>{{$status->status_name}}</option>
+                    @else
                     <option value="{{$status->status_id}}" {{old('status_id') == $status->status_id ? 'selected' : '' }}>{{$status->status_name}}</option>
+                    @endif
                     @endforeach
                 </select>
             </div>
             <!-- 投稿ボタン -->
             <div style="text-align: right;">
+                @if(isset($article))
+                <button type="submit" class="button-general ok">更新</button>
+                @else
                 <button class="button-general ok">投稿</button>
+                @endif
             </div>
         </form>
     </div>

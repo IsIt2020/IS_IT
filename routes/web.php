@@ -23,17 +23,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth', 'can:manager']], function () {
 
     // knowledge関連
-    // Your Post画面
-    Route::get('/knowledge/yourPost', 'Knowledge\YourPostController@index');
-    // ノウハウ記事投稿画面表示
-    Route::get('/knowledge/postArticle', 'Knowledge\PostArticleController@index');
-    // ノウハウ記事投稿処理
-    Route::post('/knowledge/postArticle', 'Knowledge\PostArticleController@store');
+    Route::prefix('knowledge')->group(function(){
+        // Your Post画面
+        Route::get('/yourPost', 'Knowledge\YourPostController@index');
+        // ノウハウ記事投稿関連(RESTful化)
+        Route::resource('/postArticle', 'Knowledge\PostArticleController');
+    });
 
     //記事の画像をアップロード
-    Route::post('/knowledge/postArticle/upload', 'Common\ImageUploadController@upload');
+    Route::post('/postArticle/image/upload', 'Common\ImageUploadController@upload');
     //記事の画像を取得
-    Route::get('/knowledge/postArticle/upload', 'Common\ImageUploadController@getImages');
+    Route::get('/postArticle/image/upload', 'Common\ImageUploadController@getImages');
     //記事の画像を削除
     Route::post('/postArticle/image/delete', 'Common\ImageUploadController@delete');
 

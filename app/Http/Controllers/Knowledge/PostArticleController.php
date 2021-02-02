@@ -19,16 +19,33 @@ class PostArticleController extends Controller
      */
     public function index()
     {
+        // 記事ステータス一覧を取得
         $article_statuses = MArticleStatus::get();
-        // 記事の種類を定義
-        $article_kind = config('const.db.m_article_kinds.knowledge.ID');
-        return view('pages/knowledge/post_article', compact('article_kind','article_statuses'));
+        return view('pages/knowledge/post_article', compact('article_statuses'));
     }
 
+    /**
+     * ノウハウ記事投稿画面を表示
+     *
+     * @return \Illuminate\View\View
+     */
+    public function edit($article_id)
+    {
+        // 記事ステータス一覧を取得
+        $article_statuses = MArticleStatus::get();
+        // 対象記事を取得
+        $article = TArticle::where('article_id',$article_id)->first();
+        return view('pages/knowledge/post_article', compact('article_statuses','article'));
+    }
+    
+    /**
+     * 投稿記事を保存
+     *
+     * @return \Illuminate\View\View
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'article_kind' => 'required',
             'title' => 'required|max:255',
             'content' => 'required',
             'status_id' => 'required',
@@ -38,13 +55,40 @@ class PostArticleController extends Controller
         }
 
         $t_article = TArticle::create([
-            'article_kind' => $request->article_kind,
+            'article_kind' => config('const.db.m_article_kinds.knowledge.ID'),
             'title' => $request->title,
+            'sub_title' => $request->sub_title,
             'content' => $request->content,
             'post_user' => Auth::user()->member_id,
             'status_id' => $request->status_id,
             'number_views' => 0,
         ]);
+        return redirect('/knowledge/yourPost');
+    }
+
+    /**
+     * 投稿記事を保存
+     *
+     * @return \Illuminate\View\View
+     */
+    public function update(Request $request, $article_id)
+    {
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|max:255',
+            'content' => 'required',
+            'status_id' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        $t_article = TArticle::where('article_id', $article_id)
+            ->update([
+                'title' => $request->title,
+                'sub_title' => $request->sub_title,
+                'content' => $request->content,
+                'status_id' => $request->status_id,
+            ]);
         return redirect('/knowledge/yourPost');
     }
 }

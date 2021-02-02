@@ -2,7 +2,7 @@
 $(function () {
   'use strict';
   var ajax_url = '/postArticle/image/';
-  var url = '/knowledge/postArticle/upload';
+  var url = '/postArticle/image/upload';
   var uploadModal = $('#imageUploadModal');
   var is_inserted = $("#is-inserted");
 

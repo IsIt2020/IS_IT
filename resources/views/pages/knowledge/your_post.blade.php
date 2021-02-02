@@ -73,7 +73,7 @@
     <!--検索結果-->
     <div class="result">
         <h2>暇なときに</h2>
-        <p>結果:4件</p>
+        <p>結果:{{count($articles)}}件</p>
     </div>
 
     <!--記事一覧-->
@@ -81,7 +81,7 @@
         @foreach($articles as $article)
         <div class="block article">
             <h2>
-                <a href="#">{{$article->title}}</a>
+                <a href="{{url('/knowledge/postArticle').'/'.$article->article_id.'/edit'}}">{{$article->title}}</a>
             </h2>
             <button class="btn-show-delete">
                 <i class="far fa-trash-alt"></i>
@@ -121,7 +121,7 @@
         @endforeach
     </div>
     <!--記事投稿画面へ-->
-    <form class="" action="/knowledge/postArticle" method="get">
+    <form class="" action="{{url('/knowledge/postArticle')}}" method="get">
       <button class="post-new-article">
           <i class="fas fa-plus"></i>
       </button>
