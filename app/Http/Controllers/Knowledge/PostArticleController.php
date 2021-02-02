@@ -21,7 +21,6 @@ class PostArticleController extends Controller
         $article_statuses = MArticleStatus::get();
         // 記事の種類を定義
         $article_kind = config('const.db.m_article_kinds.knowledge.ID');
-
         return view('pages/knowledge/post_article', compact('article_kind','article_statuses'));
     }
 
@@ -37,7 +36,7 @@ class PostArticleController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
-        TArticle::create([
+        $t_article = TArticle::create([
             'article_kind' => $request->article_kind,
             'title' => $request->title,
             'content' => $request->content,

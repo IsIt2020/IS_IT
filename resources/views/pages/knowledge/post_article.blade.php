@@ -60,12 +60,12 @@
             <!-- タイトル -->
             <h1 class="font-decorated">Title</h1>
             <div class="input-field">
-                <input type="text" name="title" id="title" style="font-size: 1.5em;" class="article">
+                <input type="text" name="title" id="title" style="font-size: 1.5em;" class="article" value="{{old('title')}}">
             </div>
             <!-- サブタイトル -->
             <h1 class="font-decorated">Sub Title</h1>
             <div class="input-field">
-                <input type="text" name="sub-title" id="sub-title" style="font-size: 1.5em;" class="article">
+                <input type="text" name="sub-title" id="sub-title" style="font-size: 1.5em;" class="article" value="{{old('sub-title')}}">
             </div>
             <!-- テキストエリア上部 -->
             <div style="display: flex;">
@@ -106,18 +106,18 @@
             </div>
             <!-- 内容 -->
             <div class="input-field">
-                <textarea name="content" id="editor" class="article"></textarea>
+                <textarea name="content" id="editor" class="article">{{old('content')}}</textarea>
             </div>
             <!-- 記事タグ -->
             <h1 class="font-decorated">Tags</h1>
             <div class="input-field">
-                <input name="tags" type="text" id="input-tag" placeholder="スペース区切りでタグを追加   例: PHP Laravel">
+                <input name="tags" type="text" id="input-tag" value="{{old('tags')}}" placeholder="スペース区切りでタグを追加   例: PHP Laravel">
             </div>
             <!-- 記事ステータス -->
             <div class="input-field">
                 <select name="status_id" style="height: 40px;">
                     @foreach ($article_statuses as $status)
-                    <option value="{{$status->status_id}}">{{$status->status_name}}</option>
+                    <option value="{{$status->status_id}}" {{old('status_id') == $status->status_id ? 'selected' : '' }}>{{$status->status_name}}</option>
                     @endforeach
                 </select>
             </div>
