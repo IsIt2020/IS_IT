@@ -1,11 +1,12 @@
 /**記事に目次を表示するフラグ */
 var enableTOC = false;
 
+//ページロード時はデフォルトで目次を非表示
+$(window).on('load', function () {
+    $('#enable-TOC').change();
+});
+
 $(function () {
-    //ページロード時はデフォルトで目次を非表示
-    $(window).on('load', function () {
-        $('#enable-TOC').change();
-    });
 
     var value = $('#editor').val();
     //マークダウンからHTML生成

@@ -1,8 +1,9 @@
+$(window).on('load', function () {
+    loadArticle($('#result').text(), true);
+});
+
 $(function () {
 
-    $(window).on('load', function () {
-        loadArticle($('#result').text(), true);
-    });
     loadArticle($('#result').text(), true);
 
     //目次クリックで対象までスクロール
