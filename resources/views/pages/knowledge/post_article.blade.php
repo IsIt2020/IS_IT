@@ -12,7 +12,6 @@
 <script src="{{ asset('js/lib/marked.js') }}"></script>
 <script src="{{ asset('js/lib/highlight.pack.js') }}"></script>
 <script src="{{ asset('js/lib/ArticleControl.js') }}"></script>
-<script src="{{ asset('js/lib/jquery.ui.widget.js') }}"></script>
 <script src="{{ asset('js/lib/jquery.fileupload.js') }}"></script>
 <!-- ここから file upload用のscript -->
 @component('components.fileUploadScript')
