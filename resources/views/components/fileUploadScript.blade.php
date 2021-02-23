@@ -1,8 +1,8 @@
 <script>
 $(function () {
   'use strict';
-  var ajax_url = '/postArticle/image/';
-  var url = '/postArticle/image/upload';
+  var ajax_url = '{{url("/postArticle/image/")}}';
+  var url = '{{url("/postArticle/image/upload")}}';
   var uploadModal = $('#imageUploadModal');
   var is_inserted = $("#is-inserted");
 
