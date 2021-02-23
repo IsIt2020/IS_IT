@@ -19,9 +19,9 @@ class CreateTArticlesTable extends Migration
             // 記事種類ID
             $table->unsignedTinyInteger('article_kind')->comment('記事種類ID');
             // タイトル
-            $table->string('title', 255)->comment('タイトル');
+            $table->string('title')->comment('タイトル');
             // サブタイトル
-            $table->string('sub_title', 255)->nullable()->comment('サブタイトル');
+            $table->string('sub_title')->nullable()->comment('サブタイトル');
             // コンテンツ
             $table->mediumText('content')->comment('コンテンツ');
             // トップイメージ

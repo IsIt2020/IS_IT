@@ -23,7 +23,7 @@ class CreateTMembersTable extends Migration
             // メールアドレス
             $table->string('mail_address', 100)->comment('メールアドレス');
             // パスワード
-            $table->string('password', 255)->comment('パスワード(ハッシュ化)');
+            $table->string('password')->comment('パスワード(ハッシュ化)');
             // 権限ID
             $table->tinyInteger('authority_id')->default(0)->comment('権限ID');
             // ニックネーム
@@ -33,7 +33,7 @@ class CreateTMembersTable extends Migration
             // 生年月日
             $table->date('user_birthdate')->comment('生年月日');
             // 会社
-            $table->string('user_company', 255)->nullable()->comment('会社');
+            $table->string('user_company')->nullable()->comment('会社');
             // ログイン情報保持用
             $table->rememberToken()->comment('ログイン情報保持用');
             // 会員登録日
