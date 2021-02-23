@@ -24,7 +24,7 @@
 
     </div>
     <div class="nav">
-        <a class="nav_b_logo" href="/">IS IT</a>
+        <a class="nav_b_logo" href="{{url('/')}}">IS IT</a>
         <p class="nav_b_title">@yield('nav_title')</p>
         <div class="nav_b">
             <a class="nav-link" href="#">Link A</a>
