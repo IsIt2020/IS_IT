@@ -31,7 +31,7 @@
             <a class="nav-link" href="#">Link B</a>
             <a class="nav-link" href="#">Link C</a>
             <a class="nav-link" href="#">Link D</a>
-            <a class="nav-link" href="/knowledge/yourPost">YOUR POST</a>
+            <a class="nav-link" href="{{url('/knowledge/yourPost')}}">YOUR POST</a>
         </div>
 
         <label class="hamburger" for="hamburger">
@@ -45,7 +45,7 @@
                 <a class="nav-link side" href="#">Link B</a>
                 <a class="nav-link side" href="#">Link C</a>
                 <a class="nav-link side" href="#">Link D</a>
-                <a class="nav-link side" href="/knowledge/yourPost">YOUR POST</a>
+                <a class="nav-link side" href="{{url('/knowledge/yourPost')}}">YOUR POST</a>
             </div>
         </label>
     </div>
