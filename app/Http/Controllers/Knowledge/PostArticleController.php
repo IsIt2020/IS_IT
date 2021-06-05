@@ -43,16 +43,8 @@ class PostArticleController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function store(Request $request)
+    public function store(PostArticleRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'title' => 'required|max:255',
-            'content' => 'required',
-            'status_id' => 'required',
-        ]);
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
         // 記事を保存
         $t_article = TArticle::create([
             'article_kind' => config('const.db.m_article_kinds.knowledge.ID'),
