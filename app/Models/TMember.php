@@ -9,8 +9,6 @@ use Illuminate\Notifications\Notifiable;
 class TMember extends Authenticatable
 {
   use Notifiable;
-  // IDを指定
-  protected $primaryKey = 'member_id';
   // タイムスタンプOFF
   public $timestamps = false;
   /**
@@ -19,7 +17,7 @@ class TMember extends Authenticatable
    * @var array
    */
   protected $fillable = [
-      'member_id','mail_address','password','authority_flag','user_name',
+      'id','mail_address','password','authority_flag','user_name',
       'user_sex','user_birthdate','user_company','is_deleted','insert_date'
   ];
   /**

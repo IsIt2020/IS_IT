@@ -11,8 +11,6 @@ class TArticleTag extends Model
      * @var string t_article_tags
      */
     protected $table = 't_article_tags';
-    // IDを指定
-    protected $primaryKey = ['article_id','tag_id'];
     // タイムスタンプOFF
     public $timestamps = false;
     /**

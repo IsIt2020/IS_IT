@@ -9,8 +9,6 @@ class TArticle extends BaseModel
      * @var string t_articles
      */
     protected $table = 't_articles';
-    // IDを指定
-    protected $primaryKey = 'article_id';
     // タイムスタンプOFF
     public $timestamps = true;
     /**
