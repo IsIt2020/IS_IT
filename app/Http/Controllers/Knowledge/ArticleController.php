@@ -17,7 +17,7 @@ class ArticleController extends Controller
         // 対象lnowledge記事を取得
         $article = TArticle::from('t_articles as ta')
             ->where('ta.id', $article_id)
-            ->join('t_members as tm', 'tm.member_id', 'ta.post_user')
+            ->join('t_members as tm', 'tm.id', 'ta.post_user')
             ->first();
         // 閲覧数を1増加
         TArticle::where('id', $article_id)
