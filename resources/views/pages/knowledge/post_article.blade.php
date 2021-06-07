@@ -85,24 +85,24 @@
             </div>
 
             <div class="markdown font-decorated">
-                <button class="markdown-btn" id="bold" title="Bold"><b>B</b></button>
-                <button class="markdown-btn" id="italic" title="Italic"><i>I</i></button>
-                <button class="markdown-btn" id="del" title="Remove Line"><del>S</del></button>
-                <button class="markdown-btn" id="codeInline" title="Inline Code">C</button>
-                <button class="markdown-btn" id="h1" title="Heading 1">H1</button>
-                <button class="markdown-btn" id="h2" title="Heading 2">H2</button>
-                <button class="markdown-btn" id="h3" title="Heading 3">H3</button>
-                <button class="markdown-btn" id="listDot" title="Unorderd List">
+                <button type="button" class="markdown-btn" id="bold" title="Bold"><b>B</b></button>
+                <button type="button" class="markdown-btn" id="italic" title="Italic"><i>I</i></button>
+                <button type="button" class="markdown-btn" id="del" title="Remove Line"><del>S</del></button>
+                <button type="button" class="markdown-btn" id="codeInline" title="Inline Code">C</button>
+                <button type="button" class="markdown-btn" id="h1" title="Heading 1">H1</button>
+                <button type="button" class="markdown-btn" id="h2" title="Heading 2">H2</button>
+                <button type="button" class="markdown-btn" id="h3" title="Heading 3">H3</button>
+                <button type="button" class="markdown-btn" id="listDot" title="Unorderd List">
                     <i class="fas fa-list-ul"></i></button>
-                <button class="markdown-btn" id="listOrder" title="Ordered List">
+                <button type="button" class="markdown-btn" id="listOrder" title="Ordered List">
                     <i class="fas fa-list-ol"></i></button>
-                <button class="markdown-btn" id="quote" title="Quote">
+                <button type="button" class="markdown-btn" id="quote" title="Quote">
                     <i class="fas fa-quote-right"></i></button>
-                <button class="markdown-btn" id="code" title="Hilighted Code">
+                <button type="button" class="markdown-btn" id="code" title="Hilighted Code">
                     <i class="fas fa-code"></i></button>
-                <button class="markdown-btn" id="link" title="Link">
+                <button type="button" class="markdown-btn" id="link" title="Link">
                     <i class="fas fa-link"></i></button>
-                <button class="markdown-btn" id="image" title="Image">
+                <button type="button" class="markdown-btn" id="image" title="Image">
                     <i class="far fa-file-image"></i></button>
                 <button type="button" id="open-modal" class="markdown-btn" data-toggle="modal" data-target="#imageUploadModal">
                     <i class="fas fa-file-upload"></i></button>
