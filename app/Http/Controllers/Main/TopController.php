@@ -52,7 +52,7 @@ class TopController extends Controller
             // 投稿日時情報
             $created_at = $articles[$i]["created_at"];
             $dt = new Carbon($created_at);
-            $articles[$i]["post_date"] = $dt->format('Y年m月d日 G:i');;
+            $articles[$i]["post_date"] = $dt->format('Y年m月d日 G:i');
         }
         
         return view('pages/main/top', compact('articles'));

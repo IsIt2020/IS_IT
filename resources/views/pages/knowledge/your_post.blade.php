@@ -81,7 +81,7 @@
         @foreach($articles as $article)
         <div class="block article">
             <h2>
-                <a href="{{url('/knowledge/postArticle').'/'.$article->id.'/edit'}}">{{$article->title}}</a>
+                <a href="{{url('/knowledge/postArticle').'/'.$article["article_id"].'/edit'}}">{{$article["title"]}}</a>
             </h2>
             <button class="btn-show-delete">
                 <i class="far fa-trash-alt"></i>
@@ -91,29 +91,28 @@
             </button>
             <!--タグ-->
             <div class="tag-area ">
+                @foreach($article["tags"] as $tag)
                 <a>
-                    <p>暇(仮)</p>
+                    <p>{{$tag["tag_name"]}}</p>
                 </a>
-                <a>
-                    <p>サイト(仮)</p>
-                </a>
+                @endforeach
             </div>
             <div>
                 <!--投稿者, 投稿日時, 更新日時-->
                 <div class="article-desc-wrap">
                     <div class="article-desc">
                         <i class="far fa-calendar-plus"></i>
-                        <p>{{$article->created_at}}</p>
+                        <p>{{$article["created_at"]}}</p>
                     </div>
                     <div class="article-desc">
                         <i class="fas fa-sync"></i>
-                        <p>{{$article->updated_at}}</p>
+                        <p>{{$article["updated_at"]}}</p>
                     </div>
                 </div>
                 <div class="article-desc-wrap">
                     <div class="article-desc">
                         <i class="far fa-eye"></i>
-                        <p>{{$article->number_views}} views</p>
+                        <p>{{$article["number_views"]}} views</p>
                     </div>
                 </div>
             </div>
