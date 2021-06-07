@@ -24,26 +24,28 @@
     <div class="block-wrap">
         <div class="block">
 
-            <div class="title">{{$article->title}}</div>
+            <div class="title">{{$article["title"]}}</div>
             <div class="sub-title article"></div>
             <div class="tag-area">
+                @foreach($t_tags as $tag)
                 <a>
-                    <p>Laravel</p>
+                    <p>{{$tag->tag_name}}</p>
                 </a>
+                @endforeach
             </div>
 
             <div class="article-desc-wrap">
                 <div class="article-desc">
                     <i class="fas fa-user-edit"></i>
-                    <p>{{$article->user_name}}</p>
+                    <p>{{$article["user_name"]}}</p>
                 </div>
                 <div class="article-desc">
                     <i class="far fa-calendar-plus"></i>
-                    <p>{{$article->created_at}}</p>
+                    <p>{{$article["created_at"]}}</p>
                 </div>
                 <div class="article-desc">
                     <i class="fas fa-sync"></i>
-                    <p>{{$article->updated_at}}</p>
+                    <p>{{$article["updated_at"]}}</p>
                 </div>
             </div>
 
@@ -58,7 +60,7 @@
             <div id="headline" class="headline" style="display: none">
             </div>
 
-            <div id="result" class="article main">{{$article->content}}</div>
+            <div id="result" class="article main">{{$article["content"]}}</div>
         </div>
     </div>
 </div>
