@@ -115,8 +115,20 @@
             <h1 class="font-decorated">Tags</h1>
             <div class="input-field">
             <select id="multi-select" name="tags[]" multiple="multiple">
+                @php
+                    $selected = '';
+                @endphp
                 @foreach ($m_tags as $tag)
-                <option value="{{$tag->id}}">{{$tag->tag_name}}</option> 
+                    @php
+                        if(isset($t_tags)){
+                            foreach($t_tags as $selected_tag){
+                                if( $tag->id == $selected_tag->id){
+                                    $selected = ' selected';
+                                }
+                            }
+                        }
+                    @endphp
+                    <option value="{{$tag->id}}" {{$selected}}>{{$tag->tag_name}}</option> 
                 @endforeach
             </select>
             </div>

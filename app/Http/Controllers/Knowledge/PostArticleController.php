@@ -114,7 +114,7 @@ class PostArticleController extends Controller
         // タグ関連処理
         if($request->has('tags')){
             // 記事に設定されているタグを一度削除
-            TArticleTag::where('id', $article_id)->delete();
+            TArticleTag::where('article_id', $article_id)->delete();
             // タグを取得
             $tag_ary = $request->tags;
             // 記事IDとタグIDのペアでDBに保存
