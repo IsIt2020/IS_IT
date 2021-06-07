@@ -122,7 +122,7 @@
                     @php
                         if(isset($t_tags)){
                             foreach($t_tags as $selected_tag){
-                                if( $tag->id == $selected_tag->id){
+                                if( $tag->id == $selected_tag->tag_id){
                                     $selected = ' selected';
                                 }
                             }
