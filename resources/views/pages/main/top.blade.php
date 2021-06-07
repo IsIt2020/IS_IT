@@ -157,7 +157,7 @@
             @foreach($articles as $article)
             <div class="block article">
                 <h2>
-                <a href="{{url('knowledge/article').'/'.$article->article_id.'/'}}">{{$article->title}}</a>
+                <a href="{{url('knowledge/article').'/'.$article->id.'/'}}">{{$article->title}}</a>
                 </h2>
                 <!--タグ-->
                 <div class="tag-area ">

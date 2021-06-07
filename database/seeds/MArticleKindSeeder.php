@@ -17,11 +17,11 @@ class MArticleKindSeeder extends Seeder
         DB::table('m_article_kinds')->truncate();
         
         DB::table('m_article_kinds')->insert([
-            'article_kind_id' => config('const.db.m_article_kinds.seminar.ID'),
+            'id' => config('const.db.m_article_kinds.seminar.ID'),
             'article_kind_name' => config('const.db.m_article_kinds.seminar.NAME'),
         ]);
         DB::table('m_article_kinds')->insert([
-            'article_kind_id' => config('const.db.m_article_kinds.knowledge.ID'),
+            'id' => config('const.db.m_article_kinds.knowledge.ID'),
             'article_kind_name' => config('const.db.m_article_kinds.knowledge.NAME'),
         ]);
         // 外部キー制約を付加

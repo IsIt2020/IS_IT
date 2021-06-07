@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\TArticle;
 use App\Models\MArticleStatus;
-
+use App\Models\MTag;
+use App\Models\TArticleTag;
+use App\Http\Requests\Knowledge\PostArticleRequest;
 class PostArticleController extends Controller
 {
 
@@ -21,7 +23,13 @@ class PostArticleController extends Controller
     {
         // 記事ステータス一覧を取得
         $article_statuses = MArticleStatus::get();
-        return view('pages/knowledge/post_article', compact('article_statuses'));
+        // タグ一覧取得
+        $m_tags = MTag::get();
+
+        return view('pages/knowledge/post_article')->with([
+            "article_statuses" => $article_statuses,
+            "m_tags" => $m_tags,
+         ]);
     }
 
     /**
@@ -33,9 +41,18 @@ class PostArticleController extends Controller
     {
         // 記事ステータス一覧を取得
         $article_statuses = MArticleStatus::get();
+        // タグ一覧取得
+        $m_tags = MTag::get();
+        // 記事に設定されているタグを取得
+        $t_tags = TArticleTag::where('article_id', $article_id)->get();
         // 対象記事を取得
-        $article = TArticle::where('article_id',$article_id)->first();
-        return view('pages/knowledge/post_article', compact('article_statuses','article'));
+        $article = TArticle::where('id',$article_id)->first();
+        return view('pages/knowledge/post_article')->with([
+            "article_statuses" => $article_statuses,
+            "article" => $article,
+            "m_tags" => $m_tags,
+            "t_tags" => $t_tags,
+         ]);;
     }
     
     /**
@@ -51,18 +68,13 @@ class PostArticleController extends Controller
             'title' => $request->title,
             'sub_title' => $request->sub_title,
             'content' => $request->content,
-            'post_user' => Auth::user()->member_id,
+            'post_user' => Auth::user()->id,
             'status_id' => $request->status_id,
             'number_views' => 0,
         ]);
-        // タグ関連処理
-        // タグを取得
-        $tags = $request->tags;
-        // スペースで分割
-        $tag_ary = explode(" ",$tags);
-        foreach ($tag_ary as $tag) {
-            
-        }
+
+        // タグの保存
+        $this->saveTag($request, $t_article->id);
 
         return redirect('/knowledge/yourPost');
     }
@@ -82,14 +94,36 @@ class PostArticleController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-
-        $t_article = TArticle::where('article_id', $article_id)
+        // 記事の更新
+        $t_article = TArticle::where('id', $article_id)
             ->update([
                 'title' => $request->title,
                 'sub_title' => $request->sub_title,
                 'content' => $request->content,
                 'status_id' => $request->status_id,
             ]);
+        
+        // タグの保存
+        $this->saveTag($request, $article_id);
+        
         return redirect('/knowledge/yourPost');
+    }
+
+    private function saveTag(Request $request, $article_id)
+    {
+        // タグ関連処理
+        if($request->has('tags')){
+            // 記事に設定されているタグを一度削除
+            TArticleTag::where('id', $article_id)->delete();
+            // タグを取得
+            $tag_ary = $request->tags;
+            // 記事IDとタグIDのペアでDBに保存
+            foreach ($tag_ary as $tag) {
+                TArticleTag::create([
+                    'article_id' => $article_id,
+                    'tag_id' => $tag
+                ]);
+            }
+        }
     }
 }

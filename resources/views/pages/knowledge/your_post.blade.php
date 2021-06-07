@@ -81,7 +81,7 @@
         @foreach($articles as $article)
         <div class="block article">
             <h2>
-                <a href="{{url('/knowledge/postArticle').'/'.$article->article_id.'/edit'}}">{{$article->title}}</a>
+                <a href="{{url('/knowledge/postArticle').'/'.$article->id.'/edit'}}">{{$article->title}}</a>
             </h2>
             <button class="btn-show-delete">
                 <i class="far fa-trash-alt"></i>

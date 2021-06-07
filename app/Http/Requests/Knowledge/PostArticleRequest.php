@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Knowledge;
 
 use Illuminate\Contracts\Validation\Validator;
 use App\Rules\UserPassword;

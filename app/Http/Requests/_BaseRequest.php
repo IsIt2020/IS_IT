@@ -101,4 +101,15 @@ class _BaseRequest extends FormRequest
     protected function deleteWithValidator(Validator $validator){
         return [];
     }
+
+        /**
+     * バリデーションエラー時の動作をオーバライドして作成
+     *
+     * @param Validator $validator
+     * @return void
+     */
+    protected function failedValidation(Validator $validator)
+    {
+        parent::failedValidation($validator);
+    }
 }

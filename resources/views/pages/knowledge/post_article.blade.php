@@ -52,7 +52,7 @@
 <div class="block-wrap">
     <div class="block compose">
         @if(isset($article))
-        <form name="post-form" class="" action="{{url('/knowledge/postArticle').'/'.$article->article_id}}" method="post">
+        <form name="post-form" class="" action="{{url('/knowledge/postArticle').'/'.$article->id}}" method="post">
         @else
         <form name="post-form" class="" action="{{url('/knowledge/postArticle')}}" method="post">
         @endif
@@ -114,16 +114,20 @@
             <!-- 記事タグ -->
             <h1 class="font-decorated">Tags</h1>
             <div class="input-field">
-                <input name="tags" type="text" id="input-tag" value="{{old('tags')}}" placeholder="スペース区切りでタグを追加   例: PHP Laravel">
+            <select id="multi-select" name="tags[]" multiple="multiple">
+                @foreach ($m_tags as $tag)
+                <option value="{{$tag->id}}">{{$tag->tag_name}}</option> 
+                @endforeach
+            </select>
             </div>
             <!-- 記事ステータス -->
             <div class="input-field">
                 <select name="status_id" style="height: 40px;">
                     @foreach ($article_statuses as $status)
                     @if(isset($article))
-                    <option value="{{$status->status_id}}" {{old('status_id', $article->status_id) == $status->status_id ? 'selected' : '' }}>{{$status->status_name}}</option>
+                    <option value="{{$status->id}}" {{old('status_id', $article->status_id) == $status->status_id ? 'selected' : '' }}>{{$status->status_name}}</option>
                     @else
-                    <option value="{{$status->status_id}}" {{old('status_id') == $status->status_id ? 'selected' : '' }}>{{$status->status_name}}</option>
+                    <option value="{{$status->id}}" {{old('status_id') == $status->status_id ? 'selected' : '' }}>{{$status->status_name}}</option>
                     @endif
                     @endforeach
                 </select>

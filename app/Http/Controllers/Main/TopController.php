@@ -20,10 +20,10 @@ class TopController extends Controller
         $article_kind = config('const.db.m_article_kinds.knowledge.ID');
         // knowledge記事を一覧で取得
         $articles = TArticle::from('t_articles as ta')
-            ->join('t_members as tm', 'tm.member_id', 'ta.post_user')
+            ->join('t_members as tm', 'tm.id', 'ta.post_user')
             ->where('article_kind',$article_kind)
             ->where('ta.is_deleted',false)
-            ->orderBy('article_id', 'desc')
+            ->orderBy('tm.id', 'desc')
             ->limit(4)
             ->get();
         

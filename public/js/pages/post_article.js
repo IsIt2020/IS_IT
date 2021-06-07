@@ -209,6 +209,9 @@ $(function () {
             });
         }
     });
+
+    /** タグセレクトボックス*/
+    var $mSelect = $('#multi-select').selectize({ placeholder: "タグを追加" });
 });
 
 /**Array　重複要素除外 */

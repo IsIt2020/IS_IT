@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 require('jquery-ui/ui/widget.js');
+
+require('selectize/dist/js/selectize.js');
 //
 // window.Vue = require('vue');
 
