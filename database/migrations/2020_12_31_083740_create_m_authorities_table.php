@@ -16,7 +16,7 @@ class CreateMAuthoritiesTable extends Migration
         Schema::create('m_authorities', function (Blueprint $table) {
             
             //権限ID(主キー)
-            $table->tinyInteger('authority_id')->comment('権限ID');
+            $table->tinyInteger('id')->comment('権限ID');
             //権限名
             $table->string('authority_name', 30)->comment('権限名');
         });

@@ -14,8 +14,9 @@ class CreateTCommentsTable extends Migration
     public function up()
     {
         Schema::create('t_comments', function (Blueprint $table) {
+
             // コメントID(主キー)
-            $table->increments('comment_id')->comment('コメントID');
+            $table->id()->comment('コメントID');
             // 記事ID
             $table->unsignedInteger('article_id')->comment('記事ID');
             // コンテンツ

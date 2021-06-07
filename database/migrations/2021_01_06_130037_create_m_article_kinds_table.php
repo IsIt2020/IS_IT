@@ -14,8 +14,9 @@ class CreateMArticleKindsTable extends Migration
     public function up()
     {
         Schema::create('m_article_kinds', function (Blueprint $table) {
+            
             // 記事種類ID
-            $table->unsignedSmallInteger('article_kind_id')->primary()->comment('記事種類ID');
+            $table->unsignedSmallInteger('id')->primary()->comment('記事種類ID');
             // 記事種類名
             $table->string('article_kind_name', 30)->comment('記事種類名');
         });

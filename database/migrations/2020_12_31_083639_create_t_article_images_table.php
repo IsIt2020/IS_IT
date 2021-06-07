@@ -16,7 +16,7 @@ class CreateTArticleImagesTable extends Migration
         Schema::create('t_article_images', function (Blueprint $table) {
             
             //画像ID(主キー)
-            $table->bigInteger('image_id')->primary()->comment('画像ID');
+            $table->id()->comment('画像ID');
             //記事ID
             $table->integer('article_id')->nullable()->comment('記事ID');
             //会員ID

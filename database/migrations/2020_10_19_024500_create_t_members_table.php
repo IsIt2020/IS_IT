@@ -15,11 +15,8 @@ class CreateTMembersTable extends Migration
     {
         Schema::create('t_members', function (Blueprint $table) {
 
-            //mail_addressをユニークに指定
-            $table->unique('mail_address');
-
             // 会員ID(主キー)
-            $table->integerIncrements('member_id')->comment('会員ID');
+            $table->id()->comment('会員ID');
             // メールアドレス
             $table->string('mail_address', 100)->comment('メールアドレス');
             // パスワード
@@ -42,6 +39,9 @@ class CreateTMembersTable extends Migration
             $table->timestamp('updated_at')->nullable()->comment('更新日');
             // 退会フラグ
             $table->boolean('is_deleted')->default(false)->comment('退会フラグ');
+
+            //mail_addressをユニークに指定
+            $table->unique('mail_address');
         });
 
         // テーブルコメント

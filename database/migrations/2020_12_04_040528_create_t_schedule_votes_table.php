@@ -14,7 +14,8 @@ class CreateTScheduleVotesTable extends Migration
     public function up()
     {
         Schema::create('t_schedule_votes', function (Blueprint $table) {
-
+            
+            $table->id();
             // セミナーID(主キー)
             $table->smallInteger('article_id');
             // メンバーID(主キーにしたかったけどうまくいかないのでとりあえず)
@@ -22,8 +23,8 @@ class CreateTScheduleVotesTable extends Migration
             // 開催希望日
             $table->datetime('scheduled_date')->nullable();
 
-            // 複合キー
-            $table->primary(['article_id', 'member_id']);
+            // ユニークキー
+            $table->unique(['article_id', 'member_id']);
         });
     }
 

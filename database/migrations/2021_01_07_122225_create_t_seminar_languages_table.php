@@ -14,13 +14,15 @@ class CreateTSeminarLanguagesTable extends Migration
     public function up()
     {
         Schema::create('t_seminar_languages', function (Blueprint $table) {
+            
+            $table->id();
             // セミナーID
             $table->unsignedInteger('seminar_id')->comment('セミナーID');
             // 言語ID
             $table->unsignedSmallInteger('language_id')->comment('言語ID');
             
-            // 複合キー
-            $table->primary(['seminar_id', 'language_id']);
+            // ユニークキー
+            $table->unique(['seminar_id', 'language_id']);
         });
 
         // テーブルコメント

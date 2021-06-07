@@ -14,8 +14,9 @@ class CreateTArticlesTable extends Migration
     public function up()
     {
         Schema::create('t_articles', function (Blueprint $table) {
+            
             // 記事ID(主キー)
-            $table->increments('article_id')->comment('記事ID');
+            $table->id()->comment('記事ID');
             // 記事種類ID
             $table->unsignedTinyInteger('article_kind')->comment('記事種類ID');
             // タイトル

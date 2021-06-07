@@ -14,13 +14,15 @@ class CreateTArticleLanguagesTable extends Migration
     public function up()
     {
         Schema::create('t_article_languages', function (Blueprint $table) {
+
+            $table->id();
             // 記事ID
             $table->unsignedInteger('article_id')->comment('記事ID');
             // 言語ID
             $table->unsignedSmallInteger('language_id')->comment('言語ID');
 
             // 複合キー
-            $table->primary(['article_id', 'language_id']);
+            $table->unique(['article_id', 'language_id']);
         });
 
         // テーブルコメント

@@ -14,13 +14,15 @@ class CreateTSeminarTagsTable extends Migration
     public function up()
     {
         Schema::create('t_seminar_tags', function (Blueprint $table) {
+            
+            $table->id();
             // セミナーID
             $table->unsignedInteger('seminar_id')->comment('セミナーID');
             // タグID
             $table->unsignedSmallInteger('tag_id')->comment('タグID');
             
-            // 複合キー
-            $table->primary(['seminar_id', 'tag_id']);
+            // ユニークキー
+            $table->unique(['seminar_id', 'tag_id']);
         });
 
         // テーブルコメント
