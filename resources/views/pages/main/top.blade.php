@@ -141,7 +141,7 @@
             <div class="title-img">
                 <img src="https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029_960_720.jpg">
                 <img class="cover">
-                <a class="go" href="#">なんちゃらページへ
+                <a class="go" href="{{url('knowledge/list')}}">記事一覧へ
                     <i class="fas fa-arrow-right"></i>
                 </a>
                 <i class="far fa-lightbulb content"></i>
@@ -153,7 +153,7 @@
 
             <h2 class="block-wrap-title">最近の投稿</h2>
 
-            <!--サンプル記事-->
+            <!-- 記事-->
             @foreach($articles as $article)
             <div class="block article">
                 <h2>

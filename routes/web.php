@@ -20,8 +20,13 @@ Route::get('/', 'Main\TopController@index');
 | 非会員
 |--------------------------------------------------------------------------
 */
+// トップ画面
 Route::get('/home', 'HomeController@index')->name('home');
+// ノウハウ投稿記事詳細画面
 Route::resource('knowledge/article', 'Knowledge\ArticleController');
+// ノウハウ投稿記事一覧画面
+Route::resource('knowledge/list', 'Knowledge\KnowledgeListController');
+
 
 /*
 |--------------------------------------------------------------------------
